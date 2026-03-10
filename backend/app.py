@@ -16,8 +16,13 @@ app = Flask(__name__)
 CORS(app)  # this lets our React frontend talk to Flask without CORS errors
 
 # folders for storing uploaded zips and extracted resumes
-UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), "uploads")
-EXTRACT_FOLDER = os.path.join(os.path.dirname(__file__), "extracted")
+# Vercel serverless environments only allow writing to /tmp
+if os.environ.get("VERCEL"):
+    UPLOAD_FOLDER = "/tmp/uploads"
+    EXTRACT_FOLDER = "/tmp/extracted"
+else:
+    UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), "uploads")
+    EXTRACT_FOLDER = os.path.join(os.path.dirname(__file__), "extracted")
 
 # make sure the folders exist when the app starts
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)

@@ -8,10 +8,13 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 # 1. Get the database URL from the environment, just like we did in config.py.
 # This defaults to a local SQLite database file for easy development.
 # In production, AWS RDS will inject a MySQL URL here.
-DATABASE_URL = os.environ.get(
-    "DATABASE_URL", 
-    "sqlite:///hireflow_dev.db"
-)
+# Vercel serverless restricts write access to /tmp.
+if os.environ.get("VERCEL"):
+    default_db_url = "sqlite:////tmp/hireflow_dev.db"
+else:
+    default_db_url = "sqlite:///hireflow_dev.db"
+
+DATABASE_URL = os.environ.get("DATABASE_URL", default_db_url)
 
 # 2. Set up SQLAlchemy engine and session
 # The "Engine" is what actually talks to the database.
