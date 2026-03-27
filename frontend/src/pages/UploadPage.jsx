@@ -1,5 +1,5 @@
-// UploadPage.jsx - where users upload their ZIP file of resumes
-// handles drag and drop, file selection, upload to Flask, and shows results
+// UploadPage.jsx - where users upload their resumes
+// handles drag and drop, file selection (ZIP or individual files), upload to Flask, and shows results
 
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -7,30 +7,71 @@ import axios from 'axios';
 import { API_BASE_URL } from '../config';
 import '../styles/upload.css';
 
+// all supported resume file extensions
+const SUPPORTED_EXTENSIONS = ['.pdf', '.docx', '.doc', '.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.webp'];
+const ACCEPT_STRING = '.zip,.pdf,.docx,.doc,.png,.jpg,.jpeg,.tiff,.bmp,.webp';
+
+function isSupported(filename) {
+    const ext = filename.toLowerCase().slice(filename.lastIndexOf('.'));
+    return ext === '.zip' || SUPPORTED_EXTENSIONS.includes(ext);
+}
+
 function UploadPage() {
     const navigate = useNavigate();
     const fileInputRef = useRef(null);
 
     // state for tracking the upload flow
-    const [selectedFile, setSelectedFile] = useState(null);
+    const [selectedFiles, setSelectedFiles] = useState([]);
     const [isUploading, setIsUploading] = useState(false);
     const [uploadResult, setUploadResult] = useState(null);
     const [error, setError] = useState(null);
     const [isDragOver, setIsDragOver] = useState(false);
     const [jobDescription, setJobDescription] = useState('');
 
-    // this handles when a user drops a file onto the dropzone
+    // adds files to the selected list, validating extensions
+    const addFiles = (fileList) => {
+        const newFiles = Array.from(fileList);
+        const valid = [];
+        const invalid = [];
+
+        for (const f of newFiles) {
+            if (isSupported(f.name)) {
+                valid.push(f);
+            } else {
+                invalid.push(f.name);
+            }
+        }
+
+        if (invalid.length > 0) {
+            setError(`Unsupported file(s): ${invalid.join(', ')}. Supported: PDF, DOCX, DOC, PNG, JPG, TIFF, BMP, or a ZIP.`);
+        } else {
+            setError(null);
+        }
+
+        if (valid.length > 0) {
+            // if user picks a ZIP, use only the ZIP (replace everything)
+            const hasZip = valid.some(f => f.name.toLowerCase().endsWith('.zip'));
+            if (hasZip) {
+                // only keep the first ZIP
+                const zip = valid.find(f => f.name.toLowerCase().endsWith('.zip'));
+                setSelectedFiles([zip]);
+            } else {
+                // append to existing selection (dedup by name)
+                setSelectedFiles(prev => {
+                    const existingNames = new Set(prev.map(f => f.name));
+                    const unique = valid.filter(f => !existingNames.has(f.name));
+                    return [...prev, ...unique];
+                });
+            }
+        }
+    };
+
+    // this handles when a user drops files onto the dropzone
     const handleDrop = (e) => {
         e.preventDefault();
         setIsDragOver(false);
         setError(null);
-
-        const file = e.dataTransfer.files[0];
-        if (file && file.name.endsWith('.zip')) {
-            setSelectedFile(file);
-        } else {
-            setError('Please upload a ZIP file.');
-        }
+        addFiles(e.dataTransfer.files);
     };
 
     // prevents the browser from opening the file when dragged over
@@ -51,34 +92,47 @@ function UploadPage() {
     // handles file selection from the file picker dialog
     const handleFileChange = (e) => {
         setError(null);
-        const file = e.target.files[0];
-        if (file && file.name.endsWith('.zip')) {
-            setSelectedFile(file);
-        } else if (file) {
-            setError('Please upload a ZIP file.');
+        if (e.target.files.length > 0) {
+            addFiles(e.target.files);
         }
+        // reset so the same file can be selected again
+        e.target.value = '';
     };
 
-    // removes the selected file so the user can pick a different one
-    const handleRemoveFile = () => {
-        setSelectedFile(null);
+    // removes a single file from selection
+    const handleRemoveFile = (index) => {
+        setSelectedFiles(prev => prev.filter((_, i) => i !== index));
         setError(null);
-        // reset the file input so the same file can be selected again
-        if (fileInputRef.current) {
-            fileInputRef.current.value = '';
-        }
     };
 
-    // sends the file to our Flask backend for processing
+    // clears all selected files
+    const handleClearAll = () => {
+        setSelectedFiles([]);
+        setError(null);
+    };
+
+    // sends the files to our Flask backend for processing
     const handleUpload = async () => {
-        if (!selectedFile) return;
+        if (selectedFiles.length === 0) return;
 
         setIsUploading(true);
         setError(null);
 
         // we use FormData because that's how you send files with axios
         const formData = new FormData();
-        formData.append('file', selectedFile);
+
+        const isZipMode = selectedFiles.length === 1 && selectedFiles[0].name.toLowerCase().endsWith('.zip');
+
+        if (isZipMode) {
+            // backward-compatible: send single ZIP with 'file' key
+            formData.append('file', selectedFiles[0]);
+        } else {
+            // multi-file mode: send all files with 'files' key
+            for (const f of selectedFiles) {
+                formData.append('files', f);
+            }
+        }
+
         if (jobDescription.trim()) {
             formData.append('job_description', jobDescription.trim());
         }
@@ -95,18 +149,24 @@ function UploadPage() {
             setUploadResult(response.data);
         } catch (err) {
             console.error('upload failed:', err);
-            // try to safely parse the server's error message.
-            // if we get an unexpected JSON object back (like a Vercel 404 format), extract the string
-            // so React doesn't crash trying to render an Object directly!
             const errorData = err.response?.data?.error;
             const errorMsg = typeof errorData === 'string'
                 ? errorData
                 : (errorData?.message || 'Something went wrong. Is the backend running?');
-
             setError(errorMsg);
         } finally {
             setIsUploading(false);
         }
+    };
+
+    // helper to get icon for file type
+    const getFileIcon = (filename) => {
+        const ext = filename.toLowerCase().slice(filename.lastIndexOf('.'));
+        if (ext === '.zip') return '📦';
+        if (ext === '.pdf') return '📄';
+        if (ext === '.docx' || ext === '.doc') return '📝';
+        if (['.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.webp'].includes(ext)) return '🖼️';
+        return '📎';
     };
 
     return (
@@ -114,7 +174,8 @@ function UploadPage() {
             <div className="upload-container">
                 <h1 className="upload-title">Upload Resumes</h1>
                 <p className="upload-subtitle">
-                    Drop a ZIP file containing PDF or DOCX resumes to get started.
+                    Drop a ZIP or select individual resume files — we support
+                    <strong> PDF, DOCX, DOC,</strong> and <strong>images</strong> (PNG, JPG, TIFF, BMP).
                 </p>
 
                 {/* show different content based on the current state */}
@@ -135,13 +196,14 @@ function UploadPage() {
                         </button>
                     </div>
                 ) : isUploading ? (
-                    // loading state - file is being processed
+                    // loading state - files are being processed
                     <div className="upload-loading">
                         <div className="upload-spinner"></div>
-                        <p className="upload-loading-text">Processing resumes...</p>
+                        <p className="upload-loading-text">Processing {selectedFiles.length} resume{selectedFiles.length !== 1 ? 's' : ''}...</p>
+                        <p className="upload-loading-subtext">Extracting text, running OCR on images, and scoring candidates</p>
                     </div>
                 ) : (
-                    // default state - waiting for file
+                    // default state - waiting for files
                     <>
                         {error && <div className="upload-error">⚠️ {error}</div>}
 
@@ -155,7 +217,10 @@ function UploadPage() {
                         >
                             <span className="upload-dropzone-icon">📁</span>
                             <p className="upload-dropzone-text">
-                                Drop your ZIP file here or <strong>click to browse</strong>
+                                Drop your files here or <strong>click to browse</strong>
+                            </p>
+                            <p className="upload-dropzone-hint">
+                                ZIP, PDF, DOCX, DOC, PNG, JPG, TIFF, BMP
                             </p>
                         </div>
 
@@ -164,25 +229,43 @@ function UploadPage() {
                             type="file"
                             ref={fileInputRef}
                             className="upload-file-input"
-                            accept=".zip"
+                            accept={ACCEPT_STRING}
                             onChange={handleFileChange}
+                            multiple
                         />
 
-                        {/* show the selected file name */}
-                        {selectedFile && (
-                            <div className="upload-file-info">
-                                <span className="upload-file-name">
-                                    📎 {selectedFile.name}
-                                </span>
-                                <button
-                                    className="upload-file-remove"
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        handleRemoveFile();
-                                    }}
-                                >
-                                    ✕
-                                </button>
+                        {/* show list of selected files */}
+                        {selectedFiles.length > 0 && (
+                            <div className="upload-file-list">
+                                <div className="upload-file-list-header">
+                                    <span className="upload-file-count">
+                                        {selectedFiles.length} file{selectedFiles.length !== 1 ? 's' : ''} selected
+                                    </span>
+                                    {selectedFiles.length > 1 && (
+                                        <button className="upload-clear-all" onClick={handleClearAll}>
+                                            Clear all
+                                        </button>
+                                    )}
+                                </div>
+                                {selectedFiles.map((file, index) => (
+                                    <div key={`${file.name}-${index}`} className="upload-file-item">
+                                        <span className="upload-file-name">
+                                            {getFileIcon(file.name)} {file.name}
+                                        </span>
+                                        <span className="upload-file-size">
+                                            {(file.size / 1024).toFixed(0)} KB
+                                        </span>
+                                        <button
+                                            className="upload-file-remove"
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                handleRemoveFile(index);
+                                            }}
+                                        >
+                                            ✕
+                                        </button>
+                                    </div>
+                                ))}
                             </div>
                         )}
 
@@ -204,13 +287,13 @@ function UploadPage() {
                             />
                         </div>
 
-                        {/* upload button - disabled until a file is selected */}
+                        {/* upload button - disabled until at least one file is selected */}
                         <button
-                            className={`btn-primary upload-btn ${!selectedFile ? 'disabled' : ''}`}
+                            className={`btn-primary upload-btn ${selectedFiles.length === 0 ? 'disabled' : ''}`}
                             onClick={handleUpload}
-                            disabled={!selectedFile}
+                            disabled={selectedFiles.length === 0}
                         >
-                            Upload & Analyze
+                            Upload & Analyze {selectedFiles.length > 0 ? `(${selectedFiles.length} file${selectedFiles.length !== 1 ? 's' : ''})` : ''}
                         </button>
                     </>
                 )}

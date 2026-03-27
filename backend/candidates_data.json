@@ -1,0 +1,251 @@
+{
+  "last_updated": "2026-03-27T07:11:07.529940",
+  "total_batches": 5,
+  "total_resumes": 12,
+  "batches": [
+    {
+      "batch_id": "7fadc534-2f3c-4ec1-8af4-048bd0b0a550",
+      "uploaded_at": "2026-03-27T06:52:46.398293",
+      "job_description": "python developer with machine learning experience",
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "John Doe",
+          "score": 10.4,
+          "matched_skills": [
+            "python",
+            "java",
+            "sql",
+            "react",
+            "docker",
+            "git",
+            "flask",
+            "rest api",
+            "agile"
+          ],
+          "filename": "john_doe_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "john doe\nsoftware engineer\nskills: python, java, react, sql, docker, git, flask, rest api, agile\nexperience: 3 years building web apps"
+        }
+      ]
+    },
+    {
+      "batch_id": "5e90662f-0eef-483a-8874-e2ef925d7914",
+      "uploaded_at": "2026-03-27T06:52:48.491795",
+      "job_description": "data analyst with sql skills",
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Jane Smith",
+          "score": 26.2,
+          "matched_skills": [
+            "python",
+            "sql",
+            "machine learning",
+            "data analysis",
+            "aws",
+            "tensorflow",
+            "pandas"
+          ],
+          "filename": "jane_smith_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "jane smith\ndata scientist\nskills: python, machine learning, data analysis, sql, tensorflow, pandas, aws\nexperience: 2 years in analytics"
+        }
+      ]
+    },
+    {
+      "batch_id": "b1f3059b-5f93-4ca0-814e-f867f4404af8",
+      "uploaded_at": "2026-03-27T07:01:08.225585",
+      "job_description": "python developer with machine learning skills",
+      "candidate_count": 5,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Candidate",
+          "score": 28.4,
+          "matched_skills": [
+            "python",
+            "java",
+            "machine learning"
+          ],
+          "filename": "candidate_042.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "ryan nelson\nf r e s h e r  s o f t w a r e  d e v e l o p e r  \nexecutive profile\ni consider myself a team player and ethics\nmaintainer. when it comes to coding i\nalways try to be be well informed about\nthe technology and its application. would\nlike to join any firm as a software\ndeveloper in machine learning projects.\nother activities\nmachine learning - stanford university\nsap fundamentals - arjuvo limited\nprojects\nclassification of cassava leaves\nskills\nmachine learning, software engineering,\npython, java, sap,c programming\nwork experience\naccenture  \nsoftware developer, apr 2019 - dec 2020 \nworked on multiple projects that dealt with system frame\ndevelopment and solution supply.\neducation\nb.tech computer science from jntu, 2019"
+        },
+        {
+          "rank": 2,
+          "name": "Candidate",
+          "score": 24.9,
+          "matched_skills": [
+            "python",
+            "java",
+            "react",
+            "machine learning",
+            "tensorflow",
+            "pandas"
+          ],
+          "filename": "candidate_018.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "evelynn adams\ngraduate fresher\nprofessional profile\ni am a recent graduate who is interested\nand fascinated by machine learning. i\nwant to join this industry and be a part of\nit, learn and contribute towards both the\ngrowth of the company and me as an\nindivuduals in terms of skills.\nachievements and extra\ncurriculars\ncertified entry level python programmer\ncertified associate level in python\nprogramming\nprojects\ndeep learning assisted image recognition.\nproficient skills\nmachine learning, deep learning, neural\nnetworks, ml algorithms, python, numpy,\nscikit learn, matplotlib, keras, pandas,\ntensorflow, seaborn, java, reactjs,\nnodejs.\nemployment history\ni was trained on how to use neural networks w.r.t to classical\nproblems that existed in machine learning. \nduring the capstone project i created a supervised model for\nimage recognition with minimal training.\n intern trainee, aug 2020 to dec 2020\ne-novate labs\neducational history\nb.sc (computer science) ktm college, nashik, 2019 \nmca (computers), spp university, pune, 2021\nlucknow university"
+        },
+        {
+          "rank": 3,
+          "name": "Candidate",
+          "score": 19.0,
+          "matched_skills": [
+            "python",
+            "machine learning",
+            "data analysis"
+          ],
+          "filename": "candidate_056.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "christian von\nkelin\nj u n i o r  a n a l y s t\nexecutive profile\nas a junior analyst i currently work with\ndata preprocessing and data cleaning\nbefore sending them to machine learning\nmodels. i am also simultaneously training\nto be a machine learning engineer to work\nclosely with teams that build models and\nwould like to join a venture for such\nopportunity.\nother activities\ndata analysis - python\nprojects\ntime-series forecasting \nidentifying phished website\nskills\ndata analysis, tableau, powerbi, r, python,\nstatistical analysis, l1 l2 regression,\nmachine learning.\nwork experience\nr&m solutions \ndata analyst intern, dec 2019 - mar 2020\nmy role as a data analyst was to provide insights and important trends\ninside the company and it's clients' data to measure out the best\npossible way in which profitability could be maintained.\neducation\nb.tech from amn college of engineering, hosiyarpur in 2020"
+        },
+        {
+          "rank": 4,
+          "name": "1901841_RESUME.pdf",
+          "score": 10.9,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "sql",
+            "machine learning",
+            "git",
+            "html",
+            "css",
+            "tensorflow"
+          ],
+          "filename": "1901841_RESUME.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "anuva goyal \n \nd.o.b.: 1st october 2000 \ngender: female \n  \nobjective \n \nenergetic, innovative engineering undergraduate, passionate about machine learning, nlp and deep learning for \nsolving real-world problems, aiming to work in an organization providing great learning experience and growth \nopportunities for mutual benefit. \n \neducation \nqualification \ninstitute \ncgpa \nyear of completion \nb.tech. \ndayalbagh educational institute, \ncgpa 9.35 \n2023 \n(electrical engineering \n(till 4 \ndayalbagh, agra \npursuing \nspecialization in computer science) \nsemesters) \nxii \nst. clare’s senior secondary school, agra \n94% \n2019 \nx \nst. clare’s senior secondary school, agra \ncgpa 10 \n2017 \ninternships and trainings \n \ninternships: \n \n• \ncompleted an internship at genisup india pvt. ltd. (july 2021- aug 2021) – nlp: topic \nmodeling o worked on proxy rotation and utilization \no  learnt web scraping using bs4 and performed lda topic modeling on “the hindu” news articles. \n \n• \nworked as an intern at vugs technologies (may 2021- june 2021) \n \no built an ocr using pytesseract and ner text classification model to categorize detected text \ninto name, e-mail address, phone number and date. \n \ntrainings: \n \n• \nundertaking  deep learning & computer vision a-z: opencv, ssd, gans course from udemy (nov 2021) \n \n• \ncompleted neural networks and deep learning course from coursera (apr 2021) \n \n• \nundertook machine learning a-z: hands on python and r in data science course from udemy (feb 2021) \n \n• \ncompleted python core course from sololearn (dec 2020) \n \nprojects: \n \n• \ncurrently working on mental healthcare chatbot (ongoing) \n \n• \nbuilt a full stack speech emotion based movie recommender system using the ravdess dataset for ser \nmodel, and web scraping techniques for recommendation system. (oct 2021) \n \n• \nfinding a perfect fit, a model to parse resumes using pytesseract to extract text, nlp for data wrangling, \nand xg boost and random forest techniques for classification (aug 2021) \n \n• \nocr for handwritten text, a model for digit (0-9) + a-z characters classification using cnn architecture \nto detect the final word in the image. (june 2021) \n \n• \nface detection and recognition using opencv and tensorflow (may 2021) \n \n• \nface mask detection which detects the face using haar cascade classifier from opencv library and classifies \nthe image into one of the three categories- without mask, with mask and incorrect mask with the help of \nlbph algorithm (may 2021) \n \n• \nheart attack prediction and insurance company prediction using various classification algorithms.\nskills \n \n• \nexperience with c, c++, python, java, html, css, javascript, data structures, sql \n \n• \nsoftware’s: pycharm, jupyter notebook, google colab, code blocks, matlab, turbo c++, ms office \n \n• \nmachine learning frameworks: scikit-learn, tensorflow, opencv, numpy, pytesseract, keras \n \n \nachievements and certifications \n \n• \nsecured 3rd position in tech-a-thon organized by the ece society, bit mesra, ranchi (oct 2021) \n• \nparticipant of 30 days of google cloud (sep 2021 - oct 2021) \n \n• \nwon 1st prize in the online competition game of brands organized by sggscc, university of delhi (mar 2021) \n• \nsecured 2nd rank in street play, an intra faculty competition on theme “women empowerment” (sep 2021) \n \n \nworkshops and events \n \n• \nfinalist of rise in crisis, a crisis management competition organized by srcc, university of delhi (nov 2021) \n \n• \nparticipated in hero campus challenge s7, a national level competition organized by hero motocorp \nlimited (nov 2020) \n \n• \nattended online kla workshop on ai and hpc in semiconductor manufacturing organized by iit \nmadras (sep 2021) \n \n• \nactively participated in nlp with disaster tweets organized by kaggle (aug 2021) \n \n• \nqualified vishleshan – the analytics event organized by nit trichy (nov 2020) \n \n• \ncompeted in prabandhan’20: annual management conclave organized by iit kanpur (sep 2020) \n \n• \nparticipated in 5 days course on geospatial inputs for enabling master plan formulation conducted by \nindian institute of remote sensing (july 2020) \n \n• \nmember of stage management team in drama fest (district level) (feb 2020) \n \n• \nserved as a member of national service scheme with 7 days nss camp (jan 2020) \n \n \ninterests and hobbies \n \n• \nmachine learning and data science \n \n• \nreading novels \n \n• \nvolunteering and social service \n \n \n \nphone: +91 9520349542 - email: anuvagoyal111@gmail.com \ngithub: https://github.com/anuvagoyal"
+        },
+        {
+          "rank": 5,
+          "name": "Anuvagoyal Latex",
+          "score": 9.3,
+          "matched_skills": [
+            "python",
+            "sql",
+            "machine learning",
+            "git",
+            "html",
+            "css",
+            "pandas"
+          ],
+          "filename": "AnuvaGoyal_Latex.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "anuva goyal\n[ anuvagoyal111@gmail.com\n½ agra, uttar pradesh, india\n github.com/anuvagoyal\nprojects\n• mental healthcare chatbot that provides ad-\nvice to the user based on diﬀerent categories\nof mental health problems using a dataset\nwebscraped from counselchat.com (nov 2021)\n• full stack speech emotion based movie\nrecommender system using the ravdess\ndataset and web scraping techniques (oct\n2021)\n• finding a perfect fit, a model to parse re-\nsumes using pytesseract, nlp and xg boost\nand random forest classiﬁcation techniques\n(aug 2021)\n• face mask detection which detects the face\nusing haar cascade classiﬁer and classiﬁes\nthe image into one of the three categories-\nwithout mask, with mask and incorrect mask\n(may 2021)\neducation\nb.tech, electrical engineering with\ncomputer science specialisation\ndayalbagh educational institute, agra\n\u0011 july 2019– present (sgpa 9.35 - 4 sem)\nhigher secondary school certiﬁcate\nst. clare’s senior secondary school, agra\n\u0011 2019 (94%)\nsecondary school certiﬁcate\nst. clare’s senior secondary school, agra\n\u0011 2017 (cgpa 10)\npublication\nresearchgate.net/proﬁle/anuva_goyal\nskills\nc, c++\n○○○○○\npython, sql\n○○○○○\ndata structures\n○○○○○\ncss, html\n○○○○○\nmachine learning frameworks: numpy,\npandas, tensorﬂow, scikit-learn, opencv,\npytesseract, beautifulsoup\ninterests\n• ml and deep learning.\n• nlp and computer vision\nexperience\nsummer intern\ngenisup india pvt. ltd., hosur, tamil nadu\n\u0011 june 2021 – aug 2021\n½ remote\n• internship on the topic nlp: topic modeling to assign the\ntheme or topic for any news article on internet using machine\nlearning techniques.\n• worked on proxy rotation and web scraping\n• performed lda topic modeling on “the hindu” news articles\nand obtained precision score of 0.906.\nintern trainee\nvugs technologies pvt. ltd., agra, uttar pradesh\n\u0011 may 2021 – june 2021\n½ remote\n• built an ocr using pytesseract and ner text classiﬁcation\nmodel to categorize detected text into name, e-mail address,\nphone number and date using nltk,spacy and bert\n• created an ocr for handwritten text [a-z, 0-9] using cnn\narchitecture\n• built a face recognition model and face mask detection\nmodel using opencv and haar cascade classiﬁer.\ntrainings\ndeep learning and computer vision a-z: opencv,\nssd, gans\nudemy\n\u0011 nov 2021 – dec 2021\n30 days of google cloud\ngoogle llc\n\u0011 oct 2021 – nov 2021\nneural networks and deep learning\ncoursera\n\u0011 mar 2021 – apr 2021\nmachine learning a-z: hands on python and r\nin data science\nudemy\n\u0011 dec 2020 – feb 2021\nachievements\n• speaker at ml/ai event organized by the google developers\nstudent club, dei (dec 2021)\n• secured 3rd position in tech-a-thon organized by the ece\nsociety, bit mesra, ranchi (oct 2021)\n• attended online kla workshop on ai and hpc in semicon-\nductor manufacturing organized by iit madras (sep 2021)\n• won 1st prize in the online competition game of brands orga-\nnized by sggscc, university of delhi (mar 2021)"
+        }
+      ]
+    },
+    {
+      "batch_id": "ad2d9840-1439-4bdb-9bc6-94e1d1ab645c",
+      "uploaded_at": "2026-03-27T07:02:43.942687",
+      "job_description": "python with machine learning",
+      "candidate_count": 2,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Screenshot",
+          "score": 28.6,
+          "matched_skills": [
+            "python",
+            "java",
+            "react",
+            "machine learning",
+            "tensorflow",
+            "pandas"
+          ],
+          "filename": "Screenshot 2026-03-27 062133.png",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "evelynn adams\ngraduate fresher\nprofessional profile\nemployment history e-novate labs intern trainee; aug 2020 to dec 20z0 was trainedon howto usc ncural networks wrtto classical problems that existed in machine learning during the capstone project crcated supervised modcl for image recognition with minimal training\nam recent graduat whois interested and rascinated by machine iearning; want to join this industry and bc part ' icarn and contributo towards both thc growth ofthe company and me asan indivuduals in terms of skills\nproficient skills machine learning deep learning; neural networks ml algorithms python; numpy: scikit learn; matplotlib keras pandas tensorflow scaborn; java reactjs nodejs\nachievements and extra curriculars\neducational history\nlucknow university b.sc (computer science) ktm college; nashik; 2019 mca (computers) , spp university. pune; 2021\ncertified entry level python programmer certified associatc level python programming\nprojects deep learning assisted image recognition"
+        },
+        {
+          "rank": 2,
+          "name": "Candidate",
+          "score": 28.0,
+          "matched_skills": [
+            "python",
+            "java",
+            "react",
+            "machine learning",
+            "tensorflow",
+            "pandas"
+          ],
+          "filename": "candidate_018.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "evelynn adams\ngraduate fresher\nprofessional profile\ni am a recent graduate who is interested\nand fascinated by machine learning. i\nwant to join this industry and be a part of\nit, learn and contribute towards both the\ngrowth of the company and me as an\nindivuduals in terms of skills.\nachievements and extra\ncurriculars\ncertified entry level python programmer\ncertified associate level in python\nprogramming\nprojects\ndeep learning assisted image recognition.\nproficient skills\nmachine learning, deep learning, neural\nnetworks, ml algorithms, python, numpy,\nscikit learn, matplotlib, keras, pandas,\ntensorflow, seaborn, java, reactjs,\nnodejs.\nemployment history\ni was trained on how to use neural networks w.r.t to classical\nproblems that existed in machine learning. \nduring the capstone project i created a supervised model for\nimage recognition with minimal training.\n intern trainee, aug 2020 to dec 2020\ne-novate labs\neducational history\nb.sc (computer science) ktm college, nashik, 2019 \nmca (computers), spp university, pune, 2021\nlucknow university"
+        }
+      ]
+    },
+    {
+      "batch_id": "c8a515e2-0438-4c96-b94b-86b5ecfcdc8d",
+      "uploaded_at": "2026-03-27T07:11:07.529940",
+      "job_description": "python and javascript developer",
+      "candidate_count": 3,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Vishv",
+          "score": 22.5,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "sql",
+            "git",
+            "html",
+            "css",
+            "node.js"
+          ],
+          "filename": "Vishv-Resume.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "vishv patel\n+91 8488045303 | vishvpatel7005@gmail.com | www.linkedin.com/in/vishv-patel- |https://github.com/vishv-2005 |\n profile\nhighly motivated and enthusiastic third year b.tech student with a strong interest in software development and a foundational understanding of java, python, c, javascript. eager to contribute to real-world projects, learn from experienced professionals, and gain practical experience in software development.\n technical skills\nprogramming languages: [c, python, java, html, css, javascript, mysql, express.js, node.js, flutter]\ntools & technologies: [git, github, vs code, android studios, jira, fusion, autocad, circuitverse]\nother relevant skills: [ problem-solving, logical thinking, circuit design, automation, teamwork, communication]\n education\nbachelor of technology – computer science and engineering\t(2023 – 2027)\nnavrachana university, vadodara, gujarat, india current cgpa – 7.63/10\nminor degree – mechatronics\t\t\t\t\t\t\t\t\t(along with degree)\nnavrachana university, vadodara, gujarat, india\n projects\n_\nai-powered whatsapp crm system \taugust 2025 – developing\ndeveloping a lightweight, ai-driven customer relationship management (crm) system integrated with the whatsapp business cloud api to automate customer interactions for small businesses, featuring real-time message categorization, analytics, and a chatbot assistant.\nbuilding a scalable fullstack application using js frameworks for the backend, flutter for an intuitive dashboard, and supabase for data storage, enhancing operational efficiency for small-scale entrepreneurs.\nflutter chess app for android                                                                        august 2025 – november 2025\ndesigned and developed a cross-platform chess game mobile application using flutter and dart, enabling intuitive, interactive play on android devices.\nengineered core chess logic—including move validation, check/checkmate, and special rules (castling,       en-passant, pawn promotion).\nimplemented a polished ui/ux with scalable svg graphics for chess pieces, smooth animations, and custom themes, supporting robust game state persistence with local storage.\nutilized git and github for version control and collaborative development.\nflutter sudoku for android                                                                        august 2025 – november 2025\ndesigned and developed a cross-platform chess game mobile application using flutter and dart, enabling intuitive, interactive play on android devices.\nengineered core sudoku logic.\nimplemented a polished ui/ux with smooth animations, and custom themes, supporting robust game state persistence with local storage.\nutilized git and github for version control and collaborative development.\nsocietease\tjan 2025 – april 2025\nsocietease is a comprehensive and user-friendly java-based society management system developed using java swing for gui, a structured mysql database backend, and clean modular object-oriented design.\nthe application streamlines the day-to-day operations of a residential society, providing dedicated modules for residents, committee members, and administrators.\ntourism\taugust 2024 – november 2024\nthis is a minor project of website making using html, css, js and connecting the data base using xampp and php.\nnavrachana-university\taugust 2023 – november 2023\nmy university website as my first web development project. this project includes use of html and css. this is a static website made with reference to the navrachana university official website www.nuv.ac.in .\n_\nreferences available on request\t"
+        },
+        {
+          "rank": 2,
+          "name": "Rudra Soni",
+          "score": 16.3,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "git",
+            "html",
+            "css",
+            "node.js"
+          ],
+          "filename": "Rudra Soni Resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "rudra soni\naspiring software\ndeveloper intern\nb.tech in computer engineering  \nnavrachana university, vadodara  \nsecond year (2023 – 2027)  \ncurrent cgpa: 8.65  \npursuing minor in mechatronics\neducation\ntechnical skills\nprogramming languages:\npython, c, java, javascript  \nweb technologies: html, css,\nnode.js , wordpress\ndatabases: mariadb  \ntools & platforms: git, linux, vs\ncode\ncontact information\n+91-875-855-1131\nrudrasoni273@gmail.com\nlinkedin: linkedin.com/in/rudra-\nsoni-1b6197364/\nprojects\nmusic room – real-time music chat app  - 2023\ndeveloped using node.js and socket.io. enables\nusers to join rooms and sync music playback with\nreal-time chat.\nexcel-to-word automation tool - 2023 \ndeveloped for a real-world client. automates\ndata transfer from excel spreadsheets to word\ntemplates, reducing manual work.\ndigital logic tic-tac-toe - 2023\ncreated using only gates and flip-flops on\ncircuitverse. showcases deep understanding of\ndigital circuit design.\ngesture-controlled mouse glove - 2024\nbuilt a glove prototype that emulates mouse\ncontrol using sensors. ai-based gesture\nrecognition planned.\nbarrel piano  - 2024\ndesigned a rotating paper-based music system\nwhere sensors detect patterns and trigger sound\nplayback.\nobjective\nenthusiastic \nb.tech \nstudent\npassionate \nabout \nsoftware\ndevelopment \nand \nalgorithms.\nlooking for a software developer\ninternship \nto \ncontribute \nto\nmeaningful projects while learning\nindustry best practices.\nyou want your cv to have a link to your\nlinkedin account and your portfolio site\nso recruiters can immediately see what\nyou've accomplished. \nadd the logo of the companies you have\nworked in. link their website or linkedin\nprofiles too. write a short description of\nwhat the company does if they are not\nwell known.\nonly list skills you are confident in and\nare relevant to the job. you may also list\nspecific software or tools that are\nimportant to the role.\nadding volunteer work and other\ninterests is optional. information under\nthis section may seem irrelevant but it\ncan build rapport with recruiters. \nimportant: download your cv as a pdf. do\nnot use docx, png, or jpg since an applicant\ntracking system may not be able to properly\ndisplay the file or scan the text.\nadding your photo to a cv is optional.\nphotos help recruiters remember you, but\nthere is a risk of unconscious bias.\nremember to add how long you have\nstayed in a particular role. write out the\nyears and months. example: jan 2020 to\njune 2022 (2 years and 5 months).\ndo not crowd your cv. feel free to use a\nsecond page, which usually features your\neducational background and other\nachievements and awards.\nmake sure the cv's design aesthetic\nmatches the job you are applying for. for\ncreative roles, you may prefer cvs with a\ntouch of color. for more corporate roles,\ngo for a more simple design.\nhaving a list of references is no longer\nrequired in cvs. the same goes for a\nsummary or objective section. \nwhen writing out your achievements and\nresponsibilities for a job, it is ideal to\nfollow this format: \"i have achieved x by\ndoing y with a result of z.\" quantitative\ninformation is highly preferred.\nwhat recruiters usually look for in a cv\n(in order of importance): \nexperience\nrole or title\ncompany's credibility\nresults, responsibilities,\nachievements \nportfolio\ncontact information\nskills & relevant software\neducational background\nvolunteering and other interests \nresource page\nsome tips for creating an effective cv\nvolunteer english teacher\nlily river children's foundation\nawardee\ninbound sales and marketing\ncertificate \ncertificates & courses"
+        },
+        {
+          "rank": 3,
+          "name": "Screenshot",
+          "score": 12.1,
+          "matched_skills": [
+            "git"
+          ],
+          "filename": "Screenshot 2026-03-27 070851.png",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "hem gabhawala\ncybersequrity intern\nintroduction dedicated second-year b.tech student with strong foundation in cybersecurity, penetration testing, and network analysis, seeking t0 contribute as cybersecurity analyst intern at abc company. eager to apply hands-on experience in developing security tools and conducting network reconnaissance assist in research; development, and testing under expert supervision:\ninternship experience intern at hackersvilla hackersvilla cybersecurity fvt ltd objective: secure cybersecurity analyst intern position at abc company\nintern at hackersvilla cybersecurity pvt [td for hands-on experience developed skills security analysis and risk management\nacademic history\nunversiy insiuie b.tech in cybersecurity project: network reconnaissance tool, keylogger; spyware, enhancing practical skills nvrachanaunersilx bachelor $ degree in computer science and engineering parihinsilie passed with 59% in 12t science\ntalent and skills skills: vulnerability assessment penetration testing; network analysis, programming; security tools\noutstanding cybersecurity student achievement award\nacheviements ranked in the top 57 on tryhackme demonstrating proficiency in cybersecurity challenges and penetration testing: successfully completed hands-on projects in network reconnaissance keylogging; and spyware development; showcasing practical cybersecurity skills. earned three industry-recognized certifications in cybersecurity, reflecting commitment t0 continuous learning and expertise development:\nextracurricular activities active member of tech club of my collcge; participating in hackathons and workshops. contributed to team projects in computer nelworks focusing on layered architecture and protocol analysis.\ncertificates google cybersecurity certificate coursera (nov 2024) introduction to dark web, anonymity, and cryptocurrency ec-council (jun 2024) 30 days cybersecurity: advanced cybersecurity and penetration testing hackersvilla (mar 2024)\n9512537083\nlallenied\ncomn hem-aikesa glheaile 92240750\nhhgabhawalaagmailcom\nhttps:((github.com/s[curitywithhem _"
+        }
+      ]
+    }
+  ]
+}

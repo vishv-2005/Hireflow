@@ -19,6 +19,9 @@ Built by a team of 4 CS students as part of our 6th semester Major Studio Projec
 - Flask + Flask-CORS
 - PyMuPDF (`fitz`) for PDF text extraction
 - `python-docx` for DOCX parsing
+- `mammoth` for legacy DOC parsing
+- `pytesseract` + `Pillow` for image OCR (scanned resumes)
+- `scikit-learn` for TF-IDF based resume–job matching
 
 **Infrastructure (Coming Soon)**
 - AWS S3 for file storage
@@ -33,6 +36,10 @@ Built by a team of 4 CS students as part of our 6th semester Major Studio Projec
 - Python 3.10+
 - Node.js 18+
 - pip and npm installed
+- **Tesseract OCR** installed (required for image resume parsing):
+  - **Windows**: `choco install tesseract` or [download installer](https://github.com/UB-Mannheim/tesseract/wiki)
+  - **macOS**: `brew install tesseract`
+  - **Linux**: `sudo apt-get install tesseract-ocr`
 
 ### Step 1 — Clone the Repo
 ```bash
@@ -63,15 +70,20 @@ Go to [http://localhost:5173](http://localhost:5173) in your browser.
 
 ## What Works Right Now
 
-### Operation 1 — Resume Upload & Parsing
-- Upload a ZIP file containing PDF/DOCX resumes
-- System extracts individual files and parses text from each one
-- Supports both PDF (via PyMuPDF) and DOCX (via python-docx)
+### Operation 1 — Resume Upload & Parsing (Multi-Format)
+- Upload a **ZIP file** containing resumes, or select **multiple individual files**
+- Supports **PDF** (via PyMuPDF), **DOCX** (via python-docx), **DOC** (via mammoth), and **image resumes** like PNG, JPG, TIFF, BMP (via Tesseract OCR)
+- Mixed formats work together — a ZIP can contain PDFs, Word docs, and scanned images all at once
 
 ### Operation 2 — Candidate Scoring & Ranking
-- Each resume is scored against 20 common tech skill keywords
+- Each resume is scored using **TF-IDF cosine similarity** against a job description (if provided)
+- Falls back to keyword matching against 20 common tech skills when no job description is given
 - Candidates are ranked by score (highest first)
 - Results displayed on a dashboard with color-coded score badges and matched skill tags
+
+### Operation 3 — Anomaly Detection
+- Batch-level anomaly detection flags resumes with statistically abnormal text length
+- Helps catch keyword stuffing and suspicious resume padding
 
 ---
 
@@ -81,8 +93,8 @@ Go to [http://localhost:5173](http://localhost:5173) in your browser.
 - [ ] AWS SageMaker for ML-based candidate scoring
 - [ ] AWS RDS MySQL for persistent data storage
 - [ ] User authentication (login/signup)
-- [ ] Anomaly detection for keyword stuffing
-- [ ] Job description matching
+- [ ] Job description matching improvements
+- [ ] Resume preview on dashboard
 
 ---
 
@@ -117,9 +129,10 @@ hireflow-ai/
 │   ├── package.json
 │   └── vite.config.js
 ├── backend/
-│   ├── app.py              # Flask routes
-│   ├── resume_parser.py    # PDF/DOCX text extraction
-│   ├── candidate_scorer.py # scoring and ranking logic
+│   ├── app.py              # Flask routes (ZIP + multi-file upload)
+│   ├── resume_parser.py    # PDF/DOCX/DOC/image text extraction
+│   ├── candidate_scorer.py # TF-IDF scoring and ranking logic
+│   ├── database.py         # SQLAlchemy ORM for candidate storage
 │   ├── mock_s3.py          # simulated S3 upload
 │   └── requirements.txt
 ├── .gitignore
