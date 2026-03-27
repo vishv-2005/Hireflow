@@ -458,8 +458,12 @@
     animation: float-alert 3s infinite ease-in-out;
 }
 
-.mockup-alert-icon {
-    font-size: 1.2rem;
+.mockup-alert-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--orange);
+    flex-shrink: 0;
 }
 
 .mockup-alert-text {

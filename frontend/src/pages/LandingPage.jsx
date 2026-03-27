@@ -59,7 +59,7 @@ function LandingPage() {
                         <div className="mockup-line w-3-4 op-20"></div>
                     </div>
                     <div className="mockup-alert">
-                        <span className="mockup-alert-icon">⚠️</span>
+                        <div className="mockup-alert-dot"></div>
                         <div className="mockup-alert-text">Keyword stuffing detected</div>
                     </div>
                 </div>

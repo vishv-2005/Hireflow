@@ -15,9 +15,10 @@ function Dashboard() {
     const [candidates, setCandidates] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    // new states for the frontend search and filter functionality
+    // frontend filter/search states
     const [searchQuery, setSearchQuery] = useState('');
     const [showFlaggedOnly, setShowFlaggedOnly] = useState(false);
+    const [topN, setTopN] = useState('all'); // controls how many top candidates to show
 
     // fetch results from Flask when the component mounts
     useEffect(() => {
@@ -47,20 +48,17 @@ function Dashboard() {
     const topCandidate = totalResumes > 0 ? candidates[0]?.name : '—';
 
     // apply our frontend filters to the loaded candidate list
-    // this avoids making a new API call every time the user types a letter
-    const filteredCandidates = candidates.filter((candidate) => {
-        // filter 1: search matching on name or skills array
-        const searchLower = searchQuery.toLowerCase();
-        const matchesSearch =
-            candidate.name.toLowerCase().includes(searchLower) ||
-            candidate.matched_skills.some(skill => skill.toLowerCase().includes(searchLower));
-
-        // filter 2: the flagged toggle
-        const matchesFlagged = showFlaggedOnly ? candidate.is_anomaly === true : true;
-
-        // candidate must pass both filters to appear
-        return matchesSearch && matchesFlagged;
-    });
+    const filteredCandidates = candidates
+        .filter((candidate) => {
+            const searchLower = searchQuery.toLowerCase();
+            const matchesSearch =
+                candidate.name.toLowerCase().includes(searchLower) ||
+                candidate.matched_skills.some(skill => skill.toLowerCase().includes(searchLower));
+            const matchesFlagged = showFlaggedOnly ? candidate.is_anomaly === true : true;
+            return matchesSearch && matchesFlagged;
+        })
+        // apply top-n slice. candidates are already sorted by score desc from the backend
+        .slice(0, topN === 'all' ? undefined : parseInt(topN, 10));
 
     // loading state while we wait for the backend response
     if (loading) {
@@ -89,52 +87,55 @@ function Dashboard() {
 
             {candidates.length > 0 ? (
                 <>
-                    {/* stats bar at the top - three boxes */}
+                    {/* stats bar at the top - three boxes, no emojis */}
                     <div className="stats-bar">
                         <div className="stat-box">
-                            <span className="stat-icon">📄</span>
+                            <div className="stat-icon-bar stat-icon-blue"></div>
                             <div className="stat-value">{totalResumes}</div>
                             <div className="stat-label">Total Resumes</div>
                         </div>
                         <div className="stat-box">
-                            <span className="stat-icon">🎯</span>
+                            <div className="stat-icon-bar stat-icon-orange"></div>
                             <div className="stat-value">{avgScore}</div>
                             <div className="stat-label">Average Score</div>
                         </div>
                         <div className="stat-box">
-                            <span className="stat-icon">🏆</span>
-                            <div className="stat-value">{topCandidate}</div>
+                            <div className="stat-icon-bar stat-icon-sage"></div>
+                            <div className="stat-value stat-value-sm">{topCandidate}</div>
                             <div className="stat-label">Top Candidate</div>
                         </div>
                     </div>
 
-                    {/* new search and filter bar right above the table */}
-                    <div style={{ display: 'flex', gap: '16px', marginBottom: '24px', alignItems: 'center', flexWrap: 'wrap' }}>
+                    {/* search, filter, and top-n control bar above the table */}
+                    <div className="dashboard-controls">
                         <input
                             type="text"
                             placeholder="Search by name or skill..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            style={{
-                                flex: 1, minWidth: '250px', padding: '12px 16px',
-                                border: '1px solid #ddd', borderRadius: '8px',
-                                fontSize: '0.95rem'
-                            }}
+                            className="search-input"
                         />
                         <button
                             onClick={() => setShowFlaggedOnly(!showFlaggedOnly)}
-                            style={{
-                                padding: '12px 20px', borderRadius: '8px',
-                                border: '1px solid', fontWeight: 600, cursor: 'pointer',
-                                transition: 'all 0.2s',
-                                // style it amber/red if active, subtle grey if inactive
-                                backgroundColor: showFlaggedOnly ? '#fef3c7' : '#f8f9fa',
-                                borderColor: showFlaggedOnly ? '#d97706' : '#ddd',
-                                color: showFlaggedOnly ? '#92400e' : '#555'
-                            }}
+                            className={`flagged-btn ${showFlaggedOnly ? 'active' : ''}`}
                         >
-                            {showFlaggedOnly ? '✓ Showing Flagged Only' : 'Show Flagged Only'}
+                            {showFlaggedOnly ? 'Showing Flagged' : 'Show Flagged Only'}
                         </button>
+                        <div className="topn-control">
+                            <label htmlFor="topn-select" className="topn-label">View:</label>
+                            <select
+                                id="topn-select"
+                                value={topN}
+                                onChange={(e) => setTopN(e.target.value)}
+                                className="topn-select"
+                            >
+                                <option value="5">Top 5</option>
+                                <option value="10">Top 10</option>
+                                <option value="20">Top 20</option>
+                                <option value="50">Top 50</option>
+                                <option value="all">All</option>
+                            </select>
+                        </div>
                     </div>
 
                     {/* determine whether to show the table or a generic 'no match' message */}
@@ -151,7 +152,7 @@ function Dashboard() {
             ) : (
                 // empty state - no results yet
                 <div className="dashboard-empty">
-                    <span className="dashboard-empty-icon">📭</span>
+                    <div className="dashboard-empty-visual"></div>
                     <h2 className="dashboard-empty-title">No Results Yet</h2>
                     <p className="dashboard-empty-text">
                         Upload a ZIP file of resumes to see candidate rankings here.
