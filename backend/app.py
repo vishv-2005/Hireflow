@@ -11,6 +11,7 @@ from resume_parser import parse_resume, ALL_SUPPORTED_EXTENSIONS
 from candidate_scorer import score_candidate, rank_candidates, detect_anomalies
 from mock_s3 import mock_upload_to_s3
 from database import init_db, save_candidates, get_latest_batch
+from json_storage import save_to_json, load_json_data
 
 app = Flask(__name__)
 CORS(app)  # this lets our React frontend talk to Flask without CORS errors
@@ -163,14 +164,21 @@ def upload_resumes():
             scored = score_candidate(resume_data, job_description)
             scored_candidates.append(scored)
 
-        # run batch anomaly detection for keyword stuffing
-        scored_candidates = detect_anomalies(scored_candidates)
-
-        # rank them by score (highest first)
+        # rank them by score (highest first) BEFORE anomaly detection
+        # so JSON gets the full data including raw_text
         ranked_candidates = rank_candidates(scored_candidates)
 
-        # Generate a unique batch_id for this upload and save to the MySQL Database
+        # Generate a unique batch_id for this upload
         batch_id = str(uuid.uuid4())
+
+        # Save to JSON file FIRST (preserves raw_text for future ML model training)
+        # detect_anomalies() below will strip raw_text, so we must save before that
+        save_to_json(ranked_candidates, batch_id, job_description)
+
+        # Now run anomaly detection (this strips raw_text from the dicts)
+        ranked_candidates = detect_anomalies(ranked_candidates)
+
+        # Save to the database (for dashboard display, without raw_text)
         save_candidates(ranked_candidates, batch_id)
 
         print(f"done! ranked and saved {len(ranked_candidates)} candidates under batch {batch_id}")
@@ -202,6 +210,16 @@ def get_results():
         "candidates": latest_results,
         "count": len(latest_results)
     }), 200
+
+
+@app.route("/json-data", methods=["GET"])
+def get_json_data():
+    """
+    Returns the full JSON storage data (all batches).
+    Useful for debugging and for future ML model training endpoints.
+    """
+    data = load_json_data()
+    return jsonify(data), 200
 
 
 if __name__ == "__main__":

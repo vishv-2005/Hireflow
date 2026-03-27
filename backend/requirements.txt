@@ -8,6 +8,7 @@ gunicorn
 sqlalchemy
 pymysql
 cryptography
-pytesseract
+easyocr
 Pillow
 mammoth
+numpy
