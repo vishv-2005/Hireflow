@@ -3,10 +3,12 @@ flask-cors
 PyMuPDF
 python-docx
 werkzeug
-python-docx
-werkzeug
 scikit-learn
 gunicorn
 sqlalchemy
 pymysql
 cryptography
+easyocr
+Pillow
+mammoth
+numpy
