@@ -42,11 +42,18 @@
     box-shadow: var(--shadow-hover);
 }
 
-.stat-icon {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+/* colored accent bar at top of each stat box instead of emoji */
+.stat-icon-bar {
     display: block;
+    width: 36px;
+    height: 4px;
+    border-radius: 4px;
+    margin: 0 auto 16px;
 }
+
+.stat-icon-blue  { background: var(--sage); }
+.stat-icon-orange { background: var(--orange); }
+.stat-icon-sage  { background: var(--charcoal); }
 
 .stat-value {
     font-family: 'Sora', sans-serif;
@@ -54,6 +61,11 @@
     font-weight: 700;
     color: var(--charcoal);
     margin-bottom: 4px;
+}
+
+/* smaller font for long strings like candidate names */
+.stat-value-sm {
+    font-size: 1.3rem;
 }
 
 .stat-label {
@@ -207,10 +219,106 @@
     padding: 80px 24px;
 }
 
-.dashboard-empty-icon {
-    font-size: 4rem;
-    margin-bottom: 16px;
-    display: block;
+/* clean CSS visual replacing an old emoji */
+.dashboard-empty-visual {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: var(--light-gray);
+    margin: 0 auto 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.dashboard-empty-visual::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(143, 168, 150, 0.4), transparent);
+}
+
+/* --- DASHBOARD CONTROLS BAR --- */
+.dashboard-controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-input {
+    flex: 1;
+    min-width: 220px;
+    padding: 11px 16px;
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--charcoal);
+    background: var(--white);
+    transition: border-color 0.2s;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: var(--charcoal);
+}
+
+.flagged-btn {
+    padding: 11px 20px;
+    border-radius: 8px;
+    border: 1.5px solid #ddd;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--white);
+    color: #555;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.flagged-btn:hover {
+    border-color: #aaa;
+    color: var(--charcoal);
+}
+
+.flagged-btn.active {
+    background: #fef3c7;
+    border-color: #d97706;
+    color: #92400e;
+}
+
+.topn-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    padding: 0 16px;
+    height: 44px;
+}
+
+.topn-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #888;
+    white-space: nowrap;
+}
+
+.topn-select {
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    color: var(--charcoal);
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
 }
 
 .dashboard-empty-title {

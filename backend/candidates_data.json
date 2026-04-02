@@ -1,0 +1,1711 @@
+{
+  "last_updated": "2026-03-27T09:02:00.485837",
+  "total_batches": 6,
+  "total_resumes": 112,
+  "batches": [
+    {
+      "batch_id": "7fadc534-2f3c-4ec1-8af4-048bd0b0a550",
+      "uploaded_at": "2026-03-27T06:52:46.398293",
+      "job_description": "python developer with machine learning experience",
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "John Doe",
+          "score": 10.4,
+          "matched_skills": [
+            "python",
+            "java",
+            "sql",
+            "react",
+            "docker",
+            "git",
+            "flask",
+            "rest api",
+            "agile"
+          ],
+          "filename": "john_doe_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "john doe\nsoftware engineer\nskills: python, java, react, sql, docker, git, flask, rest api, agile\nexperience: 3 years building web apps"
+        }
+      ]
+    },
+    {
+      "batch_id": "5e90662f-0eef-483a-8874-e2ef925d7914",
+      "uploaded_at": "2026-03-27T06:52:48.491795",
+      "job_description": "data analyst with sql skills",
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Jane Smith",
+          "score": 26.2,
+          "matched_skills": [
+            "python",
+            "sql",
+            "machine learning",
+            "data analysis",
+            "aws",
+            "tensorflow",
+            "pandas"
+          ],
+          "filename": "jane_smith_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "jane smith\ndata scientist\nskills: python, machine learning, data analysis, sql, tensorflow, pandas, aws\nexperience: 2 years in analytics"
+        }
+      ]
+    },
+    {
+      "batch_id": "b1f3059b-5f93-4ca0-814e-f867f4404af8",
+      "uploaded_at": "2026-03-27T07:01:08.225585",
+      "job_description": "python developer with machine learning skills",
+      "candidate_count": 5,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Candidate",
+          "score": 28.4,
+          "matched_skills": [
+            "python",
+            "java",
+            "machine learning"
+          ],
+          "filename": "candidate_042.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "ryan nelson\nf r e s h e r  s o f t w a r e  d e v e l o p e r  \nexecutive profile\ni consider myself a team player and ethics\nmaintainer. when it comes to coding i\nalways try to be be well informed about\nthe technology and its application. would\nlike to join any firm as a software\ndeveloper in machine learning projects.\nother activities\nmachine learning - stanford university\nsap fundamentals - arjuvo limited\nprojects\nclassification of cassava leaves\nskills\nmachine learning, software engineering,\npython, java, sap,c programming\nwork experience\naccenture  \nsoftware developer, apr 2019 - dec 2020 \nworked on multiple projects that dealt with system frame\ndevelopment and solution supply.\neducation\nb.tech computer science from jntu, 2019"
+        },
+        {
+          "rank": 2,
+          "name": "Candidate",
+          "score": 24.9,
+          "matched_skills": [
+            "python",
+            "java",
+            "react",
+            "machine learning",
+            "tensorflow",
+            "pandas"
+          ],
+          "filename": "candidate_018.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "evelynn adams\ngraduate fresher\nprofessional profile\ni am a recent graduate who is interested\nand fascinated by machine learning. i\nwant to join this industry and be a part of\nit, learn and contribute towards both the\ngrowth of the company and me as an\nindivuduals in terms of skills.\nachievements and extra\ncurriculars\ncertified entry level python programmer\ncertified associate level in python\nprogramming\nprojects\ndeep learning assisted image recognition.\nproficient skills\nmachine learning, deep learning, neural\nnetworks, ml algorithms, python, numpy,\nscikit learn, matplotlib, keras, pandas,\ntensorflow, seaborn, java, reactjs,\nnodejs.\nemployment history\ni was trained on how to use neural networks w.r.t to classical\nproblems that existed in machine learning. \nduring the capstone project i created a supervised model for\nimage recognition with minimal training.\n intern trainee, aug 2020 to dec 2020\ne-novate labs\neducational history\nb.sc (computer science) ktm college, nashik, 2019 \nmca (computers), spp university, pune, 2021\nlucknow university"
+        },
+        {
+          "rank": 3,
+          "name": "Candidate",
+          "score": 19.0,
+          "matched_skills": [
+            "python",
+            "machine learning",
+            "data analysis"
+          ],
+          "filename": "candidate_056.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "christian von\nkelin\nj u n i o r  a n a l y s t\nexecutive profile\nas a junior analyst i currently work with\ndata preprocessing and data cleaning\nbefore sending them to machine learning\nmodels. i am also simultaneously training\nto be a machine learning engineer to work\nclosely with teams that build models and\nwould like to join a venture for such\nopportunity.\nother activities\ndata analysis - python\nprojects\ntime-series forecasting \nidentifying phished website\nskills\ndata analysis, tableau, powerbi, r, python,\nstatistical analysis, l1 l2 regression,\nmachine learning.\nwork experience\nr&m solutions \ndata analyst intern, dec 2019 - mar 2020\nmy role as a data analyst was to provide insights and important trends\ninside the company and it's clients' data to measure out the best\npossible way in which profitability could be maintained.\neducation\nb.tech from amn college of engineering, hosiyarpur in 2020"
+        },
+        {
+          "rank": 4,
+          "name": "1901841_RESUME.pdf",
+          "score": 10.9,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "sql",
+            "machine learning",
+            "git",
+            "html",
+            "css",
+            "tensorflow"
+          ],
+          "filename": "1901841_RESUME.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "anuva goyal \n \nd.o.b.: 1st october 2000 \ngender: female \n  \nobjective \n \nenergetic, innovative engineering undergraduate, passionate about machine learning, nlp and deep learning for \nsolving real-world problems, aiming to work in an organization providing great learning experience and growth \nopportunities for mutual benefit. \n \neducation \nqualification \ninstitute \ncgpa \nyear of completion \nb.tech. \ndayalbagh educational institute, \ncgpa 9.35 \n2023 \n(electrical engineering \n(till 4 \ndayalbagh, agra \npursuing \nspecialization in computer science) \nsemesters) \nxii \nst. clare’s senior secondary school, agra \n94% \n2019 \nx \nst. clare’s senior secondary school, agra \ncgpa 10 \n2017 \ninternships and trainings \n \ninternships: \n \n• \ncompleted an internship at genisup india pvt. ltd. (july 2021- aug 2021) – nlp: topic \nmodeling o worked on proxy rotation and utilization \no  learnt web scraping using bs4 and performed lda topic modeling on “the hindu” news articles. \n \n• \nworked as an intern at vugs technologies (may 2021- june 2021) \n \no built an ocr using pytesseract and ner text classification model to categorize detected text \ninto name, e-mail address, phone number and date. \n \ntrainings: \n \n• \nundertaking  deep learning & computer vision a-z: opencv, ssd, gans course from udemy (nov 2021) \n \n• \ncompleted neural networks and deep learning course from coursera (apr 2021) \n \n• \nundertook machine learning a-z: hands on python and r in data science course from udemy (feb 2021) \n \n• \ncompleted python core course from sololearn (dec 2020) \n \nprojects: \n \n• \ncurrently working on mental healthcare chatbot (ongoing) \n \n• \nbuilt a full stack speech emotion based movie recommender system using the ravdess dataset for ser \nmodel, and web scraping techniques for recommendation system. (oct 2021) \n \n• \nfinding a perfect fit, a model to parse resumes using pytesseract to extract text, nlp for data wrangling, \nand xg boost and random forest techniques for classification (aug 2021) \n \n• \nocr for handwritten text, a model for digit (0-9) + a-z characters classification using cnn architecture \nto detect the final word in the image. (june 2021) \n \n• \nface detection and recognition using opencv and tensorflow (may 2021) \n \n• \nface mask detection which detects the face using haar cascade classifier from opencv library and classifies \nthe image into one of the three categories- without mask, with mask and incorrect mask with the help of \nlbph algorithm (may 2021) \n \n• \nheart attack prediction and insurance company prediction using various classification algorithms.\nskills \n \n• \nexperience with c, c++, python, java, html, css, javascript, data structures, sql \n \n• \nsoftware’s: pycharm, jupyter notebook, google colab, code blocks, matlab, turbo c++, ms office \n \n• \nmachine learning frameworks: scikit-learn, tensorflow, opencv, numpy, pytesseract, keras \n \n \nachievements and certifications \n \n• \nsecured 3rd position in tech-a-thon organized by the ece society, bit mesra, ranchi (oct 2021) \n• \nparticipant of 30 days of google cloud (sep 2021 - oct 2021) \n \n• \nwon 1st prize in the online competition game of brands organized by sggscc, university of delhi (mar 2021) \n• \nsecured 2nd rank in street play, an intra faculty competition on theme “women empowerment” (sep 2021) \n \n \nworkshops and events \n \n• \nfinalist of rise in crisis, a crisis management competition organized by srcc, university of delhi (nov 2021) \n \n• \nparticipated in hero campus challenge s7, a national level competition organized by hero motocorp \nlimited (nov 2020) \n \n• \nattended online kla workshop on ai and hpc in semiconductor manufacturing organized by iit \nmadras (sep 2021) \n \n• \nactively participated in nlp with disaster tweets organized by kaggle (aug 2021) \n \n• \nqualified vishleshan – the analytics event organized by nit trichy (nov 2020) \n \n• \ncompeted in prabandhan’20: annual management conclave organized by iit kanpur (sep 2020) \n \n• \nparticipated in 5 days course on geospatial inputs for enabling master plan formulation conducted by \nindian institute of remote sensing (july 2020) \n \n• \nmember of stage management team in drama fest (district level) (feb 2020) \n \n• \nserved as a member of national service scheme with 7 days nss camp (jan 2020) \n \n \ninterests and hobbies \n \n• \nmachine learning and data science \n \n• \nreading novels \n \n• \nvolunteering and social service \n \n \n \nphone: +91 9520349542 - email: anuvagoyal111@gmail.com \ngithub: https://github.com/anuvagoyal"
+        },
+        {
+          "rank": 5,
+          "name": "Anuvagoyal Latex",
+          "score": 9.3,
+          "matched_skills": [
+            "python",
+            "sql",
+            "machine learning",
+            "git",
+            "html",
+            "css",
+            "pandas"
+          ],
+          "filename": "AnuvaGoyal_Latex.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "anuva goyal\n[ anuvagoyal111@gmail.com\n½ agra, uttar pradesh, india\n github.com/anuvagoyal\nprojects\n• mental healthcare chatbot that provides ad-\nvice to the user based on diﬀerent categories\nof mental health problems using a dataset\nwebscraped from counselchat.com (nov 2021)\n• full stack speech emotion based movie\nrecommender system using the ravdess\ndataset and web scraping techniques (oct\n2021)\n• finding a perfect fit, a model to parse re-\nsumes using pytesseract, nlp and xg boost\nand random forest classiﬁcation techniques\n(aug 2021)\n• face mask detection which detects the face\nusing haar cascade classiﬁer and classiﬁes\nthe image into one of the three categories-\nwithout mask, with mask and incorrect mask\n(may 2021)\neducation\nb.tech, electrical engineering with\ncomputer science specialisation\ndayalbagh educational institute, agra\n\u0011 july 2019– present (sgpa 9.35 - 4 sem)\nhigher secondary school certiﬁcate\nst. clare’s senior secondary school, agra\n\u0011 2019 (94%)\nsecondary school certiﬁcate\nst. clare’s senior secondary school, agra\n\u0011 2017 (cgpa 10)\npublication\nresearchgate.net/proﬁle/anuva_goyal\nskills\nc, c++\n○○○○○\npython, sql\n○○○○○\ndata structures\n○○○○○\ncss, html\n○○○○○\nmachine learning frameworks: numpy,\npandas, tensorﬂow, scikit-learn, opencv,\npytesseract, beautifulsoup\ninterests\n• ml and deep learning.\n• nlp and computer vision\nexperience\nsummer intern\ngenisup india pvt. ltd., hosur, tamil nadu\n\u0011 june 2021 – aug 2021\n½ remote\n• internship on the topic nlp: topic modeling to assign the\ntheme or topic for any news article on internet using machine\nlearning techniques.\n• worked on proxy rotation and web scraping\n• performed lda topic modeling on “the hindu” news articles\nand obtained precision score of 0.906.\nintern trainee\nvugs technologies pvt. ltd., agra, uttar pradesh\n\u0011 may 2021 – june 2021\n½ remote\n• built an ocr using pytesseract and ner text classiﬁcation\nmodel to categorize detected text into name, e-mail address,\nphone number and date using nltk,spacy and bert\n• created an ocr for handwritten text [a-z, 0-9] using cnn\narchitecture\n• built a face recognition model and face mask detection\nmodel using opencv and haar cascade classiﬁer.\ntrainings\ndeep learning and computer vision a-z: opencv,\nssd, gans\nudemy\n\u0011 nov 2021 – dec 2021\n30 days of google cloud\ngoogle llc\n\u0011 oct 2021 – nov 2021\nneural networks and deep learning\ncoursera\n\u0011 mar 2021 – apr 2021\nmachine learning a-z: hands on python and r\nin data science\nudemy\n\u0011 dec 2020 – feb 2021\nachievements\n• speaker at ml/ai event organized by the google developers\nstudent club, dei (dec 2021)\n• secured 3rd position in tech-a-thon organized by the ece\nsociety, bit mesra, ranchi (oct 2021)\n• attended online kla workshop on ai and hpc in semicon-\nductor manufacturing organized by iit madras (sep 2021)\n• won 1st prize in the online competition game of brands orga-\nnized by sggscc, university of delhi (mar 2021)"
+        }
+      ]
+    },
+    {
+      "batch_id": "ad2d9840-1439-4bdb-9bc6-94e1d1ab645c",
+      "uploaded_at": "2026-03-27T07:02:43.942687",
+      "job_description": "python with machine learning",
+      "candidate_count": 2,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Screenshot",
+          "score": 28.6,
+          "matched_skills": [
+            "python",
+            "java",
+            "react",
+            "machine learning",
+            "tensorflow",
+            "pandas"
+          ],
+          "filename": "Screenshot 2026-03-27 062133.png",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "evelynn adams\ngraduate fresher\nprofessional profile\nemployment history e-novate labs intern trainee; aug 2020 to dec 20z0 was trainedon howto usc ncural networks wrtto classical problems that existed in machine learning during the capstone project crcated supervised modcl for image recognition with minimal training\nam recent graduat whois interested and rascinated by machine iearning; want to join this industry and bc part ' icarn and contributo towards both thc growth ofthe company and me asan indivuduals in terms of skills\nproficient skills machine learning deep learning; neural networks ml algorithms python; numpy: scikit learn; matplotlib keras pandas tensorflow scaborn; java reactjs nodejs\nachievements and extra curriculars\neducational history\nlucknow university b.sc (computer science) ktm college; nashik; 2019 mca (computers) , spp university. pune; 2021\ncertified entry level python programmer certified associatc level python programming\nprojects deep learning assisted image recognition"
+        },
+        {
+          "rank": 2,
+          "name": "Candidate",
+          "score": 28.0,
+          "matched_skills": [
+            "python",
+            "java",
+            "react",
+            "machine learning",
+            "tensorflow",
+            "pandas"
+          ],
+          "filename": "candidate_018.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "evelynn adams\ngraduate fresher\nprofessional profile\ni am a recent graduate who is interested\nand fascinated by machine learning. i\nwant to join this industry and be a part of\nit, learn and contribute towards both the\ngrowth of the company and me as an\nindivuduals in terms of skills.\nachievements and extra\ncurriculars\ncertified entry level python programmer\ncertified associate level in python\nprogramming\nprojects\ndeep learning assisted image recognition.\nproficient skills\nmachine learning, deep learning, neural\nnetworks, ml algorithms, python, numpy,\nscikit learn, matplotlib, keras, pandas,\ntensorflow, seaborn, java, reactjs,\nnodejs.\nemployment history\ni was trained on how to use neural networks w.r.t to classical\nproblems that existed in machine learning. \nduring the capstone project i created a supervised model for\nimage recognition with minimal training.\n intern trainee, aug 2020 to dec 2020\ne-novate labs\neducational history\nb.sc (computer science) ktm college, nashik, 2019 \nmca (computers), spp university, pune, 2021\nlucknow university"
+        }
+      ]
+    },
+    {
+      "batch_id": "c8a515e2-0438-4c96-b94b-86b5ecfcdc8d",
+      "uploaded_at": "2026-03-27T07:11:07.529940",
+      "job_description": "python and javascript developer",
+      "candidate_count": 3,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Vishv",
+          "score": 22.5,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "sql",
+            "git",
+            "html",
+            "css",
+            "node.js"
+          ],
+          "filename": "Vishv-Resume.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "vishv patel\n+91 8488045303 | vishvpatel7005@gmail.com | www.linkedin.com/in/vishv-patel- |https://github.com/vishv-2005 |\n profile\nhighly motivated and enthusiastic third year b.tech student with a strong interest in software development and a foundational understanding of java, python, c, javascript. eager to contribute to real-world projects, learn from experienced professionals, and gain practical experience in software development.\n technical skills\nprogramming languages: [c, python, java, html, css, javascript, mysql, express.js, node.js, flutter]\ntools & technologies: [git, github, vs code, android studios, jira, fusion, autocad, circuitverse]\nother relevant skills: [ problem-solving, logical thinking, circuit design, automation, teamwork, communication]\n education\nbachelor of technology – computer science and engineering\t(2023 – 2027)\nnavrachana university, vadodara, gujarat, india current cgpa – 7.63/10\nminor degree – mechatronics\t\t\t\t\t\t\t\t\t(along with degree)\nnavrachana university, vadodara, gujarat, india\n projects\n_\nai-powered whatsapp crm system \taugust 2025 – developing\ndeveloping a lightweight, ai-driven customer relationship management (crm) system integrated with the whatsapp business cloud api to automate customer interactions for small businesses, featuring real-time message categorization, analytics, and a chatbot assistant.\nbuilding a scalable fullstack application using js frameworks for the backend, flutter for an intuitive dashboard, and supabase for data storage, enhancing operational efficiency for small-scale entrepreneurs.\nflutter chess app for android                                                                        august 2025 – november 2025\ndesigned and developed a cross-platform chess game mobile application using flutter and dart, enabling intuitive, interactive play on android devices.\nengineered core chess logic—including move validation, check/checkmate, and special rules (castling,       en-passant, pawn promotion).\nimplemented a polished ui/ux with scalable svg graphics for chess pieces, smooth animations, and custom themes, supporting robust game state persistence with local storage.\nutilized git and github for version control and collaborative development.\nflutter sudoku for android                                                                        august 2025 – november 2025\ndesigned and developed a cross-platform chess game mobile application using flutter and dart, enabling intuitive, interactive play on android devices.\nengineered core sudoku logic.\nimplemented a polished ui/ux with smooth animations, and custom themes, supporting robust game state persistence with local storage.\nutilized git and github for version control and collaborative development.\nsocietease\tjan 2025 – april 2025\nsocietease is a comprehensive and user-friendly java-based society management system developed using java swing for gui, a structured mysql database backend, and clean modular object-oriented design.\nthe application streamlines the day-to-day operations of a residential society, providing dedicated modules for residents, committee members, and administrators.\ntourism\taugust 2024 – november 2024\nthis is a minor project of website making using html, css, js and connecting the data base using xampp and php.\nnavrachana-university\taugust 2023 – november 2023\nmy university website as my first web development project. this project includes use of html and css. this is a static website made with reference to the navrachana university official website www.nuv.ac.in .\n_\nreferences available on request\t"
+        },
+        {
+          "rank": 2,
+          "name": "Rudra Soni",
+          "score": 16.3,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "git",
+            "html",
+            "css",
+            "node.js"
+          ],
+          "filename": "Rudra Soni Resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "rudra soni\naspiring software\ndeveloper intern\nb.tech in computer engineering  \nnavrachana university, vadodara  \nsecond year (2023 – 2027)  \ncurrent cgpa: 8.65  \npursuing minor in mechatronics\neducation\ntechnical skills\nprogramming languages:\npython, c, java, javascript  \nweb technologies: html, css,\nnode.js , wordpress\ndatabases: mariadb  \ntools & platforms: git, linux, vs\ncode\ncontact information\n+91-875-855-1131\nrudrasoni273@gmail.com\nlinkedin: linkedin.com/in/rudra-\nsoni-1b6197364/\nprojects\nmusic room – real-time music chat app  - 2023\ndeveloped using node.js and socket.io. enables\nusers to join rooms and sync music playback with\nreal-time chat.\nexcel-to-word automation tool - 2023 \ndeveloped for a real-world client. automates\ndata transfer from excel spreadsheets to word\ntemplates, reducing manual work.\ndigital logic tic-tac-toe - 2023\ncreated using only gates and flip-flops on\ncircuitverse. showcases deep understanding of\ndigital circuit design.\ngesture-controlled mouse glove - 2024\nbuilt a glove prototype that emulates mouse\ncontrol using sensors. ai-based gesture\nrecognition planned.\nbarrel piano  - 2024\ndesigned a rotating paper-based music system\nwhere sensors detect patterns and trigger sound\nplayback.\nobjective\nenthusiastic \nb.tech \nstudent\npassionate \nabout \nsoftware\ndevelopment \nand \nalgorithms.\nlooking for a software developer\ninternship \nto \ncontribute \nto\nmeaningful projects while learning\nindustry best practices.\nyou want your cv to have a link to your\nlinkedin account and your portfolio site\nso recruiters can immediately see what\nyou've accomplished. \nadd the logo of the companies you have\nworked in. link their website or linkedin\nprofiles too. write a short description of\nwhat the company does if they are not\nwell known.\nonly list skills you are confident in and\nare relevant to the job. you may also list\nspecific software or tools that are\nimportant to the role.\nadding volunteer work and other\ninterests is optional. information under\nthis section may seem irrelevant but it\ncan build rapport with recruiters. \nimportant: download your cv as a pdf. do\nnot use docx, png, or jpg since an applicant\ntracking system may not be able to properly\ndisplay the file or scan the text.\nadding your photo to a cv is optional.\nphotos help recruiters remember you, but\nthere is a risk of unconscious bias.\nremember to add how long you have\nstayed in a particular role. write out the\nyears and months. example: jan 2020 to\njune 2022 (2 years and 5 months).\ndo not crowd your cv. feel free to use a\nsecond page, which usually features your\neducational background and other\nachievements and awards.\nmake sure the cv's design aesthetic\nmatches the job you are applying for. for\ncreative roles, you may prefer cvs with a\ntouch of color. for more corporate roles,\ngo for a more simple design.\nhaving a list of references is no longer\nrequired in cvs. the same goes for a\nsummary or objective section. \nwhen writing out your achievements and\nresponsibilities for a job, it is ideal to\nfollow this format: \"i have achieved x by\ndoing y with a result of z.\" quantitative\ninformation is highly preferred.\nwhat recruiters usually look for in a cv\n(in order of importance): \nexperience\nrole or title\ncompany's credibility\nresults, responsibilities,\nachievements \nportfolio\ncontact information\nskills & relevant software\neducational background\nvolunteering and other interests \nresource page\nsome tips for creating an effective cv\nvolunteer english teacher\nlily river children's foundation\nawardee\ninbound sales and marketing\ncertificate \ncertificates & courses"
+        },
+        {
+          "rank": 3,
+          "name": "Screenshot",
+          "score": 12.1,
+          "matched_skills": [
+            "git"
+          ],
+          "filename": "Screenshot 2026-03-27 070851.png",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "hem gabhawala\ncybersequrity intern\nintroduction dedicated second-year b.tech student with strong foundation in cybersecurity, penetration testing, and network analysis, seeking t0 contribute as cybersecurity analyst intern at abc company. eager to apply hands-on experience in developing security tools and conducting network reconnaissance assist in research; development, and testing under expert supervision:\ninternship experience intern at hackersvilla hackersvilla cybersecurity fvt ltd objective: secure cybersecurity analyst intern position at abc company\nintern at hackersvilla cybersecurity pvt [td for hands-on experience developed skills security analysis and risk management\nacademic history\nunversiy insiuie b.tech in cybersecurity project: network reconnaissance tool, keylogger; spyware, enhancing practical skills nvrachanaunersilx bachelor $ degree in computer science and engineering parihinsilie passed with 59% in 12t science\ntalent and skills skills: vulnerability assessment penetration testing; network analysis, programming; security tools\noutstanding cybersecurity student achievement award\nacheviements ranked in the top 57 on tryhackme demonstrating proficiency in cybersecurity challenges and penetration testing: successfully completed hands-on projects in network reconnaissance keylogging; and spyware development; showcasing practical cybersecurity skills. earned three industry-recognized certifications in cybersecurity, reflecting commitment t0 continuous learning and expertise development:\nextracurricular activities active member of tech club of my collcge; participating in hackathons and workshops. contributed to team projects in computer nelworks focusing on layered architecture and protocol analysis.\ncertificates google cybersecurity certificate coursera (nov 2024) introduction to dark web, anonymity, and cryptocurrency ec-council (jun 2024) 30 days cybersecurity: advanced cybersecurity and penetration testing hackersvilla (mar 2024)\n9512537083\nlallenied\ncomn hem-aikesa glheaile 92240750\nhhgabhawalaagmailcom\nhttps:((github.com/s[curitywithhem _"
+        }
+      ]
+    },
+    {
+      "batch_id": "f47af786-5056-4d8f-abd7-075dc6161045",
+      "uploaded_at": "2026-03-27T09:02:00.485837",
+      "job_description": "python with machine learning",
+      "candidate_count": 100,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Thomas Moore",
+          "score": 34.7,
+          "matched_skills": [
+            "python",
+            "machine learning",
+            "docker",
+            "kubernetes",
+            "css"
+          ],
+          "filename": "thomas_moore_78.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "thomas moore - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ndevops, c++, machine learning, docker, pytorch, django, python, css, vue.js, kubernetes\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology\nhidden skills section for seo\ndevops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes devops c++ machine learning docker pytorch django python css vue.js kubernetes"
+        },
+        {
+          "rank": 2,
+          "name": "Robert Miller",
+          "score": 15.9,
+          "matched_skills": [
+            "python",
+            "java",
+            "sql",
+            "machine learning"
+          ],
+          "filename": "robert_miller_75.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "robert miller - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ndjango, python, figma, java, sql, ui/ux, machine learning\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 3,
+          "name": "Thomas Gonzalez",
+          "score": 15.9,
+          "matched_skills": [
+            "python",
+            "machine learning",
+            "git",
+            "node.js"
+          ],
+          "filename": "thomas_gonzalez_42.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "thomas gonzalez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ngit, machine learning, .net, python, devops, pytorch, node.js\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 4,
+          "name": "Charles Gonzalez",
+          "score": 15.8,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "react",
+            "machine learning",
+            "flask"
+          ],
+          "filename": "charles_gonzalez_11.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "charles gonzalez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\njava, pytorch, python, machine learning, react, javascript, flask, devops, angular\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 5,
+          "name": "Joseph Martin",
+          "score": 15.8,
+          "matched_skills": [
+            "python",
+            "machine learning",
+            "aws",
+            "css",
+            "node.js"
+          ],
+          "filename": "joseph_martin_2.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "joseph martin - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\npython, machine learning, ruby on rails, node.js, aws, css\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 6,
+          "name": "Karen Johnson",
+          "score": 15.8,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "sql",
+            "react",
+            "machine learning",
+            "aws",
+            "node.js"
+          ],
+          "filename": "karen_johnson_38.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "karen johnson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\naws, react, javascript, node.js, postgresql, django, python, machine learning\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 7,
+          "name": "Karen Hernandez",
+          "score": 15.6,
+          "matched_skills": [
+            "python",
+            "machine learning",
+            "html",
+            "agile"
+          ],
+          "filename": "karen_hernandez_10.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "karen hernandez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nruby on rails, machine learning, python, .net, figma, html, fastapi, django, agile\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 8,
+          "name": "Barbara Hernandez",
+          "score": 15.3,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "sql",
+            "machine learning",
+            "aws",
+            "docker",
+            "agile"
+          ],
+          "filename": "barbara_hernandez_51.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "barbara hernandez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nscrum, aws, docker, sql, data science, agile, javascript, machine learning, python\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 9,
+          "name": "Patricia Taylor",
+          "score": 15.3,
+          "matched_skills": [
+            "python",
+            "sql",
+            "react",
+            "machine learning",
+            "docker",
+            "tensorflow"
+          ],
+          "filename": "patricia_taylor_77.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "patricia taylor - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nmachine learning, python, sql, data science, figma, docker, vue.js, react, tensorflow\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 10,
+          "name": "Jessica Jackson",
+          "score": 15.2,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "machine learning",
+            "mongodb"
+          ],
+          "filename": "jessica_jackson_83.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "jessica jackson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ndata science, ci/cd, spring boot, c#, mongodb, figma, devops, javascript, python, machine learning\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 11,
+          "name": "Linda Martin",
+          "score": 15.0,
+          "matched_skills": [
+            "python",
+            "sql",
+            "react",
+            "machine learning",
+            "kubernetes"
+          ],
+          "filename": "linda_martin_66.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "linda martin - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\npostgresql, machine learning, vue.js, kubernetes, data science, ui/ux, c#, python, ruby on rails, react\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 12,
+          "name": "James Wilson",
+          "score": 10.9,
+          "matched_skills": [
+            "java",
+            "javascript",
+            "machine learning",
+            "kubernetes",
+            "agile"
+          ],
+          "filename": "james_wilson_89.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "james wilson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ntypescript, javascript, agile, kubernetes, machine learning\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 13,
+          "name": "Jessica Thomas",
+          "score": 10.9,
+          "matched_skills": [
+            "machine learning",
+            "kubernetes",
+            "node.js"
+          ],
+          "filename": "jessica_thomas_58.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "jessica thomas - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nmachine learning, kubernetes, node.js\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 14,
+          "name": "Robert Moore",
+          "score": 10.9,
+          "matched_skills": [
+            "machine learning"
+          ],
+          "filename": "robert_moore_96.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "robert moore - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nc++, machine learning, angular, spring boot\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 15,
+          "name": "John Thomas",
+          "score": 10.8,
+          "matched_skills": [
+            "sql",
+            "machine learning",
+            "git",
+            "flask"
+          ],
+          "filename": "john_thomas_18.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "john thomas - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nflask, sql, typescript, django, git, machine learning\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 16,
+          "name": "Mary Taylor",
+          "score": 10.7,
+          "matched_skills": [
+            "react",
+            "machine learning",
+            "html"
+          ],
+          "filename": "mary_taylor_48.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "mary taylor - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nruby on rails, machine learning, html, fastapi, react\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 17,
+          "name": "Robert Hernandez",
+          "score": 10.7,
+          "matched_skills": [
+            "sql",
+            "machine learning",
+            "node.js",
+            "flask",
+            "mongodb"
+          ],
+          "filename": "robert_hernandez_45.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "robert hernandez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\npostgresql, devops, mongodb, node.js, machine learning, flask, typescript\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 18,
+          "name": "William Johnson",
+          "score": 10.5,
+          "matched_skills": [
+            "sql",
+            "machine learning",
+            "aws",
+            "html",
+            "node.js"
+          ],
+          "filename": "william_johnson_16.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "william johnson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\naws, sql, machine learning, ruby on rails, .net, node.js, html\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 19,
+          "name": "Joseph Jackson",
+          "score": 10.3,
+          "matched_skills": [
+            "react",
+            "machine learning",
+            "git",
+            "css",
+            "node.js"
+          ],
+          "filename": "joseph_jackson_46.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "joseph jackson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ndjango, node.js, vue.js, machine learning, css, angular, git, react, pytorch, fastapi\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 20,
+          "name": "Karen Martinez",
+          "score": 10.2,
+          "matched_skills": [
+            "react",
+            "machine learning",
+            "aws",
+            "html",
+            "tensorflow"
+          ],
+          "filename": "karen_martinez_3.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "karen martinez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\naws, spring boot, html, ruby on rails, machine learning, react, tensorflow, data science\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 21,
+          "name": "Elizabeth Gonzalez",
+          "score": 10.1,
+          "matched_skills": [
+            "machine learning",
+            "aws",
+            "docker",
+            "git"
+          ],
+          "filename": "elizabeth_gonzalez_88.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "elizabeth gonzalez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ndocker, ruby on rails, data science, ci/cd, typescript, aws, git, fastapi, c++, machine learning\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 22,
+          "name": "Charles Moore",
+          "score": 6.7,
+          "matched_skills": [
+            "python",
+            "sql",
+            "kubernetes"
+          ],
+          "filename": "charles_moore_82.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "charles moore - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nkubernetes, python, sql\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 23,
+          "name": "Elizabeth Jones",
+          "score": 6.7,
+          "matched_skills": [
+            "python",
+            "css"
+          ],
+          "filename": "elizabeth_jones_23.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "elizabeth jones - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\npython, devops, css\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 24,
+          "name": "Barbara Martin",
+          "score": 6.6,
+          "matched_skills": [
+            "python",
+            "react",
+            "aws",
+            "docker",
+            "html"
+          ],
+          "filename": "barbara_martin_55.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "barbara martin - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nreact, aws, docker, html, python\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 25,
+          "name": "James Garcia",
+          "score": 6.6,
+          "matched_skills": [
+            "python",
+            "react",
+            "css",
+            "tensorflow"
+          ],
+          "filename": "james_garcia_14.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "james garcia - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nreact, fastapi, python, css, tensorflow\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 26,
+          "name": "Linda Jones",
+          "score": 6.6,
+          "matched_skills": [
+            "python",
+            "git"
+          ],
+          "filename": "linda_jones_84.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "linda jones - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ntypescript, git, c++, python, ci/cd\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 27,
+          "name": "Patricia Taylor",
+          "score": 6.6,
+          "matched_skills": [
+            "python",
+            "sql",
+            "git",
+            "html",
+            "flask"
+          ],
+          "filename": "patricia_taylor_29.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "patricia taylor - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nsql, devops, git, html, python, flask, pytorch\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 28,
+          "name": "Robert Rodriguez",
+          "score": 6.6,
+          "matched_skills": [
+            "python",
+            "flask",
+            "agile"
+          ],
+          "filename": "robert_rodriguez_1.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "robert rodriguez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\npython, flask, .net, agile, c++, vue.js\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 29,
+          "name": "Sarah Anderson",
+          "score": 6.6,
+          "matched_skills": [
+            "python"
+          ],
+          "filename": "sarah_anderson_34.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "sarah anderson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\npython, typescript, ruby on rails\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 30,
+          "name": "William Martinez",
+          "score": 6.6,
+          "matched_skills": [
+            "python",
+            "sql",
+            "aws",
+            "mongodb"
+          ],
+          "filename": "william_martinez_13.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "william martinez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nmongodb, python, typescript, sql, aws\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 31,
+          "name": "William Rodriguez",
+          "score": 6.6,
+          "matched_skills": [
+            "python",
+            "css"
+          ],
+          "filename": "william_rodriguez_25.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "william rodriguez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nangular, figma, django, fastapi, python, css\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 32,
+          "name": "William Wilson",
+          "score": 6.6,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "git",
+            "agile"
+          ],
+          "filename": "william_wilson_53.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "william wilson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nagile, javascript, git, django, typescript, python\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 33,
+          "name": "Barbara Lopez",
+          "score": 6.5,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "flask"
+          ],
+          "filename": "barbara_lopez_72.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "barbara lopez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ntypescript, flask, ci/cd, javascript, python, vue.js, c++\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 34,
+          "name": "James Martin",
+          "score": 6.5,
+          "matched_skills": [
+            "python",
+            "java",
+            "sql",
+            "aws"
+          ],
+          "filename": "james_martin_24.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "james martin - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nfigma, aws, ruby on rails, java, sql, python\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 35,
+          "name": "Joseph Johnson",
+          "score": 6.5,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "sql",
+            "react",
+            "kubernetes",
+            "tensorflow"
+          ],
+          "filename": "joseph_johnson_9.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "joseph johnson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nkubernetes, pytorch, fastapi, python, postgresql, javascript, tensorflow, react\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 36,
+          "name": "James Jones",
+          "score": 6.4,
+          "matched_skills": [
+            "python",
+            "react",
+            "docker",
+            "html"
+          ],
+          "filename": "james_jones_87.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "james jones - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nc++, html, react, c#, scrum, python, data science, docker\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 37,
+          "name": "John Smith",
+          "score": 6.4,
+          "matched_skills": [
+            "python",
+            "node.js"
+          ],
+          "filename": "john_smith_62.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "john smith - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\npython, ui/ux, c#, data science, fastapi, node.js\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 38,
+          "name": "Joseph Garcia",
+          "score": 6.4,
+          "matched_skills": [
+            "python",
+            "sql",
+            "docker",
+            "kubernetes",
+            "html"
+          ],
+          "filename": "joseph_garcia_50.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "joseph garcia - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\n.net, devops, vue.js, python, docker, sql, typescript, html, kubernetes\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 39,
+          "name": "Karen Jackson",
+          "score": 6.4,
+          "matched_skills": [
+            "python",
+            "docker",
+            "mongodb"
+          ],
+          "filename": "karen_jackson_15.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "karen jackson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ndata science, python, c#, angular, mongodb, docker\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 40,
+          "name": "Jessica Davis",
+          "score": 6.3,
+          "matched_skills": [
+            "python",
+            "docker",
+            "css"
+          ],
+          "filename": "jessica_davis_27.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "jessica davis - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ndevops, docker, typescript, django, css, pytorch, python, figma, data science, fastapi\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 41,
+          "name": "John Moore",
+          "score": 6.3,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "react",
+            "html",
+            "node.js",
+            "tensorflow"
+          ],
+          "filename": "john_moore_37.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "john moore - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nnode.js, python, tensorflow, react, javascript, ci/cd, ruby on rails, devops, java, html\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 42,
+          "name": "Michael Anderson",
+          "score": 6.3,
+          "matched_skills": [
+            "python",
+            "react",
+            "git"
+          ],
+          "filename": "michael_anderson_61.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "michael anderson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ndata science, git, fastapi, devops, c#, python, vue.js, angular, react, django\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 43,
+          "name": "Barbara Jackson",
+          "score": 3.1,
+          "matched_skills": [
+            "java",
+            "kubernetes",
+            "css"
+          ],
+          "filename": "barbara_jackson_93.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "barbara jackson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\n.net, java, kubernetes, scrum, css\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 44,
+          "name": "Charles Williams",
+          "score": 3.1,
+          "matched_skills": [
+            "sql",
+            "docker",
+            "kubernetes"
+          ],
+          "filename": "charles_williams_97.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "charles williams - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nspring boot, kubernetes, sql, docker, fastapi\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 45,
+          "name": "Jennifer Jackson",
+          "score": 3.1,
+          "matched_skills": [
+            "java",
+            "kubernetes"
+          ],
+          "filename": "jennifer_jackson_39.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "jennifer jackson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\njava, scrum, kubernetes\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 46,
+          "name": "Jennifer Martinez",
+          "score": 3.1,
+          "matched_skills": [],
+          "filename": "jennifer_martinez_79.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "jennifer martinez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nc++, c#, figma, devops, django, spring boot\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 47,
+          "name": "Jennifer Smith",
+          "score": 3.1,
+          "matched_skills": [
+            "java",
+            "javascript",
+            "mongodb"
+          ],
+          "filename": "jennifer_smith_31.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "jennifer smith - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nmongodb, ci/cd, javascript, angular\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 48,
+          "name": "Jessica Brown",
+          "score": 3.1,
+          "matched_skills": [
+            "css",
+            "tensorflow"
+          ],
+          "filename": "jessica_brown_57.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "jessica brown - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ncss, tensorflow, c++\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 49,
+          "name": "Jessica Hernandez",
+          "score": 3.1,
+          "matched_skills": [
+            "sql",
+            "git",
+            "html"
+          ],
+          "filename": "jessica_hernandez_5.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "jessica hernandez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\npostgresql, fastapi, git, html\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 50,
+          "name": "Jessica Jackson",
+          "score": 3.1,
+          "matched_skills": [
+            "kubernetes",
+            "node.js"
+          ],
+          "filename": "jessica_jackson_26.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "jessica jackson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nfigma, node.js, kubernetes, c#, pytorch\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 51,
+          "name": "John Johnson",
+          "score": 3.1,
+          "matched_skills": [
+            "css"
+          ],
+          "filename": "john_johnson_56.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "john johnson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nc#, css, django\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 52,
+          "name": "John Rodriguez",
+          "score": 3.1,
+          "matched_skills": [
+            "sql",
+            "mongodb"
+          ],
+          "filename": "john_rodriguez_90.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "john rodriguez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nspring boot, mongodb, postgresql, django\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 53,
+          "name": "Joseph Brown",
+          "score": 3.1,
+          "matched_skills": [
+            "java",
+            "react",
+            "node.js"
+          ],
+          "filename": "joseph_brown_59.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "joseph brown - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nnode.js, figma, java, react\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 54,
+          "name": "Karen Martin",
+          "score": 3.1,
+          "matched_skills": [
+            "agile"
+          ],
+          "filename": "karen_martin_80.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "karen martin - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nc++, django, agile\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 55,
+          "name": "Karen Smith",
+          "score": 3.1,
+          "matched_skills": [
+            "react"
+          ],
+          "filename": "karen_smith_12.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "karen smith - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nci/cd, react, fastapi, c++\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 56,
+          "name": "Mary Johnson",
+          "score": 3.1,
+          "matched_skills": [
+            "java",
+            "javascript",
+            "sql",
+            "react",
+            "html",
+            "css",
+            "agile"
+          ],
+          "filename": "mary_johnson_36.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "mary johnson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ncss, react, html, agile, postgresql, javascript, c++\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 57,
+          "name": "Michael Smith",
+          "score": 3.1,
+          "matched_skills": [
+            "sql",
+            "aws"
+          ],
+          "filename": "michael_smith_65.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "michael smith - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nsql, c#, aws, typescript, fastapi\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 58,
+          "name": "Michael Smith",
+          "score": 3.1,
+          "matched_skills": [
+            "sql",
+            "git",
+            "agile"
+          ],
+          "filename": "michael_smith_91.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "michael smith - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nagile, git, postgresql, c#\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 59,
+          "name": "Patricia Smith",
+          "score": 3.1,
+          "matched_skills": [
+            "html",
+            "flask"
+          ],
+          "filename": "patricia_smith_33.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "patricia smith - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nhtml, .net, flask\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 60,
+          "name": "Richard Lopez",
+          "score": 3.1,
+          "matched_skills": [
+            "kubernetes",
+            "css",
+            "flask"
+          ],
+          "filename": "richard_lopez_4.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "richard lopez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ncss, kubernetes, flask, .net, spring boot\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 61,
+          "name": "Richard Wilson",
+          "score": 3.1,
+          "matched_skills": [
+            "tensorflow"
+          ],
+          "filename": "richard_wilson_70.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "richard wilson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ntensorflow, c#, typescript\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 62,
+          "name": "Sarah Garcia",
+          "score": 3.1,
+          "matched_skills": [
+            "java",
+            "aws",
+            "kubernetes",
+            "mongodb",
+            "agile"
+          ],
+          "filename": "sarah_garcia_44.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "sarah garcia - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\njava, aws, kubernetes, agile, mongodb\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 63,
+          "name": "Susan Martin",
+          "score": 3.1,
+          "matched_skills": [],
+          "filename": "susan_martin_40.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "susan martin - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nci/cd, figma, ruby on rails\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 64,
+          "name": "Susan Thomas",
+          "score": 3.1,
+          "matched_skills": [
+            "java",
+            "mongodb"
+          ],
+          "filename": "susan_thomas_71.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "susan thomas - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nmongodb, django, ui/ux, java\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 65,
+          "name": "Thomas Garcia",
+          "score": 3.1,
+          "matched_skills": [],
+          "filename": "thomas_garcia_20.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "thomas garcia - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nfastapi, django, typescript\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 66,
+          "name": "Thomas Gonzalez",
+          "score": 3.1,
+          "matched_skills": [
+            "docker",
+            "css",
+            "node.js"
+          ],
+          "filename": "thomas_gonzalez_85.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "thomas gonzalez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nnode.js, docker, css\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 67,
+          "name": "Thomas Martin",
+          "score": 3.1,
+          "matched_skills": [
+            "docker",
+            "kubernetes",
+            "git",
+            "tensorflow",
+            "agile"
+          ],
+          "filename": "thomas_martin_32.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "thomas martin - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nagile, tensorflow, django, kubernetes, docker, git\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 68,
+          "name": "William Garcia",
+          "score": 3.1,
+          "matched_skills": [
+            "tensorflow",
+            "mongodb"
+          ],
+          "filename": "william_garcia_21.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "william garcia - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ntensorflow, scrum, mongodb\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 69,
+          "name": "William Smith",
+          "score": 3.1,
+          "matched_skills": [
+            "java",
+            "javascript",
+            "css"
+          ],
+          "filename": "william_smith_92.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "william smith - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ncss, typescript, javascript\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 70,
+          "name": "William Williams",
+          "score": 3.1,
+          "matched_skills": [
+            "java",
+            "javascript"
+          ],
+          "filename": "william_williams_49.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "william williams - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\njavascript, fastapi, ci/cd\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 71,
+          "name": "Barbara Rodriguez",
+          "score": 3.0,
+          "matched_skills": [
+            "java",
+            "sql",
+            "aws",
+            "docker"
+          ],
+          "filename": "barbara_rodriguez_63.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "barbara rodriguez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nsql, java, docker, postgresql, devops, aws, typescript\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 72,
+          "name": "Charles Jackson",
+          "score": 3.0,
+          "matched_skills": [
+            "react",
+            "html"
+          ],
+          "filename": "charles_jackson_99.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "charles jackson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ndata science, django, html, react\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 73,
+          "name": "Charles Martinez",
+          "score": 3.0,
+          "matched_skills": [
+            "sql",
+            "kubernetes"
+          ],
+          "filename": "charles_martinez_94.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "charles martinez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nsql, kubernetes, .net, devops, ui/ux, ruby on rails, c#\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 74,
+          "name": "James Thomas",
+          "score": 3.0,
+          "matched_skills": [
+            "java"
+          ],
+          "filename": "james_thomas_41.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "james thomas - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\njava, scrum, data science\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 75,
+          "name": "James Williams",
+          "score": 3.0,
+          "matched_skills": [
+            "react",
+            "css",
+            "flask",
+            "mongodb"
+          ],
+          "filename": "james_williams_95.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "james williams - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nmongodb, devops, angular, .net, react, flask, css\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 76,
+          "name": "Jessica Lopez",
+          "score": 3.0,
+          "matched_skills": [
+            "sql",
+            "aws",
+            "git",
+            "html"
+          ],
+          "filename": "jessica_lopez_22.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "jessica lopez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nsql, fastapi, aws, ui/ux, git, html\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 77,
+          "name": "Jessica Williams",
+          "score": 3.0,
+          "matched_skills": [],
+          "filename": "jessica_williams_28.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "jessica williams - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nscrum, spring boot, vue.js, django, angular, c#\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 78,
+          "name": "John Garcia",
+          "score": 3.0,
+          "matched_skills": [
+            "sql",
+            "aws",
+            "git",
+            "css",
+            "tensorflow",
+            "mongodb",
+            "agile"
+          ],
+          "filename": "john_garcia_68.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "john garcia - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nmongodb, aws, css, fastapi, agile, sql, tensorflow, git, vue.js\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 79,
+          "name": "Joseph Jackson",
+          "score": 3.0,
+          "matched_skills": [
+            "sql",
+            "react",
+            "aws",
+            "docker",
+            "css",
+            "node.js",
+            "flask"
+          ],
+          "filename": "joseph_jackson_17.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "joseph jackson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\naws, flask, css, docker, node.js, react, postgresql, spring boot, .net\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 80,
+          "name": "Karen Jackson",
+          "score": 3.0,
+          "matched_skills": [
+            "sql",
+            "tensorflow"
+          ],
+          "filename": "karen_jackson_35.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "karen jackson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nfastapi, devops, vue.js, pytorch, tensorflow, sql, ruby on rails\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 81,
+          "name": "Karen Miller",
+          "score": 3.0,
+          "matched_skills": [
+            "java",
+            "react",
+            "kubernetes",
+            "css",
+            "tensorflow"
+          ],
+          "filename": "karen_miller_30.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "karen miller - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ndjango, fastapi, figma, css, react, pytorch, tensorflow, kubernetes, java, .net\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 82,
+          "name": "Karen Rodriguez",
+          "score": 3.0,
+          "matched_skills": [
+            "react",
+            "aws",
+            "kubernetes",
+            "flask",
+            "agile"
+          ],
+          "filename": "karen_rodriguez_67.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "karen rodriguez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nagile, figma, aws, angular, ui/ux, kubernetes, react, flask, scrum, django\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 83,
+          "name": "Karen Rodriguez",
+          "score": 3.0,
+          "matched_skills": [
+            "git",
+            "css",
+            "flask",
+            "agile"
+          ],
+          "filename": "karen_rodriguez_69.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "karen rodriguez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ncss, angular, figma, ci/cd, flask, git, agile\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 84,
+          "name": "Linda Jackson",
+          "score": 3.0,
+          "matched_skills": [
+            "java",
+            "javascript",
+            "sql",
+            "git"
+          ],
+          "filename": "linda_jackson_47.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "linda jackson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ndata science, javascript, sql, spring boot, git\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 85,
+          "name": "Linda Jones",
+          "score": 3.0,
+          "matched_skills": [
+            "sql",
+            "git",
+            "tensorflow"
+          ],
+          "filename": "linda_jones_76.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "linda jones - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ngit, sql, ruby on rails, ci/cd, tensorflow\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 86,
+          "name": "Robert Williams",
+          "score": 3.0,
+          "matched_skills": [
+            "sql",
+            "html",
+            "css",
+            "tensorflow"
+          ],
+          "filename": "robert_williams_86.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "robert williams - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ntensorflow, html, ci/cd, css, c#, .net, postgresql, ui/ux\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 87,
+          "name": "Sarah Martinez",
+          "score": 3.0,
+          "matched_skills": [
+            "kubernetes",
+            "css",
+            "mongodb"
+          ],
+          "filename": "sarah_martinez_60.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "sarah martinez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nc#, c++, scrum, css, kubernetes, spring boot, fastapi, vue.js, typescript, mongodb\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 88,
+          "name": "Sarah Smith",
+          "score": 3.0,
+          "matched_skills": [
+            "java",
+            "javascript",
+            "aws",
+            "docker",
+            "git",
+            "html",
+            "flask",
+            "agile"
+          ],
+          "filename": "sarah_smith_52.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "sarah smith - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nci/cd, scrum, javascript, flask, html, c++, git, agile, docker, aws\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 89,
+          "name": "Susan Moore",
+          "score": 3.0,
+          "matched_skills": [
+            "node.js",
+            "flask"
+          ],
+          "filename": "susan_moore_43.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "susan moore - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ndata science, c#, node.js, flask, .net\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 90,
+          "name": "Thomas Jackson",
+          "score": 3.0,
+          "matched_skills": [
+            "java",
+            "javascript",
+            "sql",
+            "git",
+            "flask"
+          ],
+          "filename": "thomas_jackson_81.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "thomas jackson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\npostgresql, git, javascript, sql, spring boot, flask, angular, scrum, fastapi, typescript\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 91,
+          "name": "Thomas Martinez",
+          "score": 3.0,
+          "matched_skills": [
+            "sql",
+            "aws",
+            "kubernetes",
+            "git"
+          ],
+          "filename": "thomas_martinez_73.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "thomas martinez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nsql, aws, django, spring boot, git, kubernetes, c++, ruby on rails, .net, c#\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 92,
+          "name": "Thomas Martin",
+          "score": 3.0,
+          "matched_skills": [
+            "aws",
+            "git",
+            "tensorflow",
+            "agile"
+          ],
+          "filename": "thomas_martin_64.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "thomas martin - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\npytorch, c++, git, tensorflow, scrum, vue.js, aws, agile, c#\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 93,
+          "name": "Thomas Moore",
+          "score": 3.0,
+          "matched_skills": [
+            "flask",
+            "tensorflow"
+          ],
+          "filename": "thomas_moore_8.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "thomas moore - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nflask, tensorflow, data science\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 94,
+          "name": "Thomas Wilson",
+          "score": 3.0,
+          "matched_skills": [
+            "java",
+            "javascript",
+            "sql",
+            "git",
+            "flask",
+            "agile"
+          ],
+          "filename": "thomas_wilson_98.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "thomas wilson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\ndjango, pytorch, agile, flask, postgresql, vue.js, javascript, figma, git\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 95,
+          "name": "William Moore",
+          "score": 3.0,
+          "matched_skills": [
+            "java",
+            "sql",
+            "aws",
+            "css",
+            "mongodb",
+            "agile"
+          ],
+          "filename": "william_moore_100.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "william moore - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\npostgresql, vue.js, java, .net, css, mongodb, agile, aws\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 96,
+          "name": "James Jackson",
+          "score": 2.9,
+          "matched_skills": [
+            "java",
+            "sql",
+            "html"
+          ],
+          "filename": "james_jackson_74.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "james jackson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nhtml, pytorch, java, data science, postgresql, scrum, typescript, ci/cd, spring boot\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 97,
+          "name": "Linda Lopez",
+          "score": 2.9,
+          "matched_skills": [
+            "react",
+            "kubernetes"
+          ],
+          "filename": "linda_lopez_6.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "linda lopez - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nscrum, react, devops, data science, kubernetes, spring boot, django\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 98,
+          "name": "Robert Garcia",
+          "score": 2.9,
+          "matched_skills": [
+            "java",
+            "javascript",
+            "react",
+            "kubernetes",
+            "node.js"
+          ],
+          "filename": "robert_garcia_19.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "robert garcia - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nreact, data science, kubernetes, javascript, figma, scrum, node.js, django\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 99,
+          "name": "William Anderson",
+          "score": 2.9,
+          "matched_skills": [
+            "react",
+            "kubernetes",
+            "mongodb"
+          ],
+          "filename": "william_anderson_7.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "william anderson - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nmongodb, vue.js, react, kubernetes, devops, data science\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology"
+        },
+        {
+          "rank": 100,
+          "name": "Susan Garcia",
+          "score": 0.1,
+          "matched_skills": [
+            "react"
+          ],
+          "filename": "susan_garcia_54.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "susan garcia - resume\nsummary\nexperienced software engineer with a track record of building scalable web applications and data pipelines.\nskills\nfastapi, react, typescript, c++, data science\nexperience\nsenior software engineer - tech corp (2018-present)\n- developed amazing features using modern web technologies.\nsoftware engineer - startup inc (2015-2018)\n- maintained critical infrastructure and improved performance.\neducation\nb.s. in computer science - university of technology\nhidden skills section for seo\nfastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science fastapi react typescript c++ data science"
+        }
+      ]
+    }
+  ]
+}
