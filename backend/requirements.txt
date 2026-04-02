@@ -5,10 +5,12 @@ python-docx
 werkzeug
 scikit-learn
 gunicorn
-sqlalchemy
-pymysql
-cryptography
 easyocr
 Pillow
 mammoth
 numpy
+sentence-transformers
+pandas
+openpyxl
+joblib
+matplotlib
