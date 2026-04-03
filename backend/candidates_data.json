@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-04-03T00:57:52.274340",
-  "total_batches": 12,
-  "total_resumes": 328,
+  "last_updated": "2026-04-04T00:32:44.982427",
+  "total_batches": 26,
+  "total_resumes": 421,
   "batches": [
     {
       "batch_id": "7fadc534-2f3c-4ec1-8af4-048bd0b0a550",
@@ -4924,6 +4924,1715 @@
           "is_anomaly": false,
           "anomaly_reason": "",
           "raw_text": "William Wilson - Resume\nSummary\nExperienced software engineer with a track record of building scalable web applications and data pipelines.\nSkills\nAgile, JavaScript, Git, Django, TypeScript, Python\nExperience\nSenior Software Engineer - Tech Corp (2018-Present)\n- Developed amazing features using modern web technologies.\nSoftware Engineer - Startup Inc (2015-2018)\n- Maintained critical infrastructure and improved performance.\nEducation\nB.S. in Computer Science - University of Technology"
+        }
+      ]
+    },
+    {
+      "batch_id": "6274c11c-77bf-4322-937b-72eff5107ab8",
+      "uploaded_at": "2026-04-03T20:09:12.805076",
+      "job_description": "Software Engineer with experience in Python, AWS, and Machine Learning",
+      "candidate_count": 5,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Jane Smith",
+          "score": 12.2,
+          "matched_skills": [
+            "python",
+            "sql",
+            "machine learning",
+            "data analysis",
+            "aws",
+            "tensorflow",
+            "pandas"
+          ],
+          "filename": "jane_smith_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Jane Smith\nData Scientist\nSkills: Python, Machine Learning, Data Analysis, SQL, TensorFlow, Pandas, AWS\nExperience: 2 years in analytics"
+        },
+        {
+          "rank": 2,
+          "name": "Sarah Wilson",
+          "score": 10.0,
+          "matched_skills": [
+            "python",
+            "aws",
+            "docker",
+            "kubernetes",
+            "git",
+            "mongodb",
+            "rest api",
+            "agile"
+          ],
+          "filename": "sarah_wilson_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Sarah Wilson\nDevOps Engineer\nSkills: AWS, Docker, Kubernetes, Python, Git, MongoDB, Agile, REST API\nExperience: 4 years cloud infra"
+        },
+        {
+          "rank": 3,
+          "name": "John Doe",
+          "score": 9.0,
+          "matched_skills": [
+            "python",
+            "java",
+            "sql",
+            "react",
+            "docker",
+            "git",
+            "flask",
+            "rest api",
+            "agile"
+          ],
+          "filename": "john_doe_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "John Doe\nSoftware Engineer\nSkills: Python, Java, React, SQL, Docker, Git, Flask, REST API, Agile\nExperience: 3 years building web apps"
+        },
+        {
+          "rank": 4,
+          "name": "Mike Chen",
+          "score": 3.1,
+          "matched_skills": [
+            "java",
+            "git",
+            "html",
+            "css"
+          ],
+          "filename": "mike_chen_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Mike Chen\nJunior Developer\nSkills: Java, HTML, CSS, Git\nExperience: Internship"
+        },
+        {
+          "rank": 5,
+          "name": "Alex Kumar",
+          "score": 2.3,
+          "matched_skills": [
+            "java",
+            "javascript",
+            "react",
+            "git",
+            "html",
+            "css",
+            "node.js",
+            "agile"
+          ],
+          "filename": "alex_kumar_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Alex Kumar\nFrontend Dev\nSkills: JavaScript, React, HTML, CSS, Node.js, Git, Agile\nExperience: 1 year UI development"
+        }
+      ]
+    },
+    {
+      "batch_id": "2e59516d-5ee3-4f9a-bd8e-15bbbe4b9d14",
+      "uploaded_at": "2026-04-03T20:09:36.789762",
+      "job_description": "Software Engineer with experience in Python, AWS, and Machine Learning",
+      "candidate_count": 5,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Jane Smith",
+          "score": 12.2,
+          "matched_skills": [
+            "python",
+            "sql",
+            "machine learning",
+            "data analysis",
+            "aws",
+            "tensorflow",
+            "pandas"
+          ],
+          "filename": "jane_smith_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Jane Smith\nData Scientist\nSkills: Python, Machine Learning, Data Analysis, SQL, TensorFlow, Pandas, AWS\nExperience: 2 years in analytics"
+        },
+        {
+          "rank": 2,
+          "name": "Sarah Wilson",
+          "score": 10.0,
+          "matched_skills": [
+            "python",
+            "aws",
+            "docker",
+            "kubernetes",
+            "git",
+            "mongodb",
+            "rest api",
+            "agile"
+          ],
+          "filename": "sarah_wilson_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Sarah Wilson\nDevOps Engineer\nSkills: AWS, Docker, Kubernetes, Python, Git, MongoDB, Agile, REST API\nExperience: 4 years cloud infra"
+        },
+        {
+          "rank": 3,
+          "name": "John Doe",
+          "score": 9.0,
+          "matched_skills": [
+            "python",
+            "java",
+            "sql",
+            "react",
+            "docker",
+            "git",
+            "flask",
+            "rest api",
+            "agile"
+          ],
+          "filename": "john_doe_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "John Doe\nSoftware Engineer\nSkills: Python, Java, React, SQL, Docker, Git, Flask, REST API, Agile\nExperience: 3 years building web apps"
+        },
+        {
+          "rank": 4,
+          "name": "Mike Chen",
+          "score": 3.1,
+          "matched_skills": [
+            "java",
+            "git",
+            "html",
+            "css"
+          ],
+          "filename": "mike_chen_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Mike Chen\nJunior Developer\nSkills: Java, HTML, CSS, Git\nExperience: Internship"
+        },
+        {
+          "rank": 5,
+          "name": "Alex Kumar",
+          "score": 2.3,
+          "matched_skills": [
+            "java",
+            "javascript",
+            "react",
+            "git",
+            "html",
+            "css",
+            "node.js",
+            "agile"
+          ],
+          "filename": "alex_kumar_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Alex Kumar\nFrontend Dev\nSkills: JavaScript, React, HTML, CSS, Node.js, Git, Agile\nExperience: 1 year UI development"
+        }
+      ]
+    },
+    {
+      "batch_id": "99b346ba-7b91-4514-b42a-a7edfedb9be6",
+      "uploaded_at": "2026-04-03T20:14:13.601502",
+      "job_description": "javascript developer with git",
+      "candidate_count": 5,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Alex Kumar",
+          "score": 0.0,
+          "matched_skills": [
+            "java",
+            "javascript",
+            "react",
+            "git",
+            "html",
+            "css",
+            "node.js",
+            "agile"
+          ],
+          "filename": "alex_kumar_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Alex Kumar\nFrontend Dev\nSkills: JavaScript, React, HTML, CSS, Node.js, Git, Agile\nExperience: 1 year UI development"
+        },
+        {
+          "rank": 2,
+          "name": "Jane Smith",
+          "score": 0.0,
+          "matched_skills": [
+            "python",
+            "sql",
+            "machine learning",
+            "data analysis",
+            "aws",
+            "tensorflow",
+            "pandas"
+          ],
+          "filename": "jane_smith_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Jane Smith\nData Scientist\nSkills: Python, Machine Learning, Data Analysis, SQL, TensorFlow, Pandas, AWS\nExperience: 2 years in analytics"
+        },
+        {
+          "rank": 3,
+          "name": "John Doe",
+          "score": 0.0,
+          "matched_skills": [
+            "python",
+            "java",
+            "sql",
+            "react",
+            "docker",
+            "git",
+            "flask",
+            "rest api",
+            "agile"
+          ],
+          "filename": "john_doe_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "John Doe\nSoftware Engineer\nSkills: Python, Java, React, SQL, Docker, Git, Flask, REST API, Agile\nExperience: 3 years building web apps"
+        },
+        {
+          "rank": 4,
+          "name": "Mike Chen",
+          "score": 0.0,
+          "matched_skills": [
+            "java",
+            "git",
+            "html",
+            "css"
+          ],
+          "filename": "mike_chen_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Mike Chen\nJunior Developer\nSkills: Java, HTML, CSS, Git\nExperience: Internship"
+        },
+        {
+          "rank": 5,
+          "name": "Sarah Wilson",
+          "score": 0.0,
+          "matched_skills": [
+            "python",
+            "aws",
+            "docker",
+            "kubernetes",
+            "git",
+            "mongodb",
+            "rest api",
+            "agile"
+          ],
+          "filename": "sarah_wilson_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Sarah Wilson\nDevOps Engineer\nSkills: AWS, Docker, Kubernetes, Python, Git, MongoDB, Agile, REST API\nExperience: 4 years cloud infra"
+        }
+      ]
+    },
+    {
+      "batch_id": "8e149054-3599-470c-9d93-731b78479cb1",
+      "uploaded_at": "2026-04-03T20:15:05.640081",
+      "job_description": "javascript developer with git",
+      "candidate_count": 3,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Vishv",
+          "score": 0.0,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "sql",
+            "git",
+            "html",
+            "css",
+            "node.js"
+          ],
+          "filename": "Vishv-Resume.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "VISHV PATEL\n+91 8488045303 | vishvpatel7005@gmail.com | www.linkedin.com/in/vishv-patel- |https://github.com/vishv-2005 |\n PROFILE\nHighly motivated and enthusiastic Third Year B.Tech student with a strong interest in software development and a foundational understanding of Java, Python, C, JavaScript. Eager to contribute to real-world projects, learn from experienced professionals, and gain practical experience in software development.\n TECHNICAL SKILLS\nProgramming Languages: [C, Python, Java, HTML, CSS, JavaScript, MySQL, Express.js, Node.js, Flutter]\nTools & Technologies: [Git, GitHub, VS Code, Android Studios, Jira, Fusion, AutoCad, CircuitVerse]\nOther Relevant Skills: [ Problem-solving, Logical thinking, Circuit Design, Automation, Teamwork, Communication]\n EDUCATION\nBachelor of Technology – Computer Science and Engineering\t(2023 – 2027)\nNavrachana University, Vadodara, Gujarat, India Current CGPA – 7.63/10\nMinor Degree – Mechatronics\t\t\t\t\t\t\t\t\t(Along with degree)\nNavrachana University, Vadodara, Gujarat, India\n PROJECTS\n_\nAI-Powered WhatsApp CRM System \tAugust 2025 – Developing\nDeveloping a lightweight, AI-driven Customer Relationship Management (CRM) system integrated with the WhatsApp Business Cloud API to automate customer interactions for small businesses, featuring real-time message categorization, analytics, and a chatbot assistant.\nBuilding a scalable fullstack application using JS Frameworks for the backend, Flutter for an intuitive dashboard, and SupaBase for data storage, enhancing operational efficiency for small-scale entrepreneurs.\nFlutter Chess App for Android                                                                        August 2025 – November 2025\nDesigned and developed a cross-platform chess game mobile application using Flutter and Dart, enabling intuitive, interactive play on Android devices.\nEngineered core chess logic—including move validation, check/checkmate, and special rules (castling,       en-passant, pawn promotion).\nImplemented a polished UI/UX with scalable SVG graphics for chess pieces, smooth animations, and custom themes, supporting robust game state persistence with local storage.\nUtilized Git and GitHub for version control and collaborative development.\nFlutter Sudoku for Android                                                                        August 2025 – November 2025\nDesigned and developed a cross-platform chess game mobile application using Flutter and Dart, enabling intuitive, interactive play on Android devices.\nEngineered core Sudoku logic.\nImplemented a polished UI/UX with smooth animations, and custom themes, supporting robust game state persistence with local storage.\nUtilized Git and GitHub for version control and collaborative development.\nSocietEase\tJan 2025 – April 2025\nSocietEase is a comprehensive and user-friendly Java-based society management system developed using Java Swing for GUI, a structured MySQL database backend, and clean modular object-oriented design.\nThe application streamlines the day-to-day operations of a residential society, providing dedicated modules for residents, committee members, and administrators.\nTourism\tAugust 2024 – November 2024\nThis is a minor project of website making using HTML, CSS, JS and connecting the data base using Xampp and php.\nNavrachana-University\tAugust 2023 – November 2023\nMy University website as my first web development project. This project includes use of HTML and CSS. This is a static website made with reference to the Navrachana University official website www.nuv.ac.in .\n_\nReferences available on request\t"
+        },
+        {
+          "rank": 2,
+          "name": "Rudra Soni",
+          "score": 0.0,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "git",
+            "html",
+            "css",
+            "node.js"
+          ],
+          "filename": "Rudra Soni Resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "RUDRA SONI\nASPIRING SOFTWARE\nDEVELOPER INTERN\nB.Tech in Computer Engineering  \nNavrachana University, Vadodara  \nSecond Year (2023 – 2027)  \nCurrent CGPA: 8.65  \nPursuing Minor in Mechatronics\nEDUCATION\nTECHNICAL SKILLS\nProgramming Languages:\nPython, C, Java, JavaScript  \nWeb Technologies: HTML, CSS,\nNode.js , Wordpress\nDatabases: MariaDB  \nTools & Platforms: Git, Linux, VS\nCode\nCONTACT INFORMATION\n+91-875-855-1131\nrudrasoni273@gmail.com\nlinkedin: linkedin.com/in/rudra-\nsoni-1b6197364/\nPROJECTS\nMusic Room – Real-time music chat app  - 2023\nDeveloped using Node.js and Socket.io. Enables\nusers to join rooms and sync music playback with\nreal-time chat.\nExcel-to-Word Automation Tool - 2023 \nDeveloped for a real-world client. Automates\ndata transfer from Excel spreadsheets to Word\ntemplates, reducing manual work.\nDigital Logic Tic-Tac-Toe - 2023\nCreated using only gates and flip-flops on\nCircuitVerse. Showcases deep understanding of\ndigital circuit design.\nGesture-Controlled Mouse Glove - 2024\nBuilt a glove prototype that emulates mouse\ncontrol using sensors. AI-based gesture\nrecognition planned.\nBarrel Piano  - 2024\nDesigned a rotating paper-based music system\nwhere sensors detect patterns and trigger sound\nplayback.\nOBJECTIVE\nEnthusiastic \nB.Tech \nstudent\npassionate \nabout \nsoftware\ndevelopment \nand \nalgorithms.\nLooking for a Software Developer\ninternship \nto \ncontribute \nto\nmeaningful projects while learning\nindustry best practices.\nYou want your CV to have a link to your\nLinkedin account and your portfolio site\nso recruiters can immediately see what\nyou've accomplished. \nAdd the logo of the companies you have\nworked in. Link their website or LinkedIn\nprofiles too. Write a short description of\nwhat the company does if they are not\nwell known.\nOnly list skills you are confident in and\nare relevant to the job. You may also list\nspecific software or tools that are\nimportant to the role.\nAdding volunteer work and other\ninterests is optional. Information under\nthis section may seem irrelevant but it\ncan build rapport with recruiters. \nImportant: Download your CV as a PDF. Do\nnot use docx, png, or jpg since an applicant\ntracking system may not be able to properly\ndisplay the file or scan the text.\nAdding your photo to a CV is optional.\nPhotos help recruiters remember you, but\nthere is a risk of unconscious bias.\nRemember to add how long you have\nstayed in a particular role. Write out the\nyears and months. Example: Jan 2020 to\nJune 2022 (2 years and 5 months).\nDo not crowd your CV. Feel free to use a\nsecond page, which usually features your\neducational background and other\nachievements and awards.\nMake sure the CV's design aesthetic\nmatches the job you are applying for. For\ncreative roles, you may prefer CVs with a\ntouch of color. For more corporate roles,\ngo for a more simple design.\nHaving a list of references is no longer\nrequired in CVs. The same goes for a\nsummary or objective section. \nWhen writing out your achievements and\nresponsibilities for a job, it is ideal to\nfollow this format: \"I have achieved X by\ndoing Y with a result of Z.\" Quantitative\ninformation is highly preferred.\nWhat recruiters usually look for in a CV\n(in order of importance): \nExperience\nRole or Title\nCompany's Credibility\nResults, Responsibilities,\nAchievements \nPortfolio\nContact Information\nSkills & Relevant Software\nEducational Background\nVolunteering and Other Interests \nRESOURCE PAGE\nSOME TIPS FOR CREATING AN EFFECTIVE CV\nVolunteer English Teacher\nLily River Children's Foundation\nAwardee\nInbound Sales and Marketing\nCertificate \nCERTIFICATES & COURSES"
+        },
+        {
+          "rank": 3,
+          "name": "Resume .pdf",
+          "score": 0.0,
+          "matched_skills": [
+            "git"
+          ],
+          "filename": "Resume .pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "HEM GABHAWALA\nINTRODUCTION\nA dedicated Second-Year B.Tech\nstudent with a strong foundation\nin cybersecurity, penetration\ntesting, and network analysis,\nseeking to contribute as a\nCybersecurity Analyst Intern at\nABC Company. Eager to apply\nhands-on experience in\ndeveloping security tools and\nconducting network\nreconnaissance to assist in\nresearch, development, and\ntesting under expert supervision.\nEXTRACURRICULAR\nACTIVITIES\nActive member of Tech\nClub of my college,\nparticipating in hackathons\nand workshops.\nContributed to team\nprojects in computer\nnetworks, focusing on\nlayered architecture and\nprotocol analysis.\nINTERNSHIP EXPERIENCE\nObjective: Secure Cybersecurity Analyst Intern\nposition at ABC Company.\nINTERN AT HACKERSVILLA\nHackersVilla Cybersecurity Pvt Ltd\nINTERN AT HACKERSVILLA CYBERSECURITY PVT LTD FOR\nHANDS-ON EXPERIENCE.\nDeveloped skills in security analysis and risk management.\nACADEMIC HISTORY\nProject: Network Reconnaissance Tool, Keylogger,\nSpyware, enhancing practical skills.\nUNIVERSITY INSTITUTE\nB.Tech in Cybersecurity\nNAVRACHANA UNIVERSITY\nBachelor's degree in Computer Science and Engineering\nTALENT AND SKILLS\nSkills: Vulnerability\nAssessment, Penetration\nTesting, Network\nAnalysis, Programming,\nSecurity Tools\nOutstanding\nCybersecurity Student\nAchievement Award\nCybersequrity Intern \nPassed with 59% in 12  Science\nth\nPARTH INSTITUTE\nRanked in the Top 5% on TryHackMe,\ndemonstrating proficiency in cybersecurity\nchallenges and penetration testing.\nSuccessfully completed hands-on projects in\nnetwork reconnaissance, keylogging, and\nspyware development, showcasing practical\ncybersecurity skills.\nEarned three industry-recognized certifications\nin cybersecurity, reflecting commitment to\ncontinuous learning and expertise\ndevelopment.\nACHEVIEMENTS\nCERTIFICATES\nGOOGLE CYBERSECURITY CERTIFICATE –\nCOURSERA (NOV 2024)\nINTRODUCTION TO DARK WEB, ANONYMITY,\nAND CRYPTOCURRENCY – EC-COUNCIL ( JUN\n2024)\n30 DAYS CYBERSECURITY: ADVANCED\nCYBERSECURITY AND PENETRATION TESTING\n– HACKERSVILLA (MAR 2024)\n9512537083\nWWW.LINKEDIN.COM/IN/HEM-NIKESH-\nGABHAWALA-99A5482A9\nHHGABHAWALA@GMAIL.COM\n HTTPS://GITHUB.COM/SECURITYWITHHEM"
+        }
+      ]
+    },
+    {
+      "batch_id": "ba00a843-95c4-410e-b004-ca63a17232d4",
+      "uploaded_at": "2026-04-03T23:37:05.867968",
+      "job_description": "javascript developer",
+      "candidate_count": 5,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "1901841_RESUME.pdf",
+          "score": 0.0,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "sql",
+            "machine learning",
+            "git",
+            "html",
+            "css",
+            "tensorflow"
+          ],
+          "filename": "1901841_RESUME.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "ANUVA GOYAL \n \nD.O.B.: 1st October 2000 \nGender: Female \n  \nOBJECTIVE \n \nEnergetic, innovative engineering undergraduate, passionate about Machine Learning, NLP and Deep Learning for \nsolving real-world problems, aiming to work in an organization providing great learning experience and growth \nopportunities for mutual benefit. \n \nEDUCATION \nQualification \nInstitute \nCGPA \nYear of Completion \nB.Tech. \nDayalbagh Educational Institute, \nCGPA 9.35 \n2023 \n(Electrical Engineering \n(Till 4 \nDayalbagh, Agra \nPursuing \nSpecialization in Computer Science) \nsemesters) \nXII \nSt. Clare’s Senior Secondary School, Agra \n94% \n2019 \nX \nSt. Clare’s Senior Secondary School, Agra \nCGPA 10 \n2017 \nINTERNSHIPS AND TRAININGS \n \nInternships: \n \n• \nCompleted an internship at Genisup India Pvt. Ltd. (July 2021- Aug 2021) – NLP: Topic \nModeling o Worked on proxy rotation and utilization \no  Learnt Web Scraping using bs4 and performed LDA Topic Modeling on “The Hindu” news articles. \n \n• \nWorked as an intern at VUGS Technologies (May 2021- June 2021) \n \no Built an OCR using Pytesseract and NER Text Classification Model to categorize detected text \ninto Name, E-mail Address, Phone number and Date. \n \nTrainings: \n \n• \nUndertaking  Deep learning & Computer Vision A-Z: OpenCV, SSD, GANs course from Udemy (Nov 2021) \n \n• \nCompleted Neural Networks and Deep Learning course from Coursera (Apr 2021) \n \n• \nUndertook Machine Learning A-Z: Hands on Python and R in Data Science course from Udemy (Feb 2021) \n \n• \nCompleted Python Core course from SoloLearn (Dec 2020) \n \nPROJECTS: \n \n• \nCurrently working on Mental Healthcare Chatbot (Ongoing) \n \n• \nBuilt a full stack Speech Emotion based Movie Recommender system using the RAVDESS Dataset for SER \nmodel, and Web Scraping techniques for recommendation system. (Oct 2021) \n \n• \nFinding a Perfect Fit, a model to parse resumes using Pytesseract to extract text, NLP for data wrangling, \nand XG Boost and Random Forest techniques for classification (Aug 2021) \n \n• \nOCR for Handwritten text, a model for digit (0-9) + A-Z characters classification using CNN architecture \nto detect the final word in the image. (June 2021) \n \n• \nFace Detection and Recognition using OpenCV and TensorFlow (May 2021) \n \n• \nFace Mask Detection which detects the face using Haar Cascade Classifier from OpenCV library and classifies \nthe image into one of the three categories- Without Mask, With Mask and Incorrect Mask with the help of \nLBPH Algorithm (May 2021) \n \n• \nHeart Attack Prediction and Insurance Company Prediction using various classification algorithms.\nSKILLS \n \n• \nExperience with C, C++, Python, JAVA, HTML, CSS, JavaScript, Data Structures, SQL \n \n• \nSoftware’s: PyCharm, Jupyter Notebook, Google Colab, Code Blocks, MATLAB, Turbo C++, MS Office \n \n• \nMachine Learning Frameworks: Scikit-Learn, TensorFlow, OpenCV, NumPy, Pytesseract, Keras \n \n \nACHIEVEMENTS AND CERTIFICATIONS \n \n• \nSecured 3rd position in TECH-A-THON organized by The ECE Society, BIT Mesra, Ranchi (Oct 2021) \n• \nParticipant of 30 Days of Google Cloud (Sep 2021 - Oct 2021) \n \n• \nWon 1st prize in the online competition Game of Brands organized by SGGSCC, University of Delhi (Mar 2021) \n• \nSecured 2nd rank in Street Play, an Intra Faculty Competition on theme “Women Empowerment” (Sep 2021) \n \n \nWORKSHOPS AND EVENTS \n \n• \nFinalist of Rise in Crisis, a crisis management competition organized by SRCC, University of Delhi (Nov 2021) \n \n• \nParticipated in Hero Campus Challenge S7, a national level competition organized by Hero MotoCorp \nLimited (Nov 2020) \n \n• \nAttended online KLA Workshop on AI and HPC in Semiconductor Manufacturing organized by IIT \nMadras (Sep 2021) \n \n• \nActively participated in NLP with Disaster Tweets organized by Kaggle (Aug 2021) \n \n• \nQualified Vishleshan – The Analytics Event organized by NIT Trichy (Nov 2020) \n \n• \nCompeted in Prabandhan’20: Annual Management Conclave organized by IIT Kanpur (Sep 2020) \n \n• \nParticipated in 5 days course on Geospatial Inputs for Enabling Master Plan Formulation conducted by \nIndian Institute of Remote Sensing (July 2020) \n \n• \nMember of Stage Management Team in Drama Fest (District level) (Feb 2020) \n \n• \nServed as a member of National Service Scheme with 7 days NSS Camp (Jan 2020) \n \n \nINTERESTS AND HOBBIES \n \n• \nMachine Learning and Data Science \n \n• \nReading novels \n \n• \nVolunteering and social service \n \n \n \nPhone: +91 9520349542 - Email: anuvagoyal111@gmail.com \nGitHub: https://github.com/AnuvaGoyal"
+        },
+        {
+          "rank": 2,
+          "name": "Anuvagoyal Latex",
+          "score": 0.0,
+          "matched_skills": [
+            "python",
+            "sql",
+            "machine learning",
+            "git",
+            "html",
+            "css",
+            "pandas"
+          ],
+          "filename": "AnuvaGoyal_Latex.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "ANUVA GOYAL\n[ anuvagoyal111@gmail.com\n½ Agra, Uttar Pradesh, India\n github.com/AnuvaGoyal\nPROJECTS\n• Mental Healthcare Chatbot that provides ad-\nvice to the user based on diﬀerent categories\nof mental health problems using a dataset\nwebscraped from counselchat.com (Nov 2021)\n• Full stack Speech Emotion based Movie\nRecommender System using the RAVDESS\nDataset and Web Scraping techniques (Oct\n2021)\n• Finding a Perfect Fit, a model to parse re-\nsumes using Pytesseract, NLP and XG Boost\nand Random Forest classiﬁcation techniques\n(Aug 2021)\n• Face Mask Detection which detects the face\nusing Haar Cascade Classiﬁer and classiﬁes\nthe image into one of the three categories-\nWithout Mask, With Mask and Incorrect Mask\n(May 2021)\nEDUCATION\nB.Tech, Electrical Engineering with\nComputer Science Specialisation\nDayalbagh Educational Institute, Agra\n\u0011 July 2019– Present (SGPA 9.35 - 4 SEM)\nHigher Secondary School Certiﬁcate\nSt. Clare’s Senior Secondary School, Agra\n\u0011 2019 (94%)\nSecondary School Certiﬁcate\nSt. Clare’s Senior Secondary School, Agra\n\u0011 2017 (CGPA 10)\nPUBLICATION\nresearchgate.net/proﬁle/Anuva_Goyal\nSKILLS\nC, C++\n○○○○○\nPython, SQL\n○○○○○\nData Structures\n○○○○○\nCSS, HTML\n○○○○○\nMachine Learning Frameworks: NumPy,\nPandas, Tensorﬂow, Scikit-Learn, OpenCV,\nPytesseract, BeautifulSoup\nINTERESTS\n• ML and Deep Learning.\n• NLP and Computer Vision\nEXPERIENCE\nSummer Intern\nGenisup India Pvt. Ltd., Hosur, Tamil Nadu\n\u0011 June 2021 – Aug 2021\n½ Remote\n• Internship on the topic NLP: Topic Modeling to assign the\ntheme or topic for any news article on internet using Machine\nLearning techniques.\n• Worked on proxy rotation and Web Scraping\n• Performed LDA Topic Modeling on “The Hindu” news articles\nand obtained precision score of 0.906.\nIntern Trainee\nVUGS Technologies Pvt. Ltd., Agra, Uttar Pradesh\n\u0011 May 2021 – June 2021\n½ Remote\n• Built an OCR using Pytesseract and NER Text Classiﬁcation\nModel to categorize detected text into Name, E-mail Address,\nPhone number and Date using NLTK,SpaCy and BERT\n• Created an OCR for Handwritten text [A-Z, 0-9] using CNN\narchitecture\n• Built a Face Recognition Model and Face Mask Detection\nModel using OpenCV and Haar Cascade Classiﬁer.\nTRAININGS\nDeep Learning and Computer Vision A-Z: OpenCV,\nSSD, GANs\nUdemy\n\u0011 Nov 2021 – Dec 2021\n30 Days of Google Cloud\nGoogle LLC\n\u0011 Oct 2021 – Nov 2021\nNeural Networks and Deep Learning\nCoursera\n\u0011 Mar 2021 – Apr 2021\nMachine Learning A-Z: Hands on Python and R\nin Data Science\nUdemy\n\u0011 Dec 2020 – Feb 2021\nACHIEVEMENTS\n• Speaker at ML/AI Event organized by the Google Developers\nStudent Club, DEI (Dec 2021)\n• Secured 3rd position in TECH-A-THON organized by The ECE\nSociety, BIT Mesra, Ranchi (Oct 2021)\n• Attended online KLA Workshop on AI and HPC in Semicon-\nductor Manufacturing organized by IIT Madras (Sep 2021)\n• Won 1st prize in the online competition Game of Brands orga-\nnized by SGGSCC, University of Delhi (Mar 2021)"
+        },
+        {
+          "rank": 3,
+          "name": "Candidate",
+          "score": 0.0,
+          "matched_skills": [
+            "python",
+            "java",
+            "react",
+            "machine learning",
+            "tensorflow",
+            "pandas"
+          ],
+          "filename": "candidate_018.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "EVELYNN ADAMS\nGRADUATE FRESHER\nPROFESSIONAL PROFILE\nI am a recent graduate who is interested\nand fascinated by Machine learning. I\nwant to join this industry and be a part of\nit, learn and contribute towards both the\ngrowth of the company and me as an\nIndivuduals in terms of skills.\nACHIEVEMENTS AND EXTRA\nCURRICULARS\nCertified Entry Level Python Programmer\nCertified Associate Level in Python\nProgramming\nPROJECTS\nDeep Learning assisted Image recognition.\nPROFICIENT SKILLS\nMachine Learning, Deep Learning, Neural\nNetworks, ML Algorithms, Python, NumPy,\nScikit Learn, Matplotlib, Keras, Pandas,\nTensorFlow, Seaborn, Java, ReactJS,\nNodeJS.\nEMPLOYMENT HISTORY\nI was trained on how to use Neural networks w.r.t to classical\nproblems that existed in Machine Learning. \nDuring the Capstone project I created a supervised model for\nImage recognition with minimal training.\n Intern Trainee, Aug 2020 to Dec 2020\nE-Novate Labs\nEDUCATIONAL HISTORY\nB.Sc (Computer Science) KTM College, Nashik, 2019 \nMCA (Computers), SPP University, Pune, 2021\nLucknow University"
+        },
+        {
+          "rank": 4,
+          "name": "Candidate",
+          "score": 0.0,
+          "matched_skills": [
+            "python",
+            "java",
+            "machine learning"
+          ],
+          "filename": "candidate_042.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Ryan Nelson\nF R E S H E R  S O F T W A R E  D E V E L O P E R  \nExecutive Profile\nI consider myself a team player and ethics\nmaintainer. When it comes to coding I\nalways try to be be well informed about\nthe technology and its application. Would\nlike to join any firm as a software\ndeveloper in machine learning projects.\nOther Activities\nMachine learning - Stanford University\nSAP Fundamentals - Arjuvo Limited\nProjects\nClassification of Cassava Leaves\nSkills\nMachine Learning, Software Engineering,\nPython, Java, SAP,C programming\nWork Experience\nAccenture  \nSoftware Developer, Apr 2019 - Dec 2020 \nWorked on multiple projects that dealt with system frame\ndevelopment and solution supply.\nEducation\nB.Tech Computer Science From JNTU, 2019"
+        },
+        {
+          "rank": 5,
+          "name": "Candidate",
+          "score": 0.0,
+          "matched_skills": [
+            "python",
+            "machine learning",
+            "data analysis"
+          ],
+          "filename": "candidate_056.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Christian Von\nKelin\nJ U N I O R  A N A L Y S T\nExecutive Profile\nAs a junior analyst I currently work with\ndata preprocessing and data cleaning\nbefore sending them to Machine Learning\nModels. I am also simultaneously training\nto be a machine learning engineer to work\nclosely with teams that build models and\nwould like to join a venture for such\nopportunity.\nOther Activities\nData Analysis - Python\nProjects\nTime-series Forecasting \nIdentifying Phished Website\nSkills\nData Analysis, Tableau, PowerBI, R, Python,\nStatistical Analysis, L1 L2 Regression,\nMachine Learning.\nWork Experience\nR&M Solutions \nData Analyst Intern, Dec 2019 - Mar 2020\nMy role as a data analyst was to provide insights and important trends\ninside the company and it's clients' data to measure out the best\npossible way in which profitability could be maintained.\nEducation\nB.Tech from AMN College of Engineering, Hosiyarpur in 2020"
+        }
+      ]
+    },
+    {
+      "batch_id": "60f39b14-6a2d-456e-8b3d-f2a6c8fad220",
+      "uploaded_at": "2026-04-03T23:38:47.329148",
+      "job_description": "Software Engineer with experience in Python, AWS, and Machine Learning",
+      "candidate_count": 5,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Jane Smith",
+          "score": 12.2,
+          "matched_skills": [
+            "python",
+            "sql",
+            "machine learning",
+            "data analysis",
+            "aws",
+            "tensorflow",
+            "pandas"
+          ],
+          "filename": "jane_smith_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Jane Smith\nData Scientist\nSkills: Python, Machine Learning, Data Analysis, SQL, TensorFlow, Pandas, AWS\nExperience: 2 years in analytics"
+        },
+        {
+          "rank": 2,
+          "name": "Sarah Wilson",
+          "score": 10.0,
+          "matched_skills": [
+            "python",
+            "aws",
+            "docker",
+            "kubernetes",
+            "git",
+            "mongodb",
+            "rest api",
+            "agile"
+          ],
+          "filename": "sarah_wilson_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Sarah Wilson\nDevOps Engineer\nSkills: AWS, Docker, Kubernetes, Python, Git, MongoDB, Agile, REST API\nExperience: 4 years cloud infra"
+        },
+        {
+          "rank": 3,
+          "name": "John Doe",
+          "score": 9.0,
+          "matched_skills": [
+            "python",
+            "java",
+            "sql",
+            "react",
+            "docker",
+            "git",
+            "flask",
+            "rest api",
+            "agile"
+          ],
+          "filename": "john_doe_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "John Doe\nSoftware Engineer\nSkills: Python, Java, React, SQL, Docker, Git, Flask, REST API, Agile\nExperience: 3 years building web apps"
+        },
+        {
+          "rank": 4,
+          "name": "Mike Chen",
+          "score": 3.1,
+          "matched_skills": [
+            "java",
+            "git",
+            "html",
+            "css"
+          ],
+          "filename": "mike_chen_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Mike Chen\nJunior Developer\nSkills: Java, HTML, CSS, Git\nExperience: Internship"
+        },
+        {
+          "rank": 5,
+          "name": "Alex Kumar",
+          "score": 2.3,
+          "matched_skills": [
+            "java",
+            "javascript",
+            "react",
+            "git",
+            "html",
+            "css",
+            "node.js",
+            "agile"
+          ],
+          "filename": "alex_kumar_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Alex Kumar\nFrontend Dev\nSkills: JavaScript, React, HTML, CSS, Node.js, Git, Agile\nExperience: 1 year UI development"
+        }
+      ]
+    },
+    {
+      "batch_id": "1549f321-1ec4-45b4-88c9-32a9b2b670d6",
+      "uploaded_at": "2026-04-03T23:40:01.103137",
+      "job_description": "Software Engineer with experience in Python, AWS, and Machine Learning",
+      "candidate_count": 5,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Jane Smith",
+          "score": 12.2,
+          "matched_skills": [
+            "python",
+            "sql",
+            "machine learning",
+            "data analysis",
+            "aws",
+            "tensorflow",
+            "pandas"
+          ],
+          "filename": "jane_smith_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Jane Smith\nData Scientist\nSkills: Python, Machine Learning, Data Analysis, SQL, TensorFlow, Pandas, AWS\nExperience: 2 years in analytics"
+        },
+        {
+          "rank": 2,
+          "name": "Sarah Wilson",
+          "score": 10.0,
+          "matched_skills": [
+            "python",
+            "aws",
+            "docker",
+            "kubernetes",
+            "git",
+            "mongodb",
+            "rest api",
+            "agile"
+          ],
+          "filename": "sarah_wilson_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Sarah Wilson\nDevOps Engineer\nSkills: AWS, Docker, Kubernetes, Python, Git, MongoDB, Agile, REST API\nExperience: 4 years cloud infra"
+        },
+        {
+          "rank": 3,
+          "name": "John Doe",
+          "score": 9.0,
+          "matched_skills": [
+            "python",
+            "java",
+            "sql",
+            "react",
+            "docker",
+            "git",
+            "flask",
+            "rest api",
+            "agile"
+          ],
+          "filename": "john_doe_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "John Doe\nSoftware Engineer\nSkills: Python, Java, React, SQL, Docker, Git, Flask, REST API, Agile\nExperience: 3 years building web apps"
+        },
+        {
+          "rank": 4,
+          "name": "Mike Chen",
+          "score": 3.1,
+          "matched_skills": [
+            "java",
+            "git",
+            "html",
+            "css"
+          ],
+          "filename": "mike_chen_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Mike Chen\nJunior Developer\nSkills: Java, HTML, CSS, Git\nExperience: Internship"
+        },
+        {
+          "rank": 5,
+          "name": "Alex Kumar",
+          "score": 2.3,
+          "matched_skills": [
+            "java",
+            "javascript",
+            "react",
+            "git",
+            "html",
+            "css",
+            "node.js",
+            "agile"
+          ],
+          "filename": "alex_kumar_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Alex Kumar\nFrontend Dev\nSkills: JavaScript, React, HTML, CSS, Node.js, Git, Agile\nExperience: 1 year UI development"
+        }
+      ]
+    },
+    {
+      "batch_id": "cba0c79c-e4e8-4a81-9723-276402640369",
+      "uploaded_at": "2026-04-03T23:43:58.903530",
+      "job_description": "Software Engineer with experience in Python, AWS, and Machine Learning",
+      "candidate_count": 5,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "John Doe",
+          "score": 3.9,
+          "matched_skills": [
+            "python",
+            "java",
+            "sql",
+            "react",
+            "docker",
+            "git",
+            "flask",
+            "rest api",
+            "agile"
+          ],
+          "filename": "john_doe_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "John Doe\nSoftware Engineer\nSkills: Python, Java, React, SQL, Docker, Git, Flask, REST API, Agile\nExperience: 3 years building web apps"
+        },
+        {
+          "rank": 2,
+          "name": "Jane Smith",
+          "score": 3.0,
+          "matched_skills": [
+            "python",
+            "sql",
+            "machine learning",
+            "data analysis",
+            "aws",
+            "tensorflow",
+            "pandas"
+          ],
+          "filename": "jane_smith_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Jane Smith\nData Scientist\nSkills: Python, Machine Learning, Data Analysis, SQL, TensorFlow, Pandas, AWS\nExperience: 2 years in analytics"
+        },
+        {
+          "rank": 3,
+          "name": "Mike Chen",
+          "score": 2.5,
+          "matched_skills": [
+            "java",
+            "git",
+            "html",
+            "css"
+          ],
+          "filename": "mike_chen_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Mike Chen\nJunior Developer\nSkills: Java, HTML, CSS, Git\nExperience: Internship"
+        },
+        {
+          "rank": 4,
+          "name": "Sarah Wilson",
+          "score": 2.5,
+          "matched_skills": [
+            "python",
+            "aws",
+            "docker",
+            "kubernetes",
+            "git",
+            "mongodb",
+            "rest api",
+            "agile"
+          ],
+          "filename": "sarah_wilson_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Sarah Wilson\nDevOps Engineer\nSkills: AWS, Docker, Kubernetes, Python, Git, MongoDB, Agile, REST API\nExperience: 4 years cloud infra"
+        },
+        {
+          "rank": 5,
+          "name": "Alex Kumar",
+          "score": 0.0,
+          "matched_skills": [
+            "java",
+            "javascript",
+            "react",
+            "git",
+            "html",
+            "css",
+            "node.js",
+            "agile"
+          ],
+          "filename": "alex_kumar_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Alex Kumar\nFrontend Dev\nSkills: JavaScript, React, HTML, CSS, Node.js, Git, Agile\nExperience: 1 year UI development"
+        }
+      ]
+    },
+    {
+      "batch_id": "4aa79f3d-cf21-4c3e-9756-63ab4f0fc0ae",
+      "uploaded_at": "2026-04-03T23:45:13.835954",
+      "job_description": "Software Engineer with experience in Python, AWS, and Machine Learning",
+      "candidate_count": 5,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Sarah Wilson",
+          "score": 32.7,
+          "matched_skills": [
+            "python",
+            "aws",
+            "docker",
+            "kubernetes",
+            "git",
+            "mongodb",
+            "rest api",
+            "agile"
+          ],
+          "filename": "sarah_wilson_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Sarah Wilson\nDevOps Engineer\nSkills: AWS, Docker, Kubernetes, Python, Git, MongoDB, Agile, REST API\nExperience: 4 years cloud infra"
+        },
+        {
+          "rank": 2,
+          "name": "John Doe",
+          "score": 30.2,
+          "matched_skills": [
+            "python",
+            "java",
+            "sql",
+            "react",
+            "docker",
+            "git",
+            "flask",
+            "rest api",
+            "agile"
+          ],
+          "filename": "john_doe_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "John Doe\nSoftware Engineer\nSkills: Python, Java, React, SQL, Docker, Git, Flask, REST API, Agile\nExperience: 3 years building web apps"
+        },
+        {
+          "rank": 3,
+          "name": "Jane Smith",
+          "score": 29.4,
+          "matched_skills": [
+            "python",
+            "sql",
+            "machine learning",
+            "data analysis",
+            "aws",
+            "tensorflow",
+            "pandas"
+          ],
+          "filename": "jane_smith_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Jane Smith\nData Scientist\nSkills: Python, Machine Learning, Data Analysis, SQL, TensorFlow, Pandas, AWS\nExperience: 2 years in analytics"
+        },
+        {
+          "rank": 4,
+          "name": "Alex Kumar",
+          "score": 20.5,
+          "matched_skills": [
+            "java",
+            "javascript",
+            "react",
+            "git",
+            "html",
+            "css",
+            "node.js",
+            "agile"
+          ],
+          "filename": "alex_kumar_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Alex Kumar\nFrontend Dev\nSkills: JavaScript, React, HTML, CSS, Node.js, Git, Agile\nExperience: 1 year UI development"
+        },
+        {
+          "rank": 5,
+          "name": "Mike Chen",
+          "score": 18.9,
+          "matched_skills": [
+            "java",
+            "git",
+            "html",
+            "css"
+          ],
+          "filename": "mike_chen_resume.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Mike Chen\nJunior Developer\nSkills: Java, HTML, CSS, Git\nExperience: Internship"
+        }
+      ]
+    },
+    {
+      "batch_id": "6ec10fae-83f3-4a5f-a8d9-69ce001d5196",
+      "uploaded_at": "2026-04-04T00:09:56.284968",
+      "job_description": "We are looking for a creative and detail-oriented Frontend Developer to bring our user interfaces to life. You should have strong foundational skills in HTML, CSS, and modern JavaScript. The core responsibility of this role will be building responsive web applications using React. Experience connecting frontends to REST APIs and managing version control with Git is essential. Candidates should be passionate about clean, maintainable code and possess a minimum of 2 years of experience.",
+      "candidate_count": 10,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Bob Rodriguez",
+          "score": 63.3,
+          "matched_skills": [
+            "sql",
+            "react",
+            "aws",
+            "git",
+            "html",
+            "css",
+            "node.js",
+            "flask",
+            "pandas"
+          ],
+          "filename": "bob_rodriguez_13.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_13\nName: Bob Rodriguez\nRole: Backend Developer\nContact: bob.rodriguez@example.com | 295-279-2543 | linkedin.com/in/bobrodriguez\nSUMMARY\nExperienced Backend Developer with 13 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nReact, Flask, HTML, SQL, Pandas, Git, AWS, Node.js, C++, CSS\nEXPERIENCE\nDataMinds\nBackend Developer (2011 - 2024)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - National University\nGraduated: 2010\nCERTIFICATIONS\nCoursera Deep Learning Specialization"
+        },
+        {
+          "rank": 2,
+          "name": "Peggy Brown",
+          "score": 37.3,
+          "matched_skills": [
+            "machine learning",
+            "kubernetes",
+            "flask"
+          ],
+          "filename": "peggy_brown_20.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_20\nName: Peggy Brown\nRole: DevOps Engineer\nContact: peggy.brown@example.com | 686-127-5291 | linkedin.com/in/peggybrown\nSUMMARY\nExperienced DevOps Engineer with 15 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nC++, Flask, Kubernetes, Azure, Machine Learning\nEXPERIENCE\nGlobal Solutions\nDevOps Engineer (2010 - Present)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - State University\nGraduated: 2009\nCERTIFICATIONS\nCoursera Deep Learning Specialization"
+        },
+        {
+          "rank": 3,
+          "name": "Heidi Wilson",
+          "score": 35.0,
+          "matched_skills": [
+            "python",
+            "tensorflow",
+            "rest api"
+          ],
+          "filename": "heidi_wilson_18.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_18\nName: Heidi Wilson\nRole: Software Engineer\nContact: heidi.wilson@example.com | 896-725-8778 | linkedin.com/in/heidiwilson\nSUMMARY\nExperienced Software Engineer with 15 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nPython, TensorFlow, REST API\nEXPERIENCE\nNextGen Systems\nSoftware Engineer (2020 - 2024)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - National University\nGraduated: 2019\nCERTIFICATIONS\nCoursera Deep Learning Specialization"
+        },
+        {
+          "rank": 4,
+          "name": "Mallory Doe",
+          "score": 34.9,
+          "matched_skills": [
+            "java",
+            "react",
+            "data analysis",
+            "docker",
+            "css",
+            "node.js",
+            "flask",
+            "tensorflow",
+            "mongodb",
+            "rest api"
+          ],
+          "filename": "mallory_doe_14.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_14\nName: Mallory Doe\nRole: Frontend Developer\nContact: mallory.doe@example.com | 593-682-5882 | linkedin.com/in/mallorydoe\nSUMMARY\nExperienced Frontend Developer with 2 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nAzure, Java, Docker, Linux, REST API, Flask, Node.js, Data Analysis, TensorFlow, MongoDB, CSS, React\nEXPERIENCE\nWebWorks\nFrontend Developer (2012 - 2024)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - Metropolitan Institute\nGraduated: 2011\nCERTIFICATIONS\nNone"
+        },
+        {
+          "rank": 5,
+          "name": "Judy Wilson",
+          "score": 34.5,
+          "matched_skills": [
+            "python",
+            "sql",
+            "kubernetes",
+            "git",
+            "css",
+            "flask",
+            "mongodb"
+          ],
+          "filename": "judy_wilson_15.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_15\nName: Judy Wilson\nRole: Data Scientist\nContact: judy.wilson@example.com | 398-442-8173 | linkedin.com/in/judywilson\nSUMMARY\nExperienced Data Scientist with 7 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nSQL, Python, Flask, Linux, GCP, MongoDB, Git, CSS, Kubernetes\nEXPERIENCE\nDataMinds\nData Scientist (2011 - Present)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - City College\nGraduated: 2010\nCERTIFICATIONS\nKubernetes Administrator"
+        },
+        {
+          "rank": 6,
+          "name": "Frank Anderson",
+          "score": 31.7,
+          "matched_skills": [
+            "java",
+            "react",
+            "aws",
+            "tensorflow"
+          ],
+          "filename": "frank_anderson_12.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_12\nName: Frank Anderson\nRole: Backend Developer\nContact: frank.anderson@example.com | 919-596-8224 | linkedin.com/in/frankanderson\nSUMMARY\nExperienced Backend Developer with 4 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nReact, TensorFlow, Java\nEXPERIENCE\nNextGen Systems\nBackend Developer (2018 - 2024)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - National University\nGraduated: 2017\nCERTIFICATIONS\nAWS Certified Solutions Architect"
+        },
+        {
+          "rank": 7,
+          "name": "Charlie Miller",
+          "score": 30.0,
+          "matched_skills": [
+            "sql",
+            "machine learning",
+            "data analysis",
+            "docker",
+            "kubernetes",
+            "git",
+            "tensorflow"
+          ],
+          "filename": "charlie_miller_11.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_11\nName: Charlie Miller\nRole: Frontend Developer\nContact: charlie.miller@example.com | 537-406-9658 | linkedin.com/in/charliemiller\nSUMMARY\nExperienced Frontend Developer with 3 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nSQL, Machine Learning, C++, Kubernetes, Data Analysis, Azure, Docker, TensorFlow, Git\nEXPERIENCE\nNextGen Systems\nFrontend Developer (2018 - 2023)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - National University\nGraduated: 2017\nCERTIFICATIONS\nCoursera Deep Learning Specialization"
+        },
+        {
+          "rank": 8,
+          "name": "Grace Garcia",
+          "score": 29.4,
+          "matched_skills": [
+            "java",
+            "javascript",
+            "sql",
+            "aws",
+            "git",
+            "css",
+            "tensorflow",
+            "mongodb"
+          ],
+          "filename": "grace_garcia_16.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_16\nName: Grace Garcia\nRole: Backend Developer\nContact: grace.garcia@example.com | 957-266-3108 | linkedin.com/in/gracegarcia\nSUMMARY\nExperienced Backend Developer with 2 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nMongoDB, JavaScript, Git, CSS, TensorFlow, SQL\nEXPERIENCE\nDataMinds\nBackend Developer (2010 - Present)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - National University\nGraduated: 2009\nCERTIFICATIONS\nAWS Certified Solutions Architect"
+        },
+        {
+          "rank": 9,
+          "name": "Ivan Martinez",
+          "score": 27.2,
+          "matched_skills": [
+            "python",
+            "sql",
+            "machine learning",
+            "data analysis",
+            "aws",
+            "html",
+            "node.js",
+            "pandas",
+            "mongodb",
+            "agile"
+          ],
+          "filename": "ivan_martinez_17.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_17\nName: Ivan Martinez\nRole: Machine Learning Engineer\nContact: ivan.martinez@example.com | 796-721-3396 | linkedin.com/in/ivanmartinez\nSUMMARY\nExperienced Machine Learning Engineer with 2 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nMongoDB, SQL, AWS, HTML, Python, Pandas, Data Analysis, C#, C++, Node.js, Agile\nEXPERIENCE\nWebWorks\nMachine Learning Engineer (2019 - Present)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - City College\nGraduated: 2018\nCERTIFICATIONS\nGoogle Cloud Associate Engineer"
+        },
+        {
+          "rank": 10,
+          "name": "Victor Brown",
+          "score": 27.1,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "sql",
+            "react",
+            "data analysis",
+            "aws",
+            "docker",
+            "kubernetes"
+          ],
+          "filename": "victor_brown_19.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_19\nName: Victor Brown\nRole: DevOps Engineer\nContact: victor.brown@example.com | 500-164-9839 | linkedin.com/in/victorbrown\nSUMMARY\nExperienced DevOps Engineer with 1 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nDocker, React, Java, Data Analysis, Kubernetes, JavaScript, Azure, C++, Python, SQL\nEXPERIENCE\nDataMinds\nDevOps Engineer (2020 - Present)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - National University\nGraduated: 2019\nCERTIFICATIONS\nAWS Certified Solutions Architect"
+        }
+      ]
+    },
+    {
+      "batch_id": "80eaf154-bac2-4fa2-877f-f1361ec85864",
+      "uploaded_at": "2026-04-04T00:13:12.795636",
+      "job_description": "Join our Data team as a Machine Learning Engineer. You will be responsible for building predictive models and conducting deep Data Analysis. The role requires advanced knowledge of Python and data manipulation libraries like Pandas. Experience building and deploying neural networks or deep learning models using TensorFlow is highly desired. Familiarity with SQL for data querying and cloud infrastructure (GCP or AWS) will make your application stand out. A Coursera Deep Learning Specialization or similar certificate is a massive bonus.",
+      "candidate_count": 10,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Peggy Brown",
+          "score": 80.1,
+          "matched_skills": [
+            "machine learning",
+            "kubernetes",
+            "flask"
+          ],
+          "filename": "peggy_brown_20.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_20\nName: Peggy Brown\nRole: DevOps Engineer\nContact: peggy.brown@example.com | 686-127-5291 | linkedin.com/in/peggybrown\nSUMMARY\nExperienced DevOps Engineer with 15 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nC++, Flask, Kubernetes, Azure, Machine Learning\nEXPERIENCE\nGlobal Solutions\nDevOps Engineer (2010 - Present)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - State University\nGraduated: 2009\nCERTIFICATIONS\nCoursera Deep Learning Specialization"
+        },
+        {
+          "rank": 2,
+          "name": "Heidi Wilson",
+          "score": 73.0,
+          "matched_skills": [
+            "python",
+            "tensorflow",
+            "rest api"
+          ],
+          "filename": "heidi_wilson_18.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_18\nName: Heidi Wilson\nRole: Software Engineer\nContact: heidi.wilson@example.com | 896-725-8778 | linkedin.com/in/heidiwilson\nSUMMARY\nExperienced Software Engineer with 15 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nPython, TensorFlow, REST API\nEXPERIENCE\nNextGen Systems\nSoftware Engineer (2020 - 2024)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - National University\nGraduated: 2019\nCERTIFICATIONS\nCoursera Deep Learning Specialization"
+        },
+        {
+          "rank": 3,
+          "name": "Bob Rodriguez",
+          "score": 70.7,
+          "matched_skills": [
+            "sql",
+            "react",
+            "aws",
+            "git",
+            "html",
+            "css",
+            "node.js",
+            "flask",
+            "pandas"
+          ],
+          "filename": "bob_rodriguez_13.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_13\nName: Bob Rodriguez\nRole: Backend Developer\nContact: bob.rodriguez@example.com | 295-279-2543 | linkedin.com/in/bobrodriguez\nSUMMARY\nExperienced Backend Developer with 13 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nReact, Flask, HTML, SQL, Pandas, Git, AWS, Node.js, C++, CSS\nEXPERIENCE\nDataMinds\nBackend Developer (2011 - 2024)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - National University\nGraduated: 2010\nCERTIFICATIONS\nCoursera Deep Learning Specialization"
+        },
+        {
+          "rank": 4,
+          "name": "Charlie Miller",
+          "score": 51.0,
+          "matched_skills": [
+            "sql",
+            "machine learning",
+            "data analysis",
+            "docker",
+            "kubernetes",
+            "git",
+            "tensorflow"
+          ],
+          "filename": "charlie_miller_11.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_11\nName: Charlie Miller\nRole: Frontend Developer\nContact: charlie.miller@example.com | 537-406-9658 | linkedin.com/in/charliemiller\nSUMMARY\nExperienced Frontend Developer with 3 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nSQL, Machine Learning, C++, Kubernetes, Data Analysis, Azure, Docker, TensorFlow, Git\nEXPERIENCE\nNextGen Systems\nFrontend Developer (2018 - 2023)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - National University\nGraduated: 2017\nCERTIFICATIONS\nCoursera Deep Learning Specialization"
+        },
+        {
+          "rank": 5,
+          "name": "Ivan Martinez",
+          "score": 49.3,
+          "matched_skills": [
+            "python",
+            "sql",
+            "machine learning",
+            "data analysis",
+            "aws",
+            "html",
+            "node.js",
+            "pandas",
+            "mongodb",
+            "agile"
+          ],
+          "filename": "ivan_martinez_17.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_17\nName: Ivan Martinez\nRole: Machine Learning Engineer\nContact: ivan.martinez@example.com | 796-721-3396 | linkedin.com/in/ivanmartinez\nSUMMARY\nExperienced Machine Learning Engineer with 2 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nMongoDB, SQL, AWS, HTML, Python, Pandas, Data Analysis, C#, C++, Node.js, Agile\nEXPERIENCE\nWebWorks\nMachine Learning Engineer (2019 - Present)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - City College\nGraduated: 2018\nCERTIFICATIONS\nGoogle Cloud Associate Engineer"
+        },
+        {
+          "rank": 6,
+          "name": "Judy Wilson",
+          "score": 46.7,
+          "matched_skills": [
+            "python",
+            "sql",
+            "kubernetes",
+            "git",
+            "css",
+            "flask",
+            "mongodb"
+          ],
+          "filename": "judy_wilson_15.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_15\nName: Judy Wilson\nRole: Data Scientist\nContact: judy.wilson@example.com | 398-442-8173 | linkedin.com/in/judywilson\nSUMMARY\nExperienced Data Scientist with 7 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nSQL, Python, Flask, Linux, GCP, MongoDB, Git, CSS, Kubernetes\nEXPERIENCE\nDataMinds\nData Scientist (2011 - Present)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - City College\nGraduated: 2010\nCERTIFICATIONS\nKubernetes Administrator"
+        },
+        {
+          "rank": 7,
+          "name": "Grace Garcia",
+          "score": 43.9,
+          "matched_skills": [
+            "java",
+            "javascript",
+            "sql",
+            "aws",
+            "git",
+            "css",
+            "tensorflow",
+            "mongodb"
+          ],
+          "filename": "grace_garcia_16.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_16\nName: Grace Garcia\nRole: Backend Developer\nContact: grace.garcia@example.com | 957-266-3108 | linkedin.com/in/gracegarcia\nSUMMARY\nExperienced Backend Developer with 2 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nMongoDB, JavaScript, Git, CSS, TensorFlow, SQL\nEXPERIENCE\nDataMinds\nBackend Developer (2010 - Present)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - National University\nGraduated: 2009\nCERTIFICATIONS\nAWS Certified Solutions Architect"
+        },
+        {
+          "rank": 8,
+          "name": "Frank Anderson",
+          "score": 42.5,
+          "matched_skills": [
+            "java",
+            "react",
+            "aws",
+            "tensorflow"
+          ],
+          "filename": "frank_anderson_12.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_12\nName: Frank Anderson\nRole: Backend Developer\nContact: frank.anderson@example.com | 919-596-8224 | linkedin.com/in/frankanderson\nSUMMARY\nExperienced Backend Developer with 4 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nReact, TensorFlow, Java\nEXPERIENCE\nNextGen Systems\nBackend Developer (2018 - 2024)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - National University\nGraduated: 2017\nCERTIFICATIONS\nAWS Certified Solutions Architect"
+        },
+        {
+          "rank": 9,
+          "name": "Victor Brown",
+          "score": 39.7,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "sql",
+            "react",
+            "data analysis",
+            "aws",
+            "docker",
+            "kubernetes"
+          ],
+          "filename": "victor_brown_19.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_19\nName: Victor Brown\nRole: DevOps Engineer\nContact: victor.brown@example.com | 500-164-9839 | linkedin.com/in/victorbrown\nSUMMARY\nExperienced DevOps Engineer with 1 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nDocker, React, Java, Data Analysis, Kubernetes, JavaScript, Azure, C++, Python, SQL\nEXPERIENCE\nDataMinds\nDevOps Engineer (2020 - Present)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - National University\nGraduated: 2019\nCERTIFICATIONS\nAWS Certified Solutions Architect"
+        },
+        {
+          "rank": 10,
+          "name": "Mallory Doe",
+          "score": 38.5,
+          "matched_skills": [
+            "java",
+            "react",
+            "data analysis",
+            "docker",
+            "css",
+            "node.js",
+            "flask",
+            "tensorflow",
+            "mongodb",
+            "rest api"
+          ],
+          "filename": "mallory_doe_14.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_14\nName: Mallory Doe\nRole: Frontend Developer\nContact: mallory.doe@example.com | 593-682-5882 | linkedin.com/in/mallorydoe\nSUMMARY\nExperienced Frontend Developer with 2 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nAzure, Java, Docker, Linux, REST API, Flask, Node.js, Data Analysis, TensorFlow, MongoDB, CSS, React\nEXPERIENCE\nWebWorks\nFrontend Developer (2012 - 2024)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - Metropolitan Institute\nGraduated: 2011\nCERTIFICATIONS\nNone"
+        }
+      ]
+    },
+    {
+      "batch_id": "cef1b8d4-10fd-4575-a715-2ba4bbe5986a",
+      "uploaded_at": "2026-04-04T00:14:25.148272",
+      "job_description": "Join our Data team as a Machine Learning Engineer. You will be responsible for building predictive models and conducting deep Data Analysis. The role requires advanced knowledge of Python and data manipulation libraries like Pandas. Experience building and deploying neural networks or deep learning models using TensorFlow is highly desired. Familiarity with SQL for data querying and cloud infrastructure (GCP or AWS) will make your application stand out. A Coursera Deep Learning Specialization or similar certificate is a massive bonus.",
+      "candidate_count": 10,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Judy Garcia",
+          "score": 77.4,
+          "matched_skills": [
+            "python",
+            "aws",
+            "kubernetes",
+            "node.js",
+            "flask",
+            "mongodb",
+            "agile"
+          ],
+          "filename": "judy_garcia_1.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_1\nName: Judy Garcia\nRole: Data Scientist\nContact: judy.garcia@example.com | 695-531-6495 | linkedin.com/in/judygarcia\nSUMMARY\nExperienced Data Scientist with 14 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nC++, AWS, Agile, Python, GCP, Flask, MongoDB, Node.js, Kubernetes\nEXPERIENCE\nInnovate LLC\nData Scientist (2012 - Present)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - State University\nGraduated: 2011\nCERTIFICATIONS\nCoursera Deep Learning Specialization"
+        },
+        {
+          "rank": 2,
+          "name": "Mallory Anderson",
+          "score": 76.7,
+          "matched_skills": [
+            "python",
+            "java",
+            "react",
+            "machine learning",
+            "data analysis",
+            "docker",
+            "node.js",
+            "tensorflow",
+            "agile"
+          ],
+          "filename": "mallory_anderson_8.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_8\nName: Mallory Anderson\nRole: Full Stack Developer\nContact: mallory.anderson@example.com | 204-761-6059 | linkedin.com/in/malloryanderson\nSUMMARY\nExperienced Full Stack Developer with 14 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nLinux, Machine Learning, Node.js, Agile, Java, TensorFlow, Data Analysis, Docker, Python, React\nEXPERIENCE\nInnovate LLC\nFull Stack Developer (2010 - 2023)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - National University\nGraduated: 2009\nCERTIFICATIONS\nCoursera Deep Learning Specialization"
+        },
+        {
+          "rank": 3,
+          "name": "Ivan Wilson",
+          "score": 61.6,
+          "matched_skills": [
+            "data analysis",
+            "aws",
+            "node.js",
+            "pandas",
+            "mongodb"
+          ],
+          "filename": "ivan_wilson_2.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_2\nName: Ivan Wilson\nRole: Data Scientist\nContact: ivan.wilson@example.com | 540-695-8190 | linkedin.com/in/ivanwilson\nSUMMARY\nExperienced Data Scientist with 12 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nData Analysis, Node.js, Pandas, AWS, MongoDB\nEXPERIENCE\nGlobal Solutions\nData Scientist (2019 - 2023)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - National University\nGraduated: 2018\nCERTIFICATIONS\nAWS Certified Solutions Architect"
+        },
+        {
+          "rank": 4,
+          "name": "Ivan Miller",
+          "score": 60.8,
+          "matched_skills": [
+            "java",
+            "javascript",
+            "sql",
+            "machine learning",
+            "html",
+            "css",
+            "flask",
+            "pandas",
+            "rest api"
+          ],
+          "filename": "ivan_miller_3.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_3\nName: Ivan Miller\nRole: Frontend Developer\nContact: ivan.miller@example.com | 840-961-4088 | linkedin.com/in/ivanmiller\nSUMMARY\nExperienced Frontend Developer with 13 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nJavaScript, CSS, SQL, HTML, REST API, Flask, Machine Learning, Linux, Pandas, Java\nEXPERIENCE\nCloud Networks\nFrontend Developer (2019 - Present)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - State University\nGraduated: 2018\nCERTIFICATIONS\nGoogle Cloud Associate Engineer"
+        },
+        {
+          "rank": 5,
+          "name": "Mallory Garcia",
+          "score": 57.2,
+          "matched_skills": [
+            "python",
+            "sql",
+            "machine learning",
+            "docker",
+            "kubernetes",
+            "git",
+            "pandas"
+          ],
+          "filename": "mallory_garcia_9.jpg",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_ Name: Mallory Garcia Role Software Engineer Contact: mallory-garcia@example_com 316-765-1933 linkedin comvin/mallorygarcia\nSUMMARY Experienced Software Engineer with 10 years of experience building scalable systems_ Passionate about writing clean, maintainable code and solving complex problems\nSKILLS Python, SQL Node-js, Docker; Machine Learning; Linux, GCP, Kubernetes, Git, Pandas\nEXPERIENCE Global Solutions Software Engineer 2022 2023) Developed and maintained web applications Collaborated with cross-functiona teams to deliver high-quality software Optimized backend services for perfomance and scalability:\nEDUCATION BS_ in Computer Science Tech Institute Graduated: 2021\nCERTIFICATIONS Google Cloud Associate Engineer"
+        },
+        {
+          "rank": 6,
+          "name": "Sybil Davis",
+          "score": 56.6,
+          "matched_skills": [
+            "java",
+            "javascript",
+            "sql",
+            "kubernetes",
+            "git",
+            "flask"
+          ],
+          "filename": "sybil_davis_4.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_4\nName: Sybil Davis\nRole: Frontend Developer\nContact: sybil.davis@example.com | 330-735-6086 | linkedin.com/in/sybildavis\nSUMMARY\nExperienced Frontend Developer with 12 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nGit, Flask, Kubernetes, Java, SQL, JavaScript\nEXPERIENCE\nCloud Networks\nFrontend Developer (2022 - Present)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - Metropolitan Institute\nGraduated: 2021\nCERTIFICATIONS\nGoogle Cloud Associate Engineer"
+        },
+        {
+          "rank": 7,
+          "name": "Charlie Miller",
+          "score": 54.1,
+          "matched_skills": [
+            "java",
+            "sql",
+            "react",
+            "machine learning",
+            "data analysis",
+            "html",
+            "css",
+            "mongodb",
+            "rest api"
+          ],
+          "filename": "charlie_miller_7.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_7\nName: Charlie Miller\nRole: Software Engineer\nContact: charlie.miller@example.com | 744-782-1923 | linkedin.com/in/charliemiller\nSUMMARY\nExperienced Software Engineer with 7 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nREST API, Machine Learning, C++, HTML, React, MongoDB, SQL, CSS, Java, Data Analysis\nEXPERIENCE\nGlobal Solutions\nSoftware Engineer (2016 - 2024)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - National University\nGraduated: 2015\nCERTIFICATIONS\nGoogle Cloud Associate Engineer"
+        },
+        {
+          "rank": 8,
+          "name": "Bob Doe",
+          "score": 51.4,
+          "matched_skills": [
+            "html",
+            "rest api"
+          ],
+          "filename": "bob_doe_5.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_5\nName: Bob Doe\nRole: Software Engineer\nContact: bob.doe@example.com | 867-366-7445 | linkedin.com/in/bobdoe\nSUMMARY\nExperienced Software Engineer with 7 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nAzure, REST API, HTML\nEXPERIENCE\nNextGen Systems\nSoftware Engineer (2012 - 2023)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - State University\nGraduated: 2011\nCERTIFICATIONS\nCoursera Deep Learning Specialization"
+        },
+        {
+          "rank": 9,
+          "name": "Grace Johnson",
+          "score": 43.5,
+          "matched_skills": [
+            "java",
+            "javascript",
+            "machine learning",
+            "css",
+            "pandas",
+            "mongodb",
+            "agile"
+          ],
+          "filename": "grace_johnson_10.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_10\nName: Grace Johnson\nRole: Software Engineer\nContact: grace.johnson@example.com | 200-213-5893 | linkedin.com/in/gracejohnson\nSUMMARY\nExperienced Software Engineer with 5 years of experience building scalable systems.\nPassionate about writing clean, maintainable code and solving complex problems.\nSKILLS\nPandas, JavaScript, CSS, Machine Learning, C++, C#, Agile, MongoDB\nEXPERIENCE\nCloud Networks\nSoftware Engineer (2012 - 2024)\n- Developed and maintained web applications.\n- Collaborated with cross-functional teams to deliver high-quality software.\n- Optimized backend services for performance and scalability.\nEDUCATION\nB.S. in Computer Science - Global University\nGraduated: 2011\nCERTIFICATIONS\nNone"
+        },
+        {
+          "rank": 10,
+          "name": "Frank Smith",
+          "score": 34.3,
+          "matched_skills": [
+            "aws",
+            "pandas"
+          ],
+          "filename": "frank_smith_6.jpg",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_ Name: Frank Smith Role Softare Engineer Contact: franksmith@examplecom 792-526-7878 linkedincomfinfranksmith\nSUMMARY Experienced Software Engineer with 11 years 0f experience building scalable systems_ Passionate about writing clean, maintainable code and solving complex problems\nSKILLS Linux, AWS, Pandas\nEXPERIENCE Innovate LLC Software Engineer 2018 2023) Developed and maintained web applications Collaborated with cross-functiona teams to deliver high-quality software Optimized backend services for perfomance and scalability:\nEDUCATION BS_ in Computer Science Metropolitan Institute Graduated: 2017\nCERTIFICATIONS Kubemetes Administrator"
+        }
+      ]
+    },
+    {
+      "batch_id": "a3c23d95-8572-43ce-ab3e-f3a95d511735",
+      "uploaded_at": "2026-04-04T00:22:04.364490",
+      "job_description": "Join our modern manufacturing floor as a Mechanical Engineer or Manufacturing Engineer. You will spearhead the design and safety assessment of new machinery. Candidates must possess a B.S. in Mechanical Engineering. We are looking for individuals highly adept in 3D modeling using SolidWorks, CAD/CAM, and AutoCAD. Knowledge of Thermodynamics and Fluid Mechanics is essential for daily problem-solving. A Six Sigma technical certification or Certified SolidWorks Professional credential will put you at the top of our list.",
+      "candidate_count": 10,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Liam Lee",
+          "score": 70.6,
+          "matched_skills": [],
+          "filename": "liam_lee_19.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_19\nName: Liam Lee\nRole: Robotics Technician\nContact: liam.lee@example.com | 871-833-6959 | linkedin.com/in/liamlee\nSUMMARY\nDedicated Robotics Technician with 11 years of experience.\nCommitted to high standards of safety, quality, and performance.\nSKILLS\nRobotics, HVAC System Design, Finite Element Analysis, Project Management, Thermodynamics, AutoCAD\nEXPERIENCE\nBioCure Labs\nRobotics Technician (2019 - 2023)\n- Led projects aligning with strict industry compliance and guidelines.\n- Improved operational efficiency by 15% through workflow optimization.\n- Drafted comprehensive reports and analysis for stakeholder review.\nEDUCATION\nB.S. in Mechanical Engineering - State University\nGraduated: 2018\nCERTIFICATIONS\nAutoCAD Certification"
+        },
+        {
+          "rank": 2,
+          "name": "Isabella Jackson",
+          "score": 69.6,
+          "matched_skills": [],
+          "filename": "isabella_jackson_17.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_17\nName: Isabella Jackson\nRole: Mechanical Engineer\nContact: isabella.jackson@example.com | 426-357-7405 | linkedin.com/in/isabellajackson\nSUMMARY\nDedicated Mechanical Engineer with 12 years of experience.\nCommitted to high standards of safety, quality, and performance.\nSKILLS\nFinite Element Analysis, Fluid Mechanics, Six Sigma, AutoCAD\nEXPERIENCE\nAeroDynamics Inc\nMechanical Engineer (2017 - 2024)\n- Led projects aligning with strict industry compliance and guidelines.\n- Improved operational efficiency by 15% through workflow optimization.\n- Drafted comprehensive reports and analysis for stakeholder review.\nEDUCATION\nB.S. in Industrial Engineering - State University\nGraduated: 2016\nCERTIFICATIONS\nSix Sigma Green Belt Certificate"
+        },
+        {
+          "rank": 3,
+          "name": "Ava Moore",
+          "score": 67.6,
+          "matched_skills": [],
+          "filename": "ava_moore_13.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_13\nName: Ava Moore\nRole: HVAC Specialist\nContact: ava.moore@example.com | 945-722-5138 | linkedin.com/in/avamoore\nSUMMARY\nDedicated HVAC Specialist with 11 years of experience.\nCommitted to high standards of safety, quality, and performance.\nSKILLS\nSix Sigma, Robotics, AutoCAD, HVAC System Design, CAD/CAM, Fluid Mechanics\nEXPERIENCE\nBioCure Labs\nHVAC Specialist (2017 - Present)\n- Led projects aligning with strict industry compliance and guidelines.\n- Improved operational efficiency by 15% through workflow optimization.\n- Drafted comprehensive reports and analysis for stakeholder review.\nEDUCATION\nB.S. in Mechanical Engineering - State University\nGraduated: 2016\nCERTIFICATIONS\nCertified SolidWorks Professional"
+        },
+        {
+          "rank": 4,
+          "name": "Noah Jackson",
+          "score": 65.0,
+          "matched_skills": [],
+          "filename": "noah_jackson_15.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_15\nName: Noah Jackson\nRole: Manufacturing Engineer\nContact: noah.jackson@example.com | 908-968-3444 | linkedin.com/in/noahjackson\nSUMMARY\nDedicated Manufacturing Engineer with 10 years of experience.\nCommitted to high standards of safety, quality, and performance.\nSKILLS\nCAD/CAM, Project Management, Thermodynamics, Finite Element Analysis, AutoCAD, HVAC System Design, SolidWorks, Fluid Mechanics\nEXPERIENCE\nBioCure Labs\nManufacturing Engineer (2015 - 2023)\n- Led projects aligning with strict industry compliance and guidelines.\n- Improved operational efficiency by 15% through workflow optimization.\n- Drafted comprehensive reports and analysis for stakeholder review.\nEDUCATION\nM.S. in Aerospace Engineering - State University\nGraduated: 2014\nCERTIFICATIONS\nSix Sigma Green Belt Certificate"
+        },
+        {
+          "rank": 5,
+          "name": "Noah Perez",
+          "score": 59.5,
+          "matched_skills": [],
+          "filename": "noah_perez_12.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_12\nName: Noah Perez\nRole: Mechanical Engineer\nContact: noah.perez@example.com | 951-662-8850 | linkedin.com/in/noahperez\nSUMMARY\nDedicated Mechanical Engineer with 9 years of experience.\nCommitted to high standards of safety, quality, and performance.\nSKILLS\nSix Sigma, Finite Element Analysis, SolidWorks, HVAC System Design, Project Management\nEXPERIENCE\nGlobal Health Corp\nMechanical Engineer (2014 - 2024)\n- Led projects aligning with strict industry compliance and guidelines.\n- Improved operational efficiency by 15% through workflow optimization.\n- Drafted comprehensive reports and analysis for stakeholder review.\nEDUCATION\nM.S. in Aerospace Engineering - State University\nGraduated: 2013\nCERTIFICATIONS\nAutoCAD Certification"
+        },
+        {
+          "rank": 6,
+          "name": "Sophia Lee",
+          "score": 58.1,
+          "matched_skills": [],
+          "filename": "sophia_lee_11.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_11\nName: Sophia Lee\nRole: HVAC Specialist\nContact: sophia.lee@example.com | 206-201-7511 | linkedin.com/in/sophialee\nSUMMARY\nDedicated HVAC Specialist with 12 years of experience.\nCommitted to high standards of safety, quality, and performance.\nSKILLS\nAutoCAD, Thermodynamics, Finite Element Analysis, Project Management, SolidWorks, Robotics, Six Sigma, HVAC System Design\nEXPERIENCE\nFutureMech Systems\nHVAC Specialist (2016 - 2023)\n- Led projects aligning with strict industry compliance and guidelines.\n- Improved operational efficiency by 15% through workflow optimization.\n- Drafted comprehensive reports and analysis for stakeholder review.\nEDUCATION\nM.S. in Aerospace Engineering - State University\nGraduated: 2015\nCERTIFICATIONS\nNone"
+        },
+        {
+          "rank": 7,
+          "name": "Liam Lee",
+          "score": 49.5,
+          "matched_skills": [],
+          "filename": "liam_lee_14.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_14\nName: Liam Lee\nRole: HVAC Specialist\nContact: liam.lee@example.com | 756-679-3412 | linkedin.com/in/liamlee\nSUMMARY\nDedicated HVAC Specialist with 5 years of experience.\nCommitted to high standards of safety, quality, and performance.\nSKILLS\nAutoCAD, Fluid Mechanics, Robotics, SolidWorks\nEXPERIENCE\nGlobal Health Corp\nHVAC Specialist (2013 - Present)\n- Led projects aligning with strict industry compliance and guidelines.\n- Improved operational efficiency by 15% through workflow optimization.\n- Drafted comprehensive reports and analysis for stakeholder review.\nEDUCATION\nM.S. in Aerospace Engineering - State University\nGraduated: 2012\nCERTIFICATIONS\nAutoCAD Certification"
+        },
+        {
+          "rank": 8,
+          "name": "Lucas Moore",
+          "score": 48.9,
+          "matched_skills": [],
+          "filename": "lucas_moore_20.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_20\nName: Lucas Moore\nRole: Robotics Technician\nContact: lucas.moore@example.com | 965-779-9698 | linkedin.com/in/lucasmoore\nSUMMARY\nDedicated Robotics Technician with 5 years of experience.\nCommitted to high standards of safety, quality, and performance.\nSKILLS\nCAD/CAM, Fluid Mechanics, AutoCAD, Six Sigma, HVAC System Design, Finite Element Analysis\nEXPERIENCE\nGlobal Health Corp\nRobotics Technician (2019 - 2023)\n- Led projects aligning with strict industry compliance and guidelines.\n- Improved operational efficiency by 15% through workflow optimization.\n- Drafted comprehensive reports and analysis for stakeholder review.\nEDUCATION\nB.S. in Mechanical Engineering - State University\nGraduated: 2018\nCERTIFICATIONS\nSix Sigma Green Belt Certificate"
+        },
+        {
+          "rank": 9,
+          "name": "Emma Thompson",
+          "score": 48.4,
+          "matched_skills": [],
+          "filename": "emma_thompson_16.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_16\nName: Emma Thompson\nRole: Mechanical Engineer\nContact: emma.thompson@example.com | 900-245-3414 | linkedin.com/in/emmathompson\nSUMMARY\nDedicated Mechanical Engineer with 6 years of experience.\nCommitted to high standards of safety, quality, and performance.\nSKILLS\nThermodynamics, AutoCAD, Robotics, Finite Element Analysis, Project Management, SolidWorks, CAD/CAM\nEXPERIENCE\nFutureMech Systems\nMechanical Engineer (2019 - 2023)\n- Led projects aligning with strict industry compliance and guidelines.\n- Improved operational efficiency by 15% through workflow optimization.\n- Drafted comprehensive reports and analysis for stakeholder review.\nEDUCATION\nB.S. in Industrial Engineering - State University\nGraduated: 2018\nCERTIFICATIONS\nNone"
+        },
+        {
+          "rank": 10,
+          "name": "Isabella Thompson",
+          "score": 47.9,
+          "matched_skills": [],
+          "filename": "isabella_thompson_18.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_18\nName: Isabella Thompson\nRole: Manufacturing Engineer\nContact: isabella.thompson@example.com | 406-608-1765 | linkedin.com/in/isabellathompson\nSUMMARY\nDedicated Manufacturing Engineer with 4 years of experience.\nCommitted to high standards of safety, quality, and performance.\nSKILLS\nFinite Element Analysis, Fluid Mechanics, SolidWorks, HVAC System Design, Project Management, Six S\nEXPERIENCE\nFutureMech Systems\nManufacturing Engineer (2015 - Present)\n- Led projects aligning with strict industry compliance and guidelines.\n- Improved operational efficiency by 15% through workflow optimization.\n- Drafted comprehensive reports and analysis for stakeholder review.\nEDUCATION\nM.S. in Aerospace Engineering - State University\nGraduated: 2014\nCERTIFICATIONS\nSix Sigma Green Belt Certificate"
+        }
+      ]
+    },
+    {
+      "batch_id": "f81fc910-a6dc-415e-a284-354441085909",
+      "uploaded_at": "2026-04-04T00:32:44.982427",
+      "job_description": "We are a leading BioCure laboratory seeking a Quality Control Analyst or Regulatory Affairs Specialist to oversee compliance for clinical trials. The ideal candidate will have a deep understanding of FDA Regulations, Good Manufacturing Practices (GMP), and Pharmacovigilance. You should hold a degree in Pharmacology, Pharmacy, or Biochemistry. Experience drafting Standard Operating Procedures (SOPs) and possessing a Regulatory Affairs Certification or Good Clinical Practice (GCP) credential will be heavily prioritized.",
+      "candidate_count": 10,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Emma Taylor",
+          "score": 86.6,
+          "matched_skills": [
+            "data analysis",
+            "go",
+            "gcp",
+            "compliance",
+            "clinical trials",
+            "gmp",
+            "glp",
+            "quality assurance",
+            "drug development",
+            "pharmacology",
+            "clinical research"
+          ],
+          "filename": "emma_taylor_10.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_10\nName: Emma Taylor\nRole: Clinical Research Associate\nContact: emma.taylor@example.com | 268-211-5368 | linkedin.com/in/emmataylor\nSUMMARY\nDedicated Clinical Research Associate with 12 years of experience.\nCommitted to high standards of safety, quality, and performance.\nSKILLS\nGLP, Quality Assurance, Data Analysis, Drug Development, GMP, Clinical Trials, Bioinformatics\nEXPERIENCE\nFutureMech Systems\nClinical Research Associate (2020 - 2023)\n- Led projects aligning with strict industry compliance and guidelines.\n- Improved operational efficiency by 15% through workflow optimization.\n- Drafted comprehensive reports and analysis for stakeholder review.\nEDUCATION\nM.S. in Pharmacology - State University\nGraduated: 2019\nCERTIFICATIONS\nGood Clinical Practice (GCP) Certification"
+        },
+        {
+          "rank": 2,
+          "name": "Lucas Harris",
+          "score": 85.9,
+          "matched_skills": [
+            "data analysis",
+            "compliance",
+            "gmp",
+            "drug development",
+            "pharmacology",
+            "regulatory affairs"
+          ],
+          "filename": "lucas_harris_5.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_5\nName: Lucas Harris\nRole: Regulatory Affairs Specialist\nContact: lucas.harris@example.com | 594-483-7905 | linkedin.com/in/lucasharris\nSUMMARY\nDedicated Regulatory Affairs Specialist with 11 years of experience.\nCommitted to high standards of safety, quality, and performance.\nSKILLS\nDrug Development, GMP, Data Analysis, Bioinformatics\nEXPERIENCE\nFutureMech Systems\nRegulatory Affairs Specialist (2012 - Present)\n- Led projects aligning with strict industry compliance and guidelines.\n- Improved operational efficiency by 15% through workflow optimization.\n- Drafted comprehensive reports and analysis for stakeholder review.\nEDUCATION\nM.S. in Pharmacology - State University\nGraduated: 2011\nCERTIFICATIONS\nRegulatory Affairs Certification"
+        },
+        {
+          "rank": 3,
+          "name": "Emma Taylor",
+          "score": 84.7,
+          "matched_skills": [
+            "go",
+            "gcp",
+            "compliance",
+            "clinical trials",
+            "gmp",
+            "glp",
+            "pharmacovigilance",
+            "drug development",
+            "quality control"
+          ],
+          "filename": "emma_taylor_2.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_2\nName: Emma Taylor\nRole: Quality Control Analyst\nContact: emma.taylor@example.com | 396-112-6049 | linkedin.com/in/emmataylor\nSUMMARY\nDedicated Quality Control Analyst with 9 years of experience.\nCommitted to high standards of safety, quality, and performance.\nSKILLS\nClinical Trials, Drug Development, Pharmacovigilance, GMP, GLP\nEXPERIENCE\nAeroDynamics Inc\nQuality Control Analyst (2012 - 2024)\n- Led projects aligning with strict industry compliance and guidelines.\n- Improved operational efficiency by 15% through workflow optimization.\n- Drafted comprehensive reports and analysis for stakeholder review.\nEDUCATION\nB.S. in Pharmacy - State University\nGraduated: 2011\nCERTIFICATIONS\nGood Clinical Practice (GCP) Certification"
+        },
+        {
+          "rank": 4,
+          "name": "Lucas Moore",
+          "score": 83.2,
+          "matched_skills": [
+            "data analysis",
+            "compliance",
+            "clinical trials",
+            "gmp",
+            "glp",
+            "quality assurance",
+            "sop development",
+            "pharmacology",
+            "regulatory affairs"
+          ],
+          "filename": "lucas_moore_6.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_6\nName: Lucas Moore\nRole: Pharmacologist\nContact: lucas.moore@example.com | 981-223-8409 | linkedin.com/in/lucasmoore\nSUMMARY\nDedicated Pharmacologist with 8 years of experience.\nCommitted to high standards of safety, quality, and performance.\nSKILLS\nClinical Trials, Bioinformatics, GMP, GLP, SOP Development, Data Analysis, Quality Assurance\nEXPERIENCE\nBioCure Labs\nPharmacologist (2013 - 2024)\n- Led projects aligning with strict industry compliance and guidelines.\n- Improved operational efficiency by 15% through workflow optimization.\n- Drafted comprehensive reports and analysis for stakeholder review.\nEDUCATION\nM.S. in Pharmacology - State University\nGraduated: 2012\nCERTIFICATIONS\nRegulatory Affairs Certification"
+        },
+        {
+          "rank": 5,
+          "name": "Ava Lee",
+          "score": 74.1,
+          "matched_skills": [
+            "data analysis",
+            "go",
+            "gcp",
+            "compliance",
+            "clinical trials",
+            "fda regulations",
+            "glp",
+            "sop development",
+            "biochemistry",
+            "clinical research"
+          ],
+          "filename": "ava_lee_3.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_3\nName: Ava Lee\nRole: Clinical Research Associate\nContact: ava.lee@example.com | 952-186-1374 | linkedin.com/in/avalee\nSUMMARY\nDedicated Clinical Research Associate with 7 years of experience.\nCommitted to high standards of safety, quality, and performance.\nSKILLS\nClinical Trials, SOP Development, FDA Regulations, GLP, Data Analysis\nEXPERIENCE\nGlobal Health Corp\nClinical Research Associate (2018 - Present)\n- Led projects aligning with strict industry compliance and guidelines.\n- Improved operational efficiency by 15% through workflow optimization.\n- Drafted comprehensive reports and analysis for stakeholder review.\nEDUCATION\nPh.D. in Biochemistry - State University\nGraduated: 2017\nCERTIFICATIONS\nGood Clinical Practice (GCP) Certification"
+        },
+        {
+          "rank": 6,
+          "name": "Sophia Lee",
+          "score": 58.3,
+          "matched_skills": [
+            "compliance",
+            "clinical trials",
+            "gmp",
+            "glp",
+            "pharmacovigilance",
+            "sop development",
+            "drug development",
+            "pharmacology",
+            "regulatory affairs"
+          ],
+          "filename": "sophia_lee_1.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_1\nName: Sophia Lee\nRole: Pharmacologist\nContact: sophia.lee@example.com | 465-373-4425 | linkedin.com/in/sophialee\nSUMMARY\nDedicated Pharmacologist with 6 years of experience.\nCommitted to high standards of safety, quality, and performance.\nSKILLS\nSOP Development, Drug Development, GLP, GMP, Pharmacovigilance, Clinical Trials, Bioinformatics, Dat\nEXPERIENCE\nBioCure Labs\nPharmacologist (2014 - Present)\n- Led projects aligning with strict industry compliance and guidelines.\n- Improved operational efficiency by 15% through workflow optimization.\n- Drafted comprehensive reports and analysis for stakeholder review.\nEDUCATION\nM.S. in Pharmacology - State University\nGraduated: 2013\nCERTIFICATIONS\nRegulatory Affairs Certification"
+        },
+        {
+          "rank": 7,
+          "name": "Lucas Perez",
+          "score": 57.6,
+          "matched_skills": [
+            "compliance",
+            "gmp",
+            "glp",
+            "quality assurance",
+            "sop development",
+            "drug development",
+            "clinical research",
+            "regulatory affairs"
+          ],
+          "filename": "lucas_perez_9.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_9\nName: Lucas Perez\nRole: Regulatory Affairs Specialist\nContact: lucas.perez@example.com | 503-224-5372 | linkedin.com/in/lucasperez\nSUMMARY\nDedicated Regulatory Affairs Specialist with 4 years of experience.\nCommitted to high standards of safety, quality, and performance.\nSKILLS\nBioinformatics, Drug Development, Quality Assurance, GLP, GMP, SOP Development\nEXPERIENCE\nMedLife Industries\nRegulatory Affairs Specialist (2013 - 2023)\n- Led projects aligning with strict industry compliance and guidelines.\n- Improved operational efficiency by 15% through workflow optimization.\n- Drafted comprehensive reports and analysis for stakeholder review.\nEDUCATION\nB.S. in Pharmacy - State University\nGraduated: 2012\nCERTIFICATIONS\nCertified Clinical Research Professional (CCRP)"
+        },
+        {
+          "rank": 8,
+          "name": "Noah Jackson",
+          "score": 55.8,
+          "matched_skills": [
+            "data analysis",
+            "compliance",
+            "clinical trials",
+            "gmp",
+            "glp",
+            "quality assurance",
+            "pharmacology",
+            "regulatory affairs"
+          ],
+          "filename": "noah_jackson_4.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_4\nName: Noah Jackson\nRole: Regulatory Affairs Specialist\nContact: noah.jackson@example.com | 922-836-2628 | linkedin.com/in/noahjackson\nSUMMARY\nDedicated Regulatory Affairs Specialist with 3 years of experience.\nCommitted to high standards of safety, quality, and performance.\nSKILLS\nQuality Assurance, GLP, Clinical Trials, Data Analysis, GMP\nEXPERIENCE\nBioCure Labs\nRegulatory Affairs Specialist (2018 - 2024)\n- Led projects aligning with strict industry compliance and guidelines.\n- Improved operational efficiency by 15% through workflow optimization.\n- Drafted comprehensive reports and analysis for stakeholder review.\nEDUCATION\nM.S. in Pharmacology - State University\nGraduated: 2017\nCERTIFICATIONS\nRegulatory Affairs Certification"
+        },
+        {
+          "rank": 9,
+          "name": "Noah Thompson",
+          "score": 54.5,
+          "matched_skills": [
+            "data analysis",
+            "compliance",
+            "fda regulations",
+            "glp",
+            "pharmacovigilance",
+            "pharmacology",
+            "regulatory affairs",
+            "quality control"
+          ],
+          "filename": "noah_thompson_8.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_8\nName: Noah Thompson\nRole: Quality Control Analyst\nContact: noah.thompson@example.com | 358-344-7901 | linkedin.com/in/noahthompson\nSUMMARY\nDedicated Quality Control Analyst with 4 years of experience.\nCommitted to high standards of safety, quality, and performance.\nSKILLS\nFDA Regulations, Data Analysis, GLP, Pharmacovigilance\nEXPERIENCE\nAeroDynamics Inc\nQuality Control Analyst (2018 - 2024)\n- Led projects aligning with strict industry compliance and guidelines.\n- Improved operational efficiency by 15% through workflow optimization.\n- Drafted comprehensive reports and analysis for stakeholder review.\nEDUCATION\nM.S. in Pharmacology - State University\nGraduated: 2017\nCERTIFICATIONS\nRegulatory Affairs Certification"
+        },
+        {
+          "rank": 10,
+          "name": "Mia White",
+          "score": 52.6,
+          "matched_skills": [
+            "compliance",
+            "clinical trials",
+            "fda regulations",
+            "glp",
+            "quality assurance",
+            "clinical research",
+            "regulatory affairs"
+          ],
+          "filename": "mia_white_7.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Resume_7\nName: Mia White\nRole: Clinical Research Associate\nContact: mia.white@example.com | 308-772-3078 | linkedin.com/in/miawhite\nSUMMARY\nDedicated Clinical Research Associate with 5 years of experience.\nCommitted to high standards of safety, quality, and performance.\nSKILLS\nGLP, FDA Regulations, Quality Assurance, Clinical Trials\nEXPERIENCE\nPrecision Manufacturing\nClinical Research Associate (2017 - 2024)\n- Led projects aligning with strict industry compliance and guidelines.\n- Improved operational efficiency by 15% through workflow optimization.\n- Drafted comprehensive reports and analysis for stakeholder review.\nEDUCATION\nB.S. in Pharmacy - State University\nGraduated: 2016\nCERTIFICATIONS\nRegulatory Affairs Certification"
         }
       ]
     }
