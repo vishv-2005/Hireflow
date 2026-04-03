@@ -12,3 +12,8 @@ easyocr
 Pillow
 mammoth
 numpy
+pandas
+openpyxl
+matplotlib
+joblib
+sentence-transformers

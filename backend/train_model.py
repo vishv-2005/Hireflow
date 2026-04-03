@@ -1,256 +1,317 @@
 # train_model.py
-# This script trains a Random Forest model to predict if a candidate should be shortlisted
-# We switched from Decision Tree to Random Forest because the DT was overfitting
-# (100% accuracy on training data is way too suspicious lol)
-# Random Forest is basically many Decision Trees voting together -- more reliable
+# Merged version: Prayag's Random Forest + Vishv's Sentence-BERT semantic features
+# This trains on both the Excel dataset and any real resumes stored in candidates_data.json
+# The model learns to predict "Strong" vs "Weak" candidates based on semantic + structural signals
 
+import os
+import json
+import re
+import ast
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import joblib
-import ast
-from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier  # switching from DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from sentence_transformers import SentenceTransformer, util
 
-print("Starting model training (Random Forest edition)...")
+print("Starting HireFlow-AI Model Training (RF + Sentence-BERT)...")
 print("=" * 50)
 
 # ============================================================
-# STEP 1: Load the dataset
-# 1000 rows of resume data from our college dataset repo
+# SCORING WEIGHTS -- same as candidate_scorer.py
+# These determine how much each signal contributes to the label
+# Adjust these if you want to prioritise different factors
 # ============================================================
-print("Step 1: Loading the Excel file...")
-df = pd.read_excel("data/Super_Resume_Dataset_Rows_1_to_1000.xlsx")
-print(f"  Loaded {len(df)} rows and {len(df.columns)} columns")
-print(f"  Columns: {list(df.columns)}")
+SCORING_WEIGHTS = {
+    "skills_match":   0.35,  # how semantically similar the resume is to the job role
+    "experience":     0.25,  # years of experience
+    "certificates":   0.20,  # relevant certifications vs job description
+    "contact_info":   0.10,  # has email / phone / linkedin
+    "skills_count":   0.10,  # total distinct skills count
+}
+STRONG_THRESHOLD = 0.6  # quality score >= 60% = shortlisted (class 1)
 
 # ============================================================
-# STEP 2: Drop columns we don't need
-# Personal info doesn't help predict shortlisting
-# Text-heavy columns are hard to encode cleanly so we drop those too
+# STEP 1: Load Sentence-BERT
+# We use the lightweight all-MiniLM-L6-v2 model
+# It downloads automatically on first run (~80MB)
 # ============================================================
-print("\nStep 2: Dropping unnecessary columns...")
-cols_to_drop = [
-    "Name", "Email", "Phone", "City", "Gender",
-    "Career_Objective", "Education_Institute",
-    "Passing_Year", "Responsibility", "Certifications"
-]
-df = df.drop(columns=cols_to_drop)
-print(f"  Remaining columns: {list(df.columns)}")
+print("\nStep 1: Loading Sentence-BERT model (first run downloads ~80MB)...")
+bert_model = SentenceTransformer('all-MiniLM-L6-v2')
+print("  BERT ready!")
 
 # ============================================================
-# STEP 3: Handle missing values
-# Fill Skills with empty string first so we don't lose those rows
-# Then drop whatever else is still null
-# The order matters here -- we figured that out the hard way
+# STEP 2: Feature Extraction Helpers
+# These are reused by candidate_scorer.py during inference too
 # ============================================================
-print("\nStep 3: Handling missing values...")
-df["Skills"] = df["Skills"].fillna("")
-before_drop = len(df)
-df = df.dropna()
-after_drop = len(df)
-print(f"  Rows before dropna: {before_drop}")
-print(f"  Rows after dropna:  {after_drop}")
-print(f"  Dropped {before_drop - after_drop} rows with missing data")
 
-# ============================================================
-# STEP 4: Feature Engineering -- skills_count
-# The Skills column looks like: ['Python', 'SQL', 'React']
-# It's stored as a string, not an actual list -- annoying!
-# ast.literal_eval safely converts the string into a real list
-# ============================================================
-print("\nStep 4: Engineering 'skills_count' feature...")
-
-def count_skills(skills_str):
-    # this took us a while to figure out
-    # you can't just do len(skills_str) because it's a string, not a list
+def count_skills(skills_data):
+    """Count skills from either a list or a string like ['Python', 'SQL']."""
+    if isinstance(skills_data, list):
+        return len(skills_data)
+    if pd.isna(skills_data):
+        return 0
+    skills_data = str(skills_data).strip()
+    if not skills_data or skills_data == "[]":
+        return 0
     try:
-        if isinstance(skills_str, list):
-            return len(skills_str)
-        skills_str = str(skills_str).strip()
-        if skills_str == "" or skills_str == "[]":
-            return 0
-        skills_list = ast.literal_eval(skills_str)
-        return len(skills_list)
+        return len(ast.literal_eval(skills_data))
     except Exception:
-        # fallback if ast.literal_eval fails for some weird input
-        return len([s for s in skills_str.split(",") if s.strip()])
+        return len([s for s in skills_data.split(",") if s.strip()])
 
-df["skills_count"] = df["Skills"].apply(count_skills)
-print(f"  Average skills per candidate: {df['skills_count'].mean():.2f}")
-print(f"  Max skills in one resume:     {df['skills_count'].max()}")
+def has_contact_info(text):
+    """Returns 1 if resume has email, phone, or LinkedIn -- else 0."""
+    text = str(text).lower()
+    has_email    = bool(re.search(r'[\w\.-]+@[\w\.-]+', text))
+    has_phone    = bool(re.search(r'[\+\(]?[1-9][0-9 .\-\(\)]{8,}[0-9]', text))
+    has_linkedin = 'linkedin.com' in text
+    return 1 if (has_email or has_phone or has_linkedin) else 0
+
+def has_experience_text(text):
+    """Returns 1 if resume mentions work experience keywords or date ranges."""
+    text = str(text).lower()
+    has_keywords = bool(re.search(r'(experience|worked at|employed at|years of)', text))
+    has_dates    = bool(re.search(r'(20[0-2][0-9]\s*[-–to]+\s*(20[0-2][0-9]|present|now))', text))
+    return 1 if (has_keywords or has_dates) else 0
+
+def extract_experience_years(text):
+    """Parses 'X years experience' from text. Caps at 25."""
+    text = str(text).lower()
+    match = re.search(r'(\d+)\s*\+?\s*years?\s*(of\s+)?(experience)?', text)
+    return min(int(match.group(1)), 25) if match else 0
+
+def get_certificate_relevance(text, jd_embedding):
+    """
+    Finds certification mentions in the resume and computes semantic
+    similarity against the job description embedding. Returns 0-1.
+    """
+    text = str(text).lower()
+    cert_matches = []
+    for m in re.finditer(r'((?:awscertified|certified|certification|certificate|coursera|udemy)[^\n.,]*)', text):
+        cert_matches.append(m.group(1).strip())
+
+    if not cert_matches:
+        return 0.0
+
+    cert_embeddings = bert_model.encode(cert_matches, convert_to_tensor=True)
+    scores = util.cos_sim(cert_embeddings, jd_embedding).cpu().numpy().flatten()
+    relevant = [s for s in scores if s > 0.3]
+    return min(sum(relevant), 1.0) if relevant else 0.0
 
 # ============================================================
-# STEP 5: Create the target variable -- shortlisted
-# Shortlisted = 1 if salary above median AND experience > 5 years
-# This is what HRs roughly consider when filtering candidates
+# STEP 3: Load Data
+# We combine the Excel dataset with any real JSON resumes
 # ============================================================
-print("\nStep 5: Creating 'shortlisted' target variable...")
-median_salary = df["Expected_Salary"].median()
-print(f"  Median Expected Salary: {median_salary}")
+print("\nStep 3: Loading data...")
 
-df["shortlisted"] = (
-    (df["Expected_Salary"] > median_salary) &
-    (df["Experience_Years"] > 5)
-).astype(int)
+df_excel = pd.DataFrame()
+if os.path.exists("data/Super_Resume_Dataset_Rows_1_to_1000.xlsx"):
+    print("  Loading Excel dataset (1000 rows)...")
+    df_excel = pd.read_excel("data/Super_Resume_Dataset_Rows_1_to_1000.xlsx")
+
+    # Build a "raw_text" column by combining relevant fields
+    # This mimics what we'd get from a real resume parser
+    df_excel["raw_text"] = (
+        df_excel["Skills"].fillna("") + " " +
+        df_excel.get("Certifications", pd.Series([""] * len(df_excel))).fillna("") + " " +
+        df_excel["Experience_Years"].astype(str) + " years experience"
+    )
+    df_excel["job_description"] = df_excel["JobRole"].fillna("software engineer")
+    df_excel["is_excel"] = True
+
+df_json = pd.DataFrame()
+json_path = "candidates_data.json"
+if os.path.exists(json_path):
+    print("  Loading candidates_data.json (real uploaded resumes)...")
+    with open(json_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    json_rows = []
+    for batch in data.get("batches", []):
+        jd = batch.get("job_description", "software engineer")
+        for cand in batch.get("candidates", []):
+            json_rows.append({
+                "filename":    cand.get("filename", ""),
+                "raw_text":    cand.get("raw_text", ""),
+                "job_description": jd,
+                "skills_list": cand.get("matched_skills", []),
+                "is_excel":    False
+            })
+
+    df_json = pd.DataFrame(json_rows)
+    if not df_json.empty:
+        before = len(df_json)
+        df_json = df_json.drop_duplicates(subset=["filename"])
+        print(f"  JSON resumes (deduplicated): {before} -> {len(df_json)}")
+
+df = pd.concat([df_excel, df_json], ignore_index=True)
+print(f"  Total rows for training: {len(df)}")
+if len(df) == 0:
+    print("ERROR: No data found. Make sure data/Super_Resume_Dataset_Rows_1_to_1000.xlsx exists.")
+    exit(1)
+
+# ============================================================
+# STEP 4: Feature Engineering
+# ============================================================
+print("\nStep 4: Extracting features & computing BERT semantic scores...")
+
+# Structural features
+df["skills_count"]  = df.apply(
+    lambda row: count_skills(row.get("skills_list", [])) if not row["is_excel"] else count_skills(row.get("Skills", [])),
+    axis=1
+)
+df["has_experience"] = df["raw_text"].apply(has_experience_text)
+df["has_contact"]    = df["raw_text"].apply(has_contact_info)
+
+def get_years(row):
+    if row.get("is_excel", False) and "Experience_Years" in row and pd.notnull(row["Experience_Years"]):
+        return min(int(row["Experience_Years"]), 25)
+    return extract_experience_years(row["raw_text"])
+
+df["experience_years"] = df.apply(get_years, axis=1)
+
+# Semantic features via Sentence-BERT
+print("  Computing semantic similarity (this is the slow step)...")
+jd_texts     = df["job_description"].tolist()
+resume_texts = df["raw_text"].tolist()
+
+jd_embeddings     = bert_model.encode(jd_texts, convert_to_tensor=True, show_progress_bar=False)
+resume_embeddings = bert_model.encode(resume_texts, convert_to_tensor=True, show_progress_bar=False)
+
+skills_match_scores   = []
+cert_relevance_scores = []
+
+for i in range(len(df)):
+    sim      = util.cos_sim(resume_embeddings[i], jd_embeddings[i]).item()
+    norm_sim = min(max((sim - 0.1) * 1.5, 0.0), 1.0)  # normalize BERT scores to 0-1
+    skills_match_scores.append(norm_sim)
+    cert_relevance_scores.append(get_certificate_relevance(df.iloc[i]["raw_text"], jd_embeddings[i]))
+
+df["skills_match_score"]   = skills_match_scores
+df["certificate_relevance"] = cert_relevance_scores
+print("  Semantic features done!")
+
+# ============================================================
+# STEP 5: Generate Target Labels
+# We use the quality formula instead of a hardcoded salary rule
+# This is more generalizable across different job types
+# ============================================================
+print("\nStep 5: Generating shortlisted labels via quality formula...")
+
+df["exp_score"]    = (df["experience_years"] / 10.0).clip(upper=1.0)
+df["skills_score"] = (df["skills_count"] / 15.0).clip(upper=1.0)
+
+df["quality_score"] = (
+    df["skills_match_score"]    * SCORING_WEIGHTS["skills_match"]  +
+    df["exp_score"]             * SCORING_WEIGHTS["experience"]     +
+    df["certificate_relevance"] * SCORING_WEIGHTS["certificates"]   +
+    df["has_contact"]           * SCORING_WEIGHTS["contact_info"]   +
+    df["skills_score"]          * SCORING_WEIGHTS["skills_count"]
+)
+
+df["shortlisted"] = (df["quality_score"] >= STRONG_THRESHOLD).astype(int)
+
+# Safety check: if one class has too few samples, auto-adjust threshold
+if df["shortlisted"].sum() < 5 or (df["shortlisted"] == 0).sum() < 5:
+    print("  Warning: Imbalanced classes after threshold -- auto-adjusting to top 25%.")
+    STRONG_THRESHOLD = df["quality_score"].quantile(0.75)
+    df["shortlisted"] = (df["quality_score"] >= STRONG_THRESHOLD).astype(int)
 
 print(f"  Shortlisted (1): {df['shortlisted'].sum()}")
 print(f"  Not shortlisted (0): {(df['shortlisted'] == 0).sum()}")
 
 # ============================================================
-# STEP 6: Encode Department and JobRole
-# ML models need numbers not strings
-# LabelEncoder assigns an integer to each unique category
-# We save the encoders so candidate_scorer.py can reuse them
+# STEP 6: Train Random Forest
+# Features are all semantic + structural signals from above
+# No raw salary or department encoding needed -- fully text-driven
 # ============================================================
-print("\nStep 6: Label encoding Department and JobRole...")
+print("\nStep 6: Training Random Forest Classifier (200 trees)...")
 
-label_encoders = {}
+feature_cols = [
+    "skills_match_score",
+    "skills_count",
+    "has_experience",
+    "certificate_relevance",
+    "has_contact",
+    "experience_years"
+]
 
-le_dept = LabelEncoder()
-df["Department"] = le_dept.fit_transform(df["Department"])
-label_encoders["Department"] = le_dept
-print(f"  Department classes: {list(le_dept.classes_)}")
-
-le_role = LabelEncoder()
-df["JobRole"] = le_role.fit_transform(df["JobRole"])
-label_encoders["JobRole"] = le_role
-print(f"  JobRole classes: {list(le_role.classes_)}")
-
-joblib.dump(label_encoders, "label_encoders.pkl")
-print("  Saved label_encoders.pkl")
-
-# ============================================================
-# STEP 7: Define features (X) and target (y)
-# Using 5 features this time -- including Expected_Salary
-# because it actually carries real signal here
-# ============================================================
-print("\nStep 7: Selecting features and target...")
-
-feature_cols = ["Experience_Years", "skills_count", "Expected_Salary", "Department", "JobRole"]
 X = df[feature_cols]
 y = df["shortlisted"]
 
-print(f"  Features: {feature_cols}")
-print(f"  X shape: {X.shape}")
-print(f"  y shape: {y.shape}")
-
-# ============================================================
-# STEP 8: Train / test split
-# 80% training, 20% testing
-# random_state=42 so results are reproducible every time we run
-# ============================================================
-print("\nStep 8: Splitting data (80% train, 20% test)...")
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42
-)
-print(f"  Training samples: {len(X_train)}")
-print(f"  Testing samples:  {len(X_test)}")
-
-# ============================================================
-# STEP 9: Train the Random Forest Classifier
-# Switching to random forest because the decision tree was a bit
-# unstable and overfitting on our small dataset (got 100% which is sus)
-# Random Forest = 100 different decision trees, each trained on a
-# random subset of data and features, then they vote on the answer
-# Much more stable and generalises better
-# ============================================================
-print("\nStep 9: Training Random Forest Classifier...")
-print("  (this takes a few seconds -- training 100 trees)")
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+print(f"  Training samples: {len(X_train)}, Testing samples: {len(X_test)}")
 
 model = RandomForestClassifier(
-    n_estimators=100,   # 100 trees in the forest
-    max_depth=8,        # each tree can go 8 levels deep -- prevents overfitting
-    random_state=42     # for reproducibility
+    n_estimators=200,
+    max_depth=10,
+    min_samples_split=5,
+    random_state=42
 )
 model.fit(X_train, y_train)
 print("  Training complete!")
 
 # ============================================================
-# STEP 10: Evaluate the model
-# Accuracy: overall % of correct predictions
-# Classification report: precision, recall, F1 for each class
+# STEP 7: Evaluate
 # ============================================================
-print("\nStep 10: Evaluating model performance...")
-y_pred = model.predict(X_test)
-
+print("\nStep 7: Evaluating model...")
+y_pred   = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
+
 print(f"\n  Accuracy: {accuracy:.4f} ({accuracy * 100:.2f}%)")
 print("\n  Classification Report:")
-print(classification_report(y_test, y_pred, target_names=["Not Shortlisted", "Shortlisted"]))
+print(classification_report(y_test, y_pred, target_names=["Not Shortlisted", "Shortlisted"], zero_division=0))
 
-# ============================================================
-# STEP 11: Save confusion matrix plot
-# Shows where the model made mistakes
-# Rows = actual label, Columns = predicted label
-# ============================================================
-print("Step 11: Saving confusion matrix plot...")
-
-cm = confusion_matrix(y_test, y_pred)
+# Confusion matrix
+cm = confusion_matrix(y_test, y_pred, labels=[0, 1])
 fig, ax = plt.subplots(figsize=(6, 5))
 im = ax.imshow(cm, interpolation="nearest", cmap=plt.cm.Blues)
 plt.colorbar(im, ax=ax)
-
-ax.set_xlabel("Predicted Label", fontsize=12)
-ax.set_ylabel("True Label", fontsize=12)
-ax.set_title("Confusion Matrix - Random Forest", fontsize=14)
-ax.set_xticks([0, 1])
-ax.set_yticks([0, 1])
+ax.set_xlabel("Predicted", fontsize=12)
+ax.set_ylabel("True", fontsize=12)
+ax.set_title(f"Confusion Matrix (Threshold={STRONG_THRESHOLD:.2f})", fontsize=14)
+ax.set_xticks([0, 1]); ax.set_yticks([0, 1])
 ax.set_xticklabels(["Not Shortlisted", "Shortlisted"])
 ax.set_yticklabels(["Not Shortlisted", "Shortlisted"])
-
 for i in range(cm.shape[0]):
     for j in range(cm.shape[1]):
-        ax.text(j, i, str(cm[i, j]),
-                ha="center", va="center",
-                color="white" if cm[i, j] > cm.max() / 2 else "black",
-                fontsize=14)
-
+        ax.text(j, i, str(cm[i, j]), ha="center", va="center",
+                color="white" if cm[i, j] > cm.max() / 2 else "black", fontsize=14)
 plt.tight_layout()
 plt.savefig("confusion_matrix.png", dpi=100)
 plt.close()
 print("  Saved confusion_matrix.png")
 
-# ============================================================
-# STEP 12: Save feature importance plot
-# Random Forest gives us an importance score for each feature
-# This tells us which features the model relied on most
-# ============================================================
-print("Step 12: Saving feature importance plot...")
-
-importances = model.feature_importances_
-sorted_idx = np.argsort(importances)
-sorted_features = [feature_cols[i] for i in sorted_idx]
-sorted_importances = importances[sorted_idx]
+# Feature importance plot
+importances   = model.feature_importances_
+sorted_idx    = np.argsort(importances)
+sorted_feats  = [feature_cols[i] for i in sorted_idx]
+sorted_imps   = importances[sorted_idx]
 
 fig, ax = plt.subplots(figsize=(7, 5))
-bars = ax.barh(sorted_features, sorted_importances, color="#4f86c6")
+bars = ax.barh(sorted_feats, sorted_imps, color="#4f86c6")
 ax.set_xlabel("Importance Score", fontsize=12)
-ax.set_title("Feature Importance - Random Forest", fontsize=14)
-
-for bar, val in zip(bars, sorted_importances):
-    ax.text(val + 0.005, bar.get_y() + bar.get_height() / 2,
-            f"{val:.3f}", va="center", fontsize=10)
-
+ax.set_title("Feature Importance - Random Forest + BERT", fontsize=14)
+for bar, val in zip(bars, sorted_imps):
+    ax.text(val + 0.005, bar.get_y() + bar.get_height() / 2, f"{val:.3f}", va="center", fontsize=10)
 plt.tight_layout()
 plt.savefig("feature_importance.png", dpi=100)
 plt.close()
 print("  Saved feature_importance.png")
 
 # ============================================================
-# STEP 13: Save the model
-# This overwrites the old decision tree model.pkl
+# STEP 8: Save Model
+# Only the RF model is saved -- BERT is loaded on demand in candidate_scorer.py
 # ============================================================
-print("\nStep 13: Saving model to disk...")
+print("\nStep 8: Saving model.pkl...")
 joblib.dump(model, "model.pkl")
 print("Model saved as model.pkl")
 
 print("\n" + "=" * 50)
-print("All done! Files saved:")
-print("  - model.pkl              (Random Forest, 100 trees)")
-print("  - label_encoders.pkl     (Department + JobRole encoders)")
+print("Done! Artifacts saved:")
+print("  - model.pkl              (Random Forest, 200 trees, BERT features)")
 print("  - confusion_matrix.png")
 print("  - feature_importance.png")
 print("=" * 50)
