@@ -1,5 +1,6 @@
 // CandidateTable.jsx - displays the ranked candidates in a table
 // scores get colored badges: green for 70+, orange for 40-69, red for below 40
+// skills that match the JD are highlighted with a distinct color
 
 import '../styles/dashboard.css';
 
@@ -18,14 +19,17 @@ function CandidateTable({ candidates }) {
     // using pure vanilla JS!
     const handleExportCSV = () => {
         // defined CSV headers
-        const headers = ['Rank', 'Name', 'Score', 'Matched Skills', 'Anomaly Status', 'Filename'];
+        const headers = ['Rank', 'Name', 'Score', 'Experience (Yrs)', 'Relevant Cert', 'Matched Skills', 'JD Matched Skills', 'Anomaly Status', 'Filename'];
 
         // build rows
         const rows = candidates.map(c => [
             c.rank,
             `"${c.name.replace(/"/g, '""')}"`, // escape quotes
             c.score,
+            c.experience_years || 0,
+            c.has_relevant_cert ? 'Yes' : 'No',
             `"${c.matched_skills.join(', ')}"`, // wrap list in quotes so commas don't break columns
+            `"${(c.jd_matched_skills || []).join(', ')}"`,
             c.is_anomaly ? 'Flagged' : 'Clean',
             `"${c.filename}"`
         ]);
@@ -84,66 +88,103 @@ function CandidateTable({ candidates }) {
                         <th>Rank</th>
                         <th>Candidate Name</th>
                         <th>Score</th>
+                        <th>Experience</th>
+                        <th>Certificates</th>
                         <th>Status</th>
                         <th>Matched Skills</th>
                         <th>File Name</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {candidates.map((candidate) => (
-                        <tr key={candidate.rank}>
-                            <td>
-                                <span className={`rank-badge ${candidate.rank <= 3 ? 'top-3' : ''}`}>
-                                    {candidate.rank}
-                                </span>
-                            </td>
-                            <td className="candidate-name">
-                                {candidate.name}
-                            </td>
-                            <td>
-                                {/* add a red border if this candidate is an anomaly to reinforce the warning visually */}
-                                <span
-                                    className={`score-badge ${getScoreClass(candidate.score)}`}
-                                    style={candidate.is_anomaly ? { border: '2px solid #e53e3e' } : {}}
-                                >
-                                    {candidate.score}%
-                                </span>
-                            </td>
-                            <td>
-                                {/* new Status column shows a red badge for anomalies or a green badge if clean */}
-                                {candidate.is_anomaly ? (
-                                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                                        <span style={{ backgroundColor: '#fed7d7', color: '#c53030', padding: '4px 8px', borderRadius: '12px', fontSize: '0.85rem', fontWeight: 600 }}>
-                                            ⚠ Flagged
-                                        </span>
-                                        <span title={candidate.anomaly_reason} style={{ fontSize: '0.75rem', color: '#e53e3e', marginTop: '4px', cursor: 'help', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '120px' }}>
-                                            {candidate.anomaly_reason}
-                                        </span>
-                                    </div>
-                                ) : (
-                                    <span style={{ backgroundColor: '#c6f6d5', color: '#2f855a', padding: '4px 8px', borderRadius: '12px', fontSize: '0.85rem', fontWeight: 600 }}>
-                                        ✓ Clean
+                    {candidates.map((candidate) => {
+                        // Build a set for quick lookup
+                        const jdSkillSet = new Set((candidate.jd_matched_skills || []).map(s => s.toLowerCase()));
+
+                        return (
+                            <tr key={candidate.rank}>
+                                <td>
+                                    <span className={`rank-badge ${candidate.rank <= 3 ? 'top-3' : ''}`}>
+                                        {candidate.rank}
                                     </span>
-                                )}
-                            </td>
-                            <td>
-                                <div className="skills-list">
-                                    {candidate.matched_skills.length > 0 ? (
-                                        candidate.matched_skills.map((skill, index) => (
-                                            <span className="skill-pill" key={index}>
-                                                {skill}
-                                            </span>
-                                        ))
+                                </td>
+                                <td className="candidate-name">
+                                    {candidate.name}
+                                </td>
+                                <td>
+                                    {/* add a red border if this candidate is an anomaly to reinforce the warning visually */}
+                                    <span
+                                        className={`score-badge ${getScoreClass(candidate.score)}`}
+                                        style={candidate.is_anomaly ? { border: '2px solid #e53e3e' } : {}}
+                                    >
+                                        {candidate.score}%
+                                    </span>
+                                </td>
+                                <td>
+                                    <span style={{ fontWeight: 600, color: '#333' }}>
+                                        {candidate.experience_years || 0} yrs
+                                    </span>
+                                </td>
+                                <td>
+                                    {candidate.has_relevant_cert ? (
+                                        <span style={{ color: '#2f855a', fontWeight: '600' }}>✓ Yes</span>
                                     ) : (
-                                        <span style={{ color: '#999', fontSize: '0.85rem' }}>
-                                            No matches
+                                        <span style={{ color: '#888' }}>-</span>
+                                    )}
+                                </td>
+                                <td>
+                                    {/* Status column shows a red badge for anomalies or a green badge if clean */}
+                                    {candidate.is_anomaly ? (
+                                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                                            <span style={{ backgroundColor: '#fed7d7', color: '#c53030', padding: '4px 8px', borderRadius: '12px', fontSize: '0.85rem', fontWeight: 600 }}>
+                                                ⚠ Flagged
+                                            </span>
+                                            <span title={candidate.anomaly_reason} style={{ fontSize: '0.75rem', color: '#e53e3e', marginTop: '4px', cursor: 'help', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '120px' }}>
+                                                {candidate.anomaly_reason}
+                                            </span>
+                                        </div>
+                                    ) : (
+                                        <span style={{ backgroundColor: '#c6f6d5', color: '#2f855a', padding: '4px 8px', borderRadius: '12px', fontSize: '0.85rem', fontWeight: 600 }}>
+                                            ✓ Clean
                                         </span>
                                     )}
-                                </div>
-                            </td>
-                            <td className="file-name">{candidate.filename}</td>
-                        </tr>
-                    ))}
+                                </td>
+                                <td>
+                                    <div className="skills-list">
+                                        {candidate.matched_skills.length > 0 ? (
+                                            <>
+                                                {/* Show JD-matched skills first, then the rest */}
+                                                {candidate.matched_skills
+                                                    .slice()
+                                                    .sort((a, b) => {
+                                                        const aMatch = jdSkillSet.has(a.toLowerCase()) ? 0 : 1;
+                                                        const bMatch = jdSkillSet.has(b.toLowerCase()) ? 0 : 1;
+                                                        return aMatch - bMatch;
+                                                    })
+                                                    .map((skill, index) => {
+                                                        const isJdMatch = jdSkillSet.has(skill.toLowerCase());
+                                                        return (
+                                                            <span
+                                                                className={`skill-pill ${isJdMatch ? 'skill-pill-jd' : ''}`}
+                                                                key={index}
+                                                                title={isJdMatch ? '✓ Matches Job Description' : ''}
+                                                            >
+                                                                {isJdMatch && <span className="skill-pill-jd-dot"></span>}
+                                                                {skill}
+                                                            </span>
+                                                        );
+                                                    })}
+                                            </>
+                                        ) : (
+                                            <span style={{ color: '#999', fontSize: '0.85rem' }}>
+                                                No matches
+                                            </span>
+                                        )}
+                                    </div>
+                                </td>
+                                <td className="file-name">{candidate.filename}</td>
+                            </tr>
+                        );
+                    })}
                 </tbody>
             </table>
         </div>

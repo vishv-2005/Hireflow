@@ -1,33 +1,27 @@
-<<<<<<< HEAD
 # candidate_scorer.py - scores and ranks candidates using Random Forest ML Model + NLP Semantic Matching
 # ============================================================================================
 # This module handles the scoring of individual resumes against a Job Description.
 # PATH A: If model.pkl exists -> uses Random Forest + Sentence-BERT (full ML pipeline)
 # PATH B: If model.pkl is missing -> falls back to simple keyword matching
 # ============================================================================================
-=======
-# candidate_scorer.py - scores and ranks candidates using Random Forest + Sentence-BERT
-# Merged version: Prayag's RF inference pipeline + Vishv's BERT semantic scoring
-# Falls back to keyword matching if model.pkl doesn't exist -- nothing breaks
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 
 import os
 import re
 import statistics
 import joblib
-<<<<<<< HEAD
 import pandas as pd
 from sentence_transformers import SentenceTransformer, util
 
 # ====================================================================
 # SCORING CONFIGURATION (EDITABLE!)
 # Adjust these weights based on what matters most for shortlisting.
-# Must sum to 1.0 (or close to it).
+# Must sum to 1.0.
 # ====================================================================
 SCORING_WEIGHTS = {
-    "skills_match":       0.35,   # How closely resume skills match JD (semantic)
-    "experience":         0.25,   # Years of experience
-    "certificates":       0.20,   # How relevant certificates are to JD
+    "jd_skill_overlap":   0.30,   # Direct keyword match
+    "skills_match":       0.15,   # BERT semantic similarity
+    "experience":         0.20,   # Years of experience (increased)
+    "certificates":       0.15,   # Relevant certificates (increased)
     "contact_info":       0.10,   # Has email, phone, linkedin
     "skills_count":       0.10,   # Raw count of distinct skills
 }
@@ -99,42 +93,10 @@ SKILL_KEYWORDS = [
 
 _BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(_BASE_DIR, "model.pkl")
-=======
-import numpy as np
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-
-# fallback skill list -- used for display on dashboard and basic scoring
-SKILL_KEYWORDS = [
-    "python", "java", "javascript", "sql", "react",
-    "machine learning", "data analysis", "aws", "docker", "kubernetes",
-    "git", "html", "css", "node.js", "flask",
-    "tensorflow", "pandas", "mongodb", "rest api", "agile"
-]
-
-# ============================================================
-# SCORING WEIGHTS -- must match train_model.py exactly
-# ============================================================
-SCORING_WEIGHTS = {
-    "skills_match":   0.35,
-    "experience":     0.25,
-    "certificates":   0.20,
-    "contact_info":   0.10,
-    "skills_count":   0.10,
-}
-STRONG_THRESHOLD = 0.6
-
-# ============================================================
-# Load model and BERT on startup (lazy-loaded to save memory)
-# ============================================================
-_BASE_DIR     = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH    = os.path.join(_BASE_DIR, "model.pkl")
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 
 _model      = None
 _bert_model = None
 
-<<<<<<< HEAD
 
 def _load_models():
     """Loads Random Forest and BERT model into memory if not already loaded."""
@@ -147,20 +109,6 @@ def _load_models():
             print("[candidate_scorer] model.pkl not found! Will fall back to keyword scoring.")
             print("  To enable ML scoring, run: python train_model.py")
 
-=======
-try:
-    _model = joblib.load(MODEL_PATH)
-    print("[candidate_scorer] Loaded model.pkl successfully!")
-    print("[candidate_scorer] Random Forest + BERT scoring is ACTIVE.")
-except FileNotFoundError:
-    print("[candidate_scorer] model.pkl not found. Falling back to keyword scoring.")
-    print("[candidate_scorer] Run 'python train_model.py' from the backend/ folder to enable ML scoring.")
-
-
-def _load_bert():
-    """Lazy-load Sentence-BERT only when first needed (saves startup time)."""
-    global _bert_model
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
     if _bert_model is None and _model is not None:
         print("[candidate_scorer] Loading Sentence-BERT model...")
         from sentence_transformers import SentenceTransformer
@@ -168,22 +116,14 @@ def _load_bert():
         print("[candidate_scorer] Sentence-BERT ready!")
 
 
+
 # ============================================================
-<<<<<<< HEAD
 # Feature Extraction Helpers (Identical logic to train_model.py)
 # ============================================================
 
 def _count_skills(matched_skills):
     """Returns the raw count of matched skills."""
     return len(matched_skills)
-=======
-# Feature Extraction Helpers (mirror of train_model.py)
-# ============================================================
-
-def _get_matched_skills(raw_text):
-    """Find which skills from our keyword list appear in the resume."""
-    return [s for s in SKILL_KEYWORDS if s in raw_text.lower()]
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 
 
 def _has_contact_info(text):
@@ -209,7 +149,6 @@ def _extract_experience_years(text):
     
     # 1. Look for explicit "X years"
     match = re.search(r'(\d+)\s*\+?\s*years?\s*(of\s+)?(experience)?', text)
-<<<<<<< HEAD
     if match:
         return min(int(match.group(1)), 25)
         
@@ -235,41 +174,84 @@ def _extract_experience_years(text):
 
 
 def _get_matched_skills(raw_text):
-    """Finds which baseline skills are explicitly in the text (for dashboard display)."""
+    """Finds which baseline skills are explicitly in the text (for dashboard display).
+    Uses word-boundary regex to prevent false positives like 'go' matching 'google'."""
     text_lower = raw_text.lower()
-    return [s for s in SKILL_KEYWORDS if s in text_lower]
+    matched = []
+    for s in SKILL_KEYWORDS:
+        # Build a word-boundary pattern. re.escape handles special chars like c++, c#, etc.
+        pattern = r'\b' + re.escape(s) + r'\b'
+        if re.search(pattern, text_lower):
+            matched.append(s)
+    return matched
 
-=======
-    return min(int(match.group(1)), 25) if match else 0
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
+
+def _get_jd_skills(job_description):
+    """Extracts which SKILL_KEYWORDS are mentioned in the JD itself.
+    Also extracts simple multi-word phrases like 'web development', 'full stack'."""
+    if not job_description or not job_description.strip():
+        return []
+    
+    jd_lower = job_description.lower()
+    jd_skills = []
+    for s in SKILL_KEYWORDS:
+        pattern = r'\b' + re.escape(s) + r'\b'
+        if re.search(pattern, jd_lower):
+            jd_skills.append(s)
+    
+    # Also check for common related terms that aren't in the keyword list
+    extra_terms = {
+        "web development": ["html", "css", "javascript", "react", "angular", "vue.js", "node.js", "django", "flask"],
+        "full stack": ["html", "css", "javascript", "react", "node.js", "sql", "mongodb", "postgresql", "mysql"],
+        "frontend": ["html", "css", "javascript", "react", "angular", "vue.js", "typescript"],
+        "backend": ["node.js", "python", "java", "sql", "mongodb", "postgresql", "flask", "django", "spring boot"],
+        "devops": ["docker", "kubernetes", "jenkins", "ci/cd", "terraform", "ansible", "aws", "azure", "gcp"],
+        "data engineer": ["sql", "python", "pandas", "data analysis", "data science", "tensorflow"],
+        "mobile development": ["react", "javascript", "typescript", "flutter", "swift"],
+    }
+    
+    for phrase, related_skills in extra_terms.items():
+        if phrase in jd_lower:
+            for skill in related_skills:
+                if skill not in jd_skills:
+                    jd_skills.append(skill)
+    
+    return jd_skills
+
+
+def _compute_jd_overlap(matched_skills, jd_skills):
+    """Computes what fraction of JD-required skills are found in the resume.
+    Returns a score from 0.0 to 1.0."""
+    if not jd_skills:
+        return 0.0
+    
+    matched_set = set(matched_skills)
+    jd_set = set(jd_skills)
+    
+    overlap = matched_set & jd_set
+    
+    # Score: fraction of JD skills found in resume
+    return len(overlap) / len(jd_set)
+
 
 def _get_semantic_features(raw_text, job_description):
     """
     Uses Sentence-BERT to compute:
-<<<<<<< HEAD
     1. Overall skill/resume meaning vs Job Description  → skills_match_score (0-1)
     2. Certificate relevance vs Job Description         → cert_relevance_score (0-1)
-=======
-    1. Semantic similarity of the resume vs the job description
-    2. Relevance of any certificates mentioned vs the job description
-    Returns (skills_match_score, cert_relevance_score) both in range 0-1.
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
     """
     from sentence_transformers import util
 
     if not job_description or not job_description.strip():
         job_description = "software engineer developer"
 
+
     raw_text = str(raw_text).lower()
-<<<<<<< HEAD
 
     # Pre-embed JD
     jd_embedding = _bert_model.encode([job_description], convert_to_tensor=True)[0]
 
     # 1. Overall Skills Semantic Score
-=======
-    jd_embedding     = _bert_model.encode([job_description], convert_to_tensor=True)[0]
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
     resume_embedding = _bert_model.encode([raw_text], convert_to_tensor=True)[0]
 
     # Overall semantic similarity (normalized)
@@ -277,7 +259,6 @@ def _get_semantic_features(raw_text, job_description):
     # Normalize: raw BERT cosine for long texts is usually 0.1-0.8
     skills_match_score = min(max((sim - 0.1) * 1.5, 0.0), 1.0)
 
-<<<<<<< HEAD
     # 2. Certificate Relevance Score
     cert_patterns = [
         r'((?:aws[\s\-]?certified|certified|certification|certificate|coursera|udemy|google[\s\-]?cloud|azure[\s\-]?certified)[^\n.,;]*)',
@@ -294,33 +275,18 @@ def _get_semantic_features(raw_text, job_description):
         try:
             cert_embeddings = _bert_model.encode(cert_matches, convert_to_tensor=True)
             cosine_scores = util.cos_sim(cert_embeddings, jd_embedding).cpu().numpy().flatten()
-            # Only count certificates with meaningful relevance (> 0.3 similarity)
-            relevant_scores = [float(s) for s in cosine_scores if s > 0.3]
+            # Only count certificates with meaningful relevance (> 0.1 similarity)
+            relevant_scores = [float(s) for s in cosine_scores if s > 0.1]
             if relevant_scores:
                 # Sum of relevant scores, capped at 1.0
                 cert_relevance_score = min(sum(relevant_scores), 1.0)
         except Exception as e:
             print(f"[candidate_scorer] Certificate scoring error: {e}")
             cert_relevance_score = 0.0
-=======
-    # Certificate relevance
-    cert_matches = []
-    for m in re.finditer(r'((?:awscertified|certified|certification|certificate|coursera|udemy)[^\n.,]*)', raw_text):
-        cert_matches.append(m.group(1).strip())
-
-    cert_relevance_score = 0.0
-    if cert_matches:
-        cert_embeddings = _bert_model.encode(cert_matches, convert_to_tensor=True)
-        cosine_scores   = util.cos_sim(cert_embeddings, jd_embedding).cpu().numpy().flatten()
-        relevant        = [s for s in cosine_scores if s > 0.3]
-        if relevant:
-            cert_relevance_score = min(sum(relevant), 1.0)
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 
     return skills_match_score, cert_relevance_score
 
 
-<<<<<<< HEAD
 # ============================================================
 # Main Scoring Function
 # ============================================================
@@ -339,6 +305,17 @@ def score_candidate(parsed_data, job_description=None):
 
     # Always compute baseline skill matches (for dashboard display)
     matched_skills = _get_matched_skills(raw_text)
+    
+    # Compute JD-specific skill overlap
+    jd_skills = _get_jd_skills(job_description)
+    jd_overlap = _compute_jd_overlap(matched_skills, jd_skills)
+    
+    # Find which of the candidate's skills directly match the JD (for highlighting)
+    jd_matched_skills = [s for s in matched_skills if s in set(jd_skills)]
+
+    # Initialize variables for return values so they exist even if ML fails
+    exp_years = _extract_experience_years(raw_text)
+    cert_score = 0.0
 
     # -------------------------------------------------------
     # PATH A: ML pipeline is loaded
@@ -353,39 +330,6 @@ def score_candidate(parsed_data, job_description=None):
         sm_score, cert_score = _get_semantic_features(raw_text, job_description)
 
         # Features ordered EXACTLY as trained in train_model.py
-=======
-def score_candidate(parsed_data, job_description=None):
-    """
-    Main scoring function called for every resume.
-
-    PATH A (ML active): Uses Random Forest with BERT semantic features.
-                        Returns probability of being "shortlisted" (0-100).
-    PATH B (fallback):  If model.pkl missing, uses TF-IDF similarity or
-                        simple keyword match percentage.
-    """
-    raw_text = parsed_data["raw_text"]
-    filename = parsed_data["filename"]
-
-    # always gather matched skills -- used for dashboard display
-    matched_skills = _get_matched_skills(raw_text)
-
-    # -----------------------------------------------------------
-    # PATH A: ML pipeline (RF + BERT)
-    # -----------------------------------------------------------
-    if _model is not None:
-        _load_bert()  # lazy-load BERT if not already loaded
-
-        skills_count = len(matched_skills)
-        has_exp      = _has_experience_text(raw_text)
-        has_contact  = _has_contact_info(raw_text)
-        exp_years    = _extract_experience_years(raw_text)
-
-        # get semantic scores (vs job description or generic JD)
-        sm_score, cert_score = _get_semantic_features(raw_text, job_description)
-
-        # build feature DataFrame -- must match exact column order from training
-        import pandas as pd
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
         feature_cols = [
             "skills_match_score",
             "skills_count",
@@ -394,66 +338,47 @@ def score_candidate(parsed_data, job_description=None):
             "has_contact",
             "experience_years"
         ]
-<<<<<<< HEAD
 
-=======
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
         X_infer = pd.DataFrame(
             [[sm_score, skills_count, has_exp, cert_score, has_contact, exp_years]],
             columns=feature_cols
         )
 
-<<<<<<< HEAD
         # Predict probability of being a "Strong" candidate
         proba = _model.predict_proba(X_infer)[0]       # [prob_weak, prob_strong]
         
-        # Calculate raw deterministic quality score based on weights
+        # Calculate deterministic quality score with JD overlap as the primary signal
         quality_score = (
+            (jd_overlap * SCORING_WEIGHTS["jd_skill_overlap"]) +
             (sm_score * SCORING_WEIGHTS["skills_match"]) +
-            (min(exp_years / 10.0, 1.0) * SCORING_WEIGHTS["experience"]) +
+            (min(exp_years / 15.0, 1.0) * SCORING_WEIGHTS["experience"]) +
             (cert_score * SCORING_WEIGHTS["certificates"]) +
             (has_contact * SCORING_WEIGHTS["contact_info"]) +
             (min(skills_count / 15.0, 1.0) * SCORING_WEIGHTS["skills_count"])
         )
         
-        # Blend ML confidence (30%) with deterministic score (70%)
-        # This prevents scores from getting flattened to 0% if the ML model is too strict
-        combined_score = (quality_score * 0.7) + (float(proba[1]) * 0.3)
+        # Blend: deterministic score dominates (80%), ML provides a supporting signal (20%)
+        combined_score = (quality_score * 0.80) + (float(proba[1]) * 0.20)
         score = round(combined_score * 100, 1)
 
     # -------------------------------------------------------
     # PATH B: ML Model is missing (Fallback to keyword match)
     # -------------------------------------------------------
     else:
-        total = len(SKILL_KEYWORDS)
-        score = round((len(matched_skills) / total) * 100, 1) if total > 0 else 0.0
-=======
-        proba = _model.predict_proba(X_infer)[0]  # [prob_weak, prob_strong]
-        score = round(proba[1] * 100, 1)           # probability of being shortlisted, out of 100
-
-    # -----------------------------------------------------------
-    # PATH B: Fallback (no model)
-    # -----------------------------------------------------------
-    else:
-        if job_description and job_description.strip():
-            vectorizer = TfidfVectorizer()
-            try:
-                tfidf_matrix = vectorizer.fit_transform([job_description.lower(), raw_text.lower()])
-                similarity   = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])[0][0]
-                score        = round(similarity * 100, 1)
-            except ValueError:
-                score = round((len(matched_skills) / len(SKILL_KEYWORDS)) * 100, 1)
+        # When no ML model, still use JD overlap if available
+        if jd_skills:
+            score = round(jd_overlap * 100, 1)
         else:
-            score = round((len(matched_skills) / len(SKILL_KEYWORDS)) * 100, 1)
-
-    name = extract_name_from_filename(filename)
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
+            total = len(SKILL_KEYWORDS)
+            score = round((len(matched_skills) / total) * 100, 1) if total > 0 else 0.0
 
     return {
         "name":           name,
         "score":          score,
         "matched_skills": matched_skills,
-<<<<<<< HEAD
+        "jd_matched_skills": jd_matched_skills,
+        "experience_years": exp_years,
+        "has_relevant_cert": bool(cert_score > 0.0),
         "filename": filename,
         "raw_text": raw_text  # Kept temporarily for anomaly detection
     }
@@ -474,29 +399,13 @@ def extract_name_from_filename(filename):
     name = name.replace("_", " ").replace("-", " ")
 
     # Clean up extra spaces and title case it
-=======
-        "filename":       filename,
-        "raw_text":       raw_text  # kept temporarily for anomaly detection
-    }
-
-
-def extract_name_from_filename(filename):
-    """Extracts a human-readable name from the resume filename."""
-    name = os.path.splitext(filename)[0]
-    name = re.sub(r'(?i)(resume|cv|_resume|_cv|\d+)', '', name)
-    name = name.replace("_", " ").replace("-", " ")
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
     name = " ".join(name.split()).title().strip()
-    return name if name else filename
 
-<<<<<<< HEAD
     # If we end up with an empty string just use the filename
     if not name:
         name = filename
 
     return name
-=======
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 
 
 # ============================================================
@@ -506,16 +415,12 @@ def extract_name_from_filename(filename):
 def rank_candidates(candidates_list):
     """Sorts candidates by score (highest first) and assigns rank numbers."""
     sorted_candidates = sorted(candidates_list, key=lambda x: x["score"], reverse=True)
-<<<<<<< HEAD
 
-=======
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
     for i, candidate in enumerate(sorted_candidates):
         candidate["rank"] = i + 1
     return sorted_candidates
 
 
-<<<<<<< HEAD
 # ============================================================
 # Anomaly Detection
 # ============================================================
@@ -535,28 +440,11 @@ def detect_anomalies(candidates_list):
     else:
         std_len = 0.0
 
-=======
-def detect_anomalies(candidates_list):
-    """
-    Flags resumes that are statistically much longer than others in the batch.
-    More than 2 standard deviations above the mean = suspected keyword stuffing.
-    """
-    if not candidates_list:
-        return candidates_list
-
-    lengths  = [len(c["raw_text"]) for c in candidates_list]
-    mean_len = statistics.mean(lengths)
-    std_len  = statistics.stdev(lengths) if len(lengths) > 1 else 0.0
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
     threshold = mean_len + (2 * std_len)
 
     for candidate in candidates_list:
-<<<<<<< HEAD
         candidate_len = len(candidate.get("raw_text", ""))
 
-=======
-        candidate_len = len(candidate["raw_text"])
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
         if std_len > 0 and candidate_len > threshold:
             candidate["is_anomaly"]     = True
             candidate["anomaly_reason"] = "Suspected keyword stuffing: resume text length is statistically abnormal for this batch."
@@ -564,11 +452,7 @@ def detect_anomalies(candidates_list):
             candidate["is_anomaly"]     = False
             candidate["anomaly_reason"] = ""
 
-<<<<<<< HEAD
         # Remove raw_text before sending to frontend
         candidate.pop("raw_text", None)
-=======
-        candidate.pop("raw_text", None)  # clean up -- don't send huge text to frontend
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 
     return candidates_list

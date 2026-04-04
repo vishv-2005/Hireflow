@@ -1,16 +1,9 @@
-<<<<<<< HEAD
 # train_model.py - HireFlow-AI ML Training Pipeline
 # ==================================================================
 # Trains a Random Forest classifier on XLSX + JSON resume data.
 # Uses Sentence-BERT for semantic skill/certificate matching.
 # Generates: model.pkl, confusion_matrix.png, feature_importance.png
 # ==================================================================
-=======
-# train_model.py
-# Merged version: Prayag's Random Forest + Vishv's Sentence-BERT semantic features
-# This trains on both the Excel dataset and any real resumes stored in candidates_data.json
-# The model learns to predict "Strong" vs "Weak" candidates based on semantic + structural signals
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 
 import os
 import json
@@ -28,7 +21,6 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 from sentence_transformers import SentenceTransformer, util
 
-<<<<<<< HEAD
 print("=" * 60)
 print("  HireFlow-AI Model Training Pipeline")
 print("=" * 60)
@@ -42,41 +34,14 @@ SCORING_WEIGHTS = {
     "certificates":       0.20,
     "contact_info":       0.10,
     "skills_count":       0.10,
-=======
-print("Starting HireFlow-AI Model Training (RF + Sentence-BERT)...")
-print("=" * 50)
-
-# ============================================================
-# SCORING WEIGHTS -- same as candidate_scorer.py
-# These determine how much each signal contributes to the label
-# Adjust these if you want to prioritise different factors
-# ============================================================
-SCORING_WEIGHTS = {
-    "skills_match":   0.35,  # how semantically similar the resume is to the job role
-    "experience":     0.25,  # years of experience
-    "certificates":   0.20,  # relevant certifications vs job description
-    "contact_info":   0.10,  # has email / phone / linkedin
-    "skills_count":   0.10,  # total distinct skills count
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 }
 STRONG_THRESHOLD = 0.6  # quality score >= 60% = shortlisted (class 1)
 
-<<<<<<< HEAD
 # ------------------------------------------------------------------
 # PATHS
 # ------------------------------------------------------------------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(BASE_DIR)  # one level up from backend/
-=======
-# ============================================================
-# STEP 1: Load Sentence-BERT
-# We use the lightweight all-MiniLM-L6-v2 model
-# It downloads automatically on first run (~80MB)
-# ============================================================
-print("\nStep 1: Loading Sentence-BERT model (first run downloads ~80MB)...")
-bert_model = SentenceTransformer('all-MiniLM-L6-v2')
-print("  BERT ready!")
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 
 XLSX_PATH = os.path.join(PROJECT_ROOT, "Super_Resume_Dataset_Rows_1_to_1000.xlsx")
 JSON_PATH = os.path.join(BASE_DIR, "candidates_data.json")
@@ -93,7 +58,6 @@ print("  BERT model loaded.")
 
 # ==================================================================
 # STEP 2: Feature Extraction Helpers
-<<<<<<< HEAD
 # ==================================================================
 
 SKILL_KEYWORDS = [
@@ -160,11 +124,17 @@ SKILL_KEYWORDS = [
 ]
 
 def count_skills(skills_data):
-    """Count distinct skills from text based on SKILL_KEYWORDS."""
+    """Count distinct skills from text based on SKILL_KEYWORDS.
+    Uses word-boundary regex to prevent false positives."""
     if pd.isna(skills_data):
         return 0
     text = str(skills_data).lower()
-    return len([s for s in SKILL_KEYWORDS if s in text])
+    count = 0
+    for s in SKILL_KEYWORDS:
+        pattern = r'\b' + re.escape(s) + r'\b'
+        if re.search(pattern, text):
+            count += 1
+    return count
 
 
 def has_contact_info(text):
@@ -172,60 +142,24 @@ def has_contact_info(text):
     text = str(text).lower()
     has_email = bool(re.search(r'[\w\.-]+@[\w\.-]+', text))
     has_phone = bool(re.search(r'[\+\(]?[1-9][0-9 .\-\(\)]{8,}[0-9]', text))
-=======
-# These are reused by candidate_scorer.py during inference too
-# ============================================================
-
-def count_skills(skills_data):
-    """Count skills from either a list or a string like ['Python', 'SQL']."""
-    if isinstance(skills_data, list):
-        return len(skills_data)
-    if pd.isna(skills_data):
-        return 0
-    skills_data = str(skills_data).strip()
-    if not skills_data or skills_data == "[]":
-        return 0
-    try:
-        return len(ast.literal_eval(skills_data))
-    except Exception:
-        return len([s for s in skills_data.split(",") if s.strip()])
-
-def has_contact_info(text):
-    """Returns 1 if resume has email, phone, or LinkedIn -- else 0."""
-    text = str(text).lower()
-    has_email    = bool(re.search(r'[\w\.-]+@[\w\.-]+', text))
-    has_phone    = bool(re.search(r'[\+\(]?[1-9][0-9 .\-\(\)]{8,}[0-9]', text))
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
     has_linkedin = 'linkedin.com' in text
     return 1 if (has_email or has_phone or has_linkedin) else 0
 
 
 def has_experience_text(text):
-<<<<<<< HEAD
     """Returns 1 if experience keywords or date ranges are found."""
     text = str(text).lower()
     has_keywords = bool(re.search(r'(experience|worked at|employed at|years of)', text))
     has_dates = bool(re.search(r'(20[0-2][0-9]\s*[-\u2013to]+\s*(20[0-2][0-9]|present|now))', text))
-=======
-    """Returns 1 if resume mentions work experience keywords or date ranges."""
-    text = str(text).lower()
-    has_keywords = bool(re.search(r'(experience|worked at|employed at|years of)', text))
-    has_dates    = bool(re.search(r'(20[0-2][0-9]\s*[-–to]+\s*(20[0-2][0-9]|present|now))', text))
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
     return 1 if (has_keywords or has_dates) else 0
 
 
 def extract_experience_years(text):
-<<<<<<< HEAD
     """Extracts numeric years from text like '5 years experience' or date ranges. Capped at 25."""
-=======
-    """Parses 'X years experience' from text. Caps at 25."""
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
     text = str(text).lower()
     
     # 1. Look for explicit "X years"
     match = re.search(r'(\d+)\s*\+?\s*years?\s*(of\s+)?(experience)?', text)
-<<<<<<< HEAD
     if match:
         return min(int(match.group(1)), 25)
         
@@ -248,14 +182,10 @@ def extract_experience_years(text):
         return min(total_years, 25)
         
     return 0
-=======
-    return min(int(match.group(1)), 25) if match else 0
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 
 
 def get_certificate_relevance(text, jd_embedding):
     """
-<<<<<<< HEAD
     Extracts certificate mentions from text, scores each against the JD
     via Sentence-BERT cosine similarity. Returns 0.0 - 1.0.
     """
@@ -270,20 +200,10 @@ def get_certificate_relevance(text, jd_embedding):
             cert_text = m.group(1).strip()
             if len(cert_text) > 5:
                 cert_matches.append(cert_text)
-=======
-    Finds certification mentions in the resume and computes semantic
-    similarity against the job description embedding. Returns 0-1.
-    """
-    text = str(text).lower()
-    cert_matches = []
-    for m in re.finditer(r'((?:awscertified|certified|certification|certificate|coursera|udemy)[^\n.,]*)', text):
-        cert_matches.append(m.group(1).strip())
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 
     if not cert_matches:
         return 0.0
 
-<<<<<<< HEAD
     try:
         cert_embeddings = bert_model.encode(cert_matches, convert_to_tensor=True)
         cosine_scores = util.cos_sim(cert_embeddings, jd_embedding)
@@ -335,39 +255,6 @@ df_json = pd.DataFrame()
 if os.path.exists(JSON_PATH):
     print(f"  Loading JSON: {JSON_PATH}")
     with open(JSON_PATH, "r", encoding="utf-8") as f:
-=======
-    cert_embeddings = bert_model.encode(cert_matches, convert_to_tensor=True)
-    scores = util.cos_sim(cert_embeddings, jd_embedding).cpu().numpy().flatten()
-    relevant = [s for s in scores if s > 0.3]
-    return min(sum(relevant), 1.0) if relevant else 0.0
-
-# ============================================================
-# STEP 3: Load Data
-# We combine the Excel dataset with any real JSON resumes
-# ============================================================
-print("\nStep 3: Loading data...")
-
-df_excel = pd.DataFrame()
-if os.path.exists("data/Super_Resume_Dataset_Rows_1_to_1000.xlsx"):
-    print("  Loading Excel dataset (1000 rows)...")
-    df_excel = pd.read_excel("data/Super_Resume_Dataset_Rows_1_to_1000.xlsx")
-
-    # Build a "raw_text" column by combining relevant fields
-    # This mimics what we'd get from a real resume parser
-    df_excel["raw_text"] = (
-        df_excel["Skills"].fillna("") + " " +
-        df_excel.get("Certifications", pd.Series([""] * len(df_excel))).fillna("") + " " +
-        df_excel["Experience_Years"].astype(str) + " years experience"
-    )
-    df_excel["job_description"] = df_excel["JobRole"].fillna("software engineer")
-    df_excel["is_excel"] = True
-
-df_json = pd.DataFrame()
-json_path = "candidates_data.json"
-if os.path.exists(json_path):
-    print("  Loading candidates_data.json (real uploaded resumes)...")
-    with open(json_path, "r", encoding="utf-8") as f:
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
         data = json.load(f)
 
     json_rows = []
@@ -378,13 +265,8 @@ if os.path.exists(json_path):
             if not raw_text or not raw_text.strip():
                 continue  # skip entries with no text
             json_rows.append({
-<<<<<<< HEAD
                 "filename": cand.get("filename", ""),
                 "raw_text": raw_text,
-=======
-                "filename":    cand.get("filename", ""),
-                "raw_text":    cand.get("raw_text", ""),
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
                 "job_description": jd,
                 "skills_list": cand.get("matched_skills", []),
                 "is_excel":    False
@@ -394,7 +276,6 @@ if os.path.exists(json_path):
     if not df_json.empty:
         before = len(df_json)
         df_json = df_json.drop_duplicates(subset=["filename"])
-<<<<<<< HEAD
         after = len(df_json)
         print(f"  JSON resumes: {before} -> {after} (after dedup)")
 else:
@@ -409,19 +290,9 @@ if len(df) == 0:
     print(f"  Expected Excel at: {XLSX_PATH}")
     print(f"  Expected JSON at : {JSON_PATH}")
     sys.exit(1)
-=======
-        print(f"  JSON resumes (deduplicated): {before} -> {len(df_json)}")
-
-df = pd.concat([df_excel, df_json], ignore_index=True)
-print(f"  Total rows for training: {len(df)}")
-if len(df) == 0:
-    print("ERROR: No data found. Make sure data/Super_Resume_Dataset_Rows_1_to_1000.xlsx exists.")
-    exit(1)
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 
 # ==================================================================
 # STEP 4: Feature Engineering
-<<<<<<< HEAD
 # ==================================================================
 print("\n[Step 4] Extracting features...")
 
@@ -468,40 +339,10 @@ print(f"  Encoding {len(resume_texts)} resume texts...")
 resume_embeddings = bert_model.encode(resume_texts, convert_to_tensor=True, batch_size=BATCH_SIZE, show_progress_bar=False)
 
 skills_match_scores = []
-=======
-# ============================================================
-print("\nStep 4: Extracting features & computing BERT semantic scores...")
-
-# Structural features
-df["skills_count"]  = df.apply(
-    lambda row: count_skills(row.get("skills_list", [])) if not row["is_excel"] else count_skills(row.get("Skills", [])),
-    axis=1
-)
-df["has_experience"] = df["raw_text"].apply(has_experience_text)
-df["has_contact"]    = df["raw_text"].apply(has_contact_info)
-
-def get_years(row):
-    if row.get("is_excel", False) and "Experience_Years" in row and pd.notnull(row["Experience_Years"]):
-        return min(int(row["Experience_Years"]), 25)
-    return extract_experience_years(row["raw_text"])
-
-df["experience_years"] = df.apply(get_years, axis=1)
-
-# Semantic features via Sentence-BERT
-print("  Computing semantic similarity (this is the slow step)...")
-jd_texts     = df["job_description"].tolist()
-resume_texts = df["raw_text"].tolist()
-
-jd_embeddings     = bert_model.encode(jd_texts, convert_to_tensor=True, show_progress_bar=False)
-resume_embeddings = bert_model.encode(resume_texts, convert_to_tensor=True, show_progress_bar=False)
-
-skills_match_scores   = []
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 cert_relevance_scores = []
 
 print("  Scoring semantic similarity...")
 for i in range(len(df)):
-<<<<<<< HEAD
     # Skill match: resume text vs JD
     sim = util.cos_sim(resume_embeddings[i], jd_embeddings[i]).item()
     norm_sim = min(max((sim - 0.1) * 1.5, 0.0), 1.0)
@@ -515,18 +356,9 @@ for i in range(len(df)):
         print(f"    Processed {i + 1}/{len(df)}...")
 
 df["skills_match_score"] = skills_match_scores
-=======
-    sim      = util.cos_sim(resume_embeddings[i], jd_embeddings[i]).item()
-    norm_sim = min(max((sim - 0.1) * 1.5, 0.0), 1.0)  # normalize BERT scores to 0-1
-    skills_match_scores.append(norm_sim)
-    cert_relevance_scores.append(get_certificate_relevance(df.iloc[i]["raw_text"], jd_embeddings[i]))
-
-df["skills_match_score"]   = skills_match_scores
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 df["certificate_relevance"] = cert_relevance_scores
 print("  Semantic features done!")
 
-<<<<<<< HEAD
 print("  Feature extraction complete!")
 print(f"    skills_match_score : mean={df['skills_match_score'].mean():.3f}, std={df['skills_match_score'].std():.3f}")
 print(f"    certificate_relevance: mean={df['certificate_relevance'].mean():.3f}, std={df['certificate_relevance'].std():.3f}")
@@ -550,29 +382,10 @@ df["quality_score"] = (
     (df["certificate_relevance"] * SCORING_WEIGHTS["certificates"]) +
     (df["has_contact"]           * SCORING_WEIGHTS["contact_info"]) +
     (df["skills_score_norm"]     * SCORING_WEIGHTS["skills_count"])
-=======
-# ============================================================
-# STEP 5: Generate Target Labels
-# We use the quality formula instead of a hardcoded salary rule
-# This is more generalizable across different job types
-# ============================================================
-print("\nStep 5: Generating shortlisted labels via quality formula...")
-
-df["exp_score"]    = (df["experience_years"] / 10.0).clip(upper=1.0)
-df["skills_score"] = (df["skills_count"] / 15.0).clip(upper=1.0)
-
-df["quality_score"] = (
-    df["skills_match_score"]    * SCORING_WEIGHTS["skills_match"]  +
-    df["exp_score"]             * SCORING_WEIGHTS["experience"]     +
-    df["certificate_relevance"] * SCORING_WEIGHTS["certificates"]   +
-    df["has_contact"]           * SCORING_WEIGHTS["contact_info"]   +
-    df["skills_score"]          * SCORING_WEIGHTS["skills_count"]
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 )
 
 df["shortlisted"] = (df["quality_score"] >= STRONG_THRESHOLD).astype(int)
 
-<<<<<<< HEAD
 strong_count = df["shortlisted"].sum()
 weak_count = (df["shortlisted"] == 0).sum()
 
@@ -580,37 +393,20 @@ weak_count = (df["shortlisted"] == 0).sum()
 if strong_count < 5 or weak_count < 5:
     print(f"  Warning: Default threshold {STRONG_THRESHOLD} gave {strong_count} Strong, {weak_count} Weak.")
     print("  Auto-adjusting to top 25% as Strong...")
-=======
-# Safety check: if one class has too few samples, auto-adjust threshold
-if df["shortlisted"].sum() < 5 or (df["shortlisted"] == 0).sum() < 5:
-    print("  Warning: Imbalanced classes after threshold -- auto-adjusting to top 25%.")
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
     STRONG_THRESHOLD = df["quality_score"].quantile(0.75)
     df["shortlisted"] = (df["quality_score"] >= STRONG_THRESHOLD).astype(int)
     strong_count = df["shortlisted"].sum()
     weak_count = (df["shortlisted"] == 0).sum()
     print(f"  New threshold: {STRONG_THRESHOLD:.3f}")
 
-<<<<<<< HEAD
 print(f"  Label distribution: {strong_count} Strong (1), {weak_count} Weak (0)")
 print(f"  Quality score stats: mean={df['quality_score'].mean():.3f}, "
       f"min={df['quality_score'].min():.3f}, max={df['quality_score'].max():.3f}")
-=======
-print(f"  Shortlisted (1): {df['shortlisted'].sum()}")
-print(f"  Not shortlisted (0): {(df['shortlisted'] == 0).sum()}")
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 
 # ==================================================================
 # STEP 6: Train Random Forest
-<<<<<<< HEAD
 # ==================================================================
 print("\n[Step 6] Training Random Forest model...")
-=======
-# Features are all semantic + structural signals from above
-# No raw salary or department encoding needed -- fully text-driven
-# ============================================================
-print("\nStep 6: Training Random Forest Classifier (200 trees)...")
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 
 feature_cols = [
     "skills_match_score",
@@ -620,7 +416,6 @@ feature_cols = [
     "has_contact",
     "experience_years"
 ]
-<<<<<<< HEAD
 X = df[feature_cols].copy()
 y = df["shortlisted"].copy()
 
@@ -630,14 +425,6 @@ X = X.fillna(0)
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42, stratify=y
 )
-=======
-
-X = df[feature_cols]
-y = df["shortlisted"]
-
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-print(f"  Training samples: {len(X_train)}, Testing samples: {len(X_test)}")
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 
 model = RandomForestClassifier(
     n_estimators=200,
@@ -654,21 +441,14 @@ print(f"  Testing samples : {len(X_test)}")
 
 # ==================================================================
 # STEP 7: Evaluate
-<<<<<<< HEAD
 # ==================================================================
 print("\n[Step 7] Evaluating model...")
 
 y_pred = model.predict(X_test)
-=======
-# ============================================================
-print("\nStep 7: Evaluating model...")
-y_pred   = model.predict(X_test)
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 accuracy = accuracy_score(y_test, y_pred)
 
 print(f"\n  Test Accuracy: {accuracy:.4f} ({accuracy * 100:.2f}%)")
 print("\n  Classification Report:")
-<<<<<<< HEAD
 print(classification_report(
     y_test, y_pred,
     labels=[0, 1],
@@ -682,11 +462,6 @@ cv_scores = cross_val_score(model, X, y, cv=StratifiedKFold(n_splits=5, shuffle=
 print(f"  CV Accuracy: {cv_scores.mean():.4f} +/- {cv_scores.std():.4f}")
 
 # --- Confusion Matrix Plot ---
-=======
-print(classification_report(y_test, y_pred, target_names=["Not Shortlisted", "Shortlisted"], zero_division=0))
-
-# Confusion matrix
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 cm = confusion_matrix(y_test, y_pred, labels=[0, 1])
 fig, ax = plt.subplots(figsize=(6, 5))
 im = ax.imshow(cm, interpolation="nearest", cmap=plt.cm.Blues)
@@ -694,7 +469,6 @@ plt.colorbar(im, ax=ax)
 ax.set_xlabel("Predicted", fontsize=12)
 ax.set_ylabel("True", fontsize=12)
 ax.set_title(f"Confusion Matrix (Threshold={STRONG_THRESHOLD:.2f})", fontsize=14)
-<<<<<<< HEAD
 ax.set_xticks([0, 1])
 ax.set_yticks([0, 1])
 ax.set_xticklabels(["Weak", "Strong"])
@@ -703,19 +477,9 @@ for i in range(cm.shape[0]):
     for j in range(cm.shape[1]):
         color = "white" if cm[i, j] > cm.max() / 2 else "black"
         ax.text(j, i, str(cm[i, j]), ha="center", va="center", color=color, fontsize=14)
-=======
-ax.set_xticks([0, 1]); ax.set_yticks([0, 1])
-ax.set_xticklabels(["Not Shortlisted", "Shortlisted"])
-ax.set_yticklabels(["Not Shortlisted", "Shortlisted"])
-for i in range(cm.shape[0]):
-    for j in range(cm.shape[1]):
-        ax.text(j, i, str(cm[i, j]), ha="center", va="center",
-                color="white" if cm[i, j] > cm.max() / 2 else "black", fontsize=14)
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 plt.tight_layout()
 plt.savefig(CM_OUTPUT, dpi=150)
 plt.close()
-<<<<<<< HEAD
 print(f"  Saved: {CM_OUTPUT}")
 
 # --- Feature Importance Plot ---
@@ -732,34 +496,13 @@ ax.set_title("Feature Importance - Random Forest", fontsize=14)
 for bar, val in zip(bars, sorted_importances):
     ax.text(val + 0.005, bar.get_y() + bar.get_height() / 2,
             f"{val:.3f}", va="center", fontsize=10)
-=======
-print("  Saved confusion_matrix.png")
-
-# Feature importance plot
-importances   = model.feature_importances_
-sorted_idx    = np.argsort(importances)
-sorted_feats  = [feature_cols[i] for i in sorted_idx]
-sorted_imps   = importances[sorted_idx]
-
-fig, ax = plt.subplots(figsize=(7, 5))
-bars = ax.barh(sorted_feats, sorted_imps, color="#4f86c6")
-ax.set_xlabel("Importance Score", fontsize=12)
-ax.set_title("Feature Importance - Random Forest + BERT", fontsize=14)
-for bar, val in zip(bars, sorted_imps):
-    ax.text(val + 0.005, bar.get_y() + bar.get_height() / 2, f"{val:.3f}", va="center", fontsize=10)
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 plt.tight_layout()
 plt.savefig(FI_OUTPUT, dpi=150)
 plt.close()
-<<<<<<< HEAD
 print(f"  Saved: {FI_OUTPUT}")
-=======
-print("  Saved feature_importance.png")
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b
 
 # ==================================================================
 # STEP 8: Save Model
-<<<<<<< HEAD
 # ==================================================================
 print("\n[Step 8] Saving model...")
 joblib.dump(model, MODEL_OUTPUT)
@@ -778,17 +521,3 @@ print(f"    feature_importance.png - Feature importance chart")
 print(f"  Test Accuracy: {accuracy * 100:.2f}%")
 print(f"  CV Accuracy:   {cv_scores.mean() * 100:.2f}% +/- {cv_scores.std() * 100:.2f}%")
 print("=" * 60)
-=======
-# Only the RF model is saved -- BERT is loaded on demand in candidate_scorer.py
-# ============================================================
-print("\nStep 8: Saving model.pkl...")
-joblib.dump(model, "model.pkl")
-print("Model saved as model.pkl")
-
-print("\n" + "=" * 50)
-print("Done! Artifacts saved:")
-print("  - model.pkl              (Random Forest, 200 trees, BERT features)")
-print("  - confusion_matrix.png")
-print("  - feature_importance.png")
-print("=" * 50)
->>>>>>> c4fe9300f45857dc4bef37c9d28c123c60554e3b

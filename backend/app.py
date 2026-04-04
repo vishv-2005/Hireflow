@@ -146,7 +146,8 @@ def upload_resumes():
             "message": f"successfully processed {len(ranked_candidates)} resumes",
             "batch_id": batch_id,
             "count": len(ranked_candidates),
-            "candidates": ranked_candidates
+            "candidates": ranked_candidates,
+            "job_description": job_description
         }), 200
 
     except zipfile.BadZipFile:
@@ -164,12 +165,16 @@ def get_results():
     # Fetch from json instead of DB since DB is removed
     data = load_json_data()
     latest_results = []
+    job_description = ""
     if data and data.get("batches"):
-        latest_results = data["batches"][-1]["candidates"]
+        latest_batch = data["batches"][-1]
+        latest_results = latest_batch["candidates"]
+        job_description = latest_batch.get("job_description", "")
     
     return jsonify({
         "candidates": latest_results,
-        "count": len(latest_results)
+        "count": len(latest_results),
+        "job_description": job_description
     }), 200
 
 @app.route("/json-data", methods=["GET"])
