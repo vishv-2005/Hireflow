@@ -204,6 +204,27 @@
     font-size: 0.78rem;
     font-weight: 500;
     white-space: nowrap;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* highlighted style for skills that match the JD */
+.skill-pill.skill-pill-jd {
+    background: linear-gradient(135deg, rgba(255, 107, 0, 0.12), rgba(255, 140, 50, 0.18));
+    color: #c05621;
+    font-weight: 600;
+    border: 1px solid rgba(255, 107, 0, 0.25);
+}
+
+.skill-pill-jd-dot {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #ff6b00;
+    flex-shrink: 0;
 }
 
 /* filename styling */
@@ -335,6 +356,130 @@
     font-size: 1rem;
 }
 
+/* --- JOB DESCRIPTION PANEL --- */
+.jd-panel {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1.5px solid transparent;
+}
+
+.jd-panel:hover {
+    border-color: rgba(143, 168, 150, 0.3);
+    box-shadow: var(--shadow-hover);
+}
+
+.jd-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+}
+
+.jd-panel-header:hover {
+    background: rgba(143, 168, 150, 0.05);
+}
+
+.jd-panel-title-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.jd-panel-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--sage);
+    flex-shrink: 0;
+}
+
+.jd-panel-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin: 0;
+}
+
+.jd-panel-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: linear-gradient(135deg, rgba(143, 168, 150, 0.15), rgba(143, 168, 150, 0.25));
+    color: #3d6b47;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.jd-panel-badge::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #38a169;
+    animation: jd-pulse 2s ease-in-out infinite;
+}
+
+@keyframes jd-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.jd-panel-chevron {
+    width: 20px;
+    height: 20px;
+    color: #999;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.jd-panel-chevron.expanded {
+    transform: rotate(180deg);
+}
+
+.jd-panel-body {
+    padding: 0 24px 20px;
+    animation: jd-slide-in 0.25s ease-out;
+}
+
+@keyframes jd-slide-in {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.jd-panel-text {
+    font-size: 0.92rem;
+    color: var(--charcoal);
+    line-height: 1.7;
+    white-space: pre-wrap;
+    background: linear-gradient(135deg, var(--light-gray), rgba(143, 168, 150, 0.08));
+    padding: 16px 20px;
+    border-radius: 8px;
+    border-left: 3px solid var(--sage);
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.jd-panel-empty {
+    font-size: 0.9rem;
+    color: #999;
+    font-style: italic;
+    padding: 12px 20px;
+    background: var(--light-gray);
+    border-radius: 8px;
+}
+
 /* responsive */
 @media (max-width: 768px) {
     .stats-bar {
@@ -356,5 +501,13 @@
         flex-direction: column;
         gap: 12px;
         align-items: flex-start;
+    }
+
+    .jd-panel-title {
+        font-size: 0.85rem;
+    }
+
+    .jd-panel-badge {
+        display: none;
     }
 }

@@ -1,7 +1,7 @@
 // UploadPage.jsx - where users upload their resumes
 // handles drag and drop, file selection (ZIP or individual files), upload to Flask, and shows results
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { API_BASE_URL } from '../config';
@@ -27,6 +27,16 @@ function UploadPage() {
     const [error, setError] = useState(null);
     const [isDragOver, setIsDragOver] = useState(false);
     const [jobDescription, setJobDescription] = useState('');
+
+    // Auto-navigate to dashboard after successful upload
+    useEffect(() => {
+        if (uploadResult) {
+            const timer = setTimeout(() => {
+                navigate('/dashboard');
+            }, 1500);
+            return () => clearTimeout(timer);
+        }
+    }, [uploadResult, navigate]);
 
     // adds files to the selected list, validating extensions
     const addFiles = (fileList) => {
@@ -180,20 +190,15 @@ function UploadPage() {
 
                 {/* show different content based on the current state */}
                 {uploadResult ? (
-                    // success state - upload is done
+                    // success state - auto-redirecting to dashboard
                     <div className="upload-success">
                         <span className="upload-success-icon">✅</span>
                         <h2 className="upload-success-title">Upload Complete!</h2>
                         <p className="upload-success-text">
-                            {uploadResult.count} resume{uploadResult.count !== 1 ? 's' : ''} processed
-                            successfully.
+                            {uploadResult.count} resume{uploadResult.count !== 1 ? 's' : ''} processed.
+                            Redirecting to dashboard...
                         </p>
-                        <button
-                            className="btn-primary"
-                            onClick={() => navigate('/dashboard')}
-                        >
-                            View Results on Dashboard
-                        </button>
+                        <div className="upload-spinner" style={{ width: '24px', height: '24px', borderWidth: '3px' }}></div>
                     </div>
                 ) : isUploading ? (
                     // loading state - files are being processed

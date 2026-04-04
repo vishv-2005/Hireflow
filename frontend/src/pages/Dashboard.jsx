@@ -14,11 +14,13 @@ function Dashboard() {
     // state for the candidates data from the backend
     const [candidates, setCandidates] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [jobDescription, setJobDescription] = useState('');
 
     // frontend filter/search states
     const [searchQuery, setSearchQuery] = useState('');
     const [showFlaggedOnly, setShowFlaggedOnly] = useState(false);
     const [topN, setTopN] = useState('all'); // controls how many top candidates to show
+    const [jdExpanded, setJdExpanded] = useState(true);
 
     // fetch results from Flask when the component mounts
     useEffect(() => {
@@ -27,6 +29,7 @@ function Dashboard() {
                 const response = await axios.get(`${API_BASE_URL}/results`);
                 console.log('got results:', response.data);
                 setCandidates(response.data.candidates || []);
+                setJobDescription(response.data.job_description || '');
             } catch (err) {
                 console.error('failed to fetch results:', err);
                 // if the backend isn't running or has no data, just show empty state
@@ -104,6 +107,39 @@ function Dashboard() {
                             <div className="stat-value stat-value-sm">{topCandidate}</div>
                             <div className="stat-label">Top Candidate</div>
                         </div>
+                    </div>
+
+                    {/* Job Description panel */}
+                    <div className="jd-panel">
+                        <div className="jd-panel-header" onClick={() => setJdExpanded(!jdExpanded)}>
+                            <div className="jd-panel-title-area">
+                                <svg className="jd-panel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                    <line x1="16" y1="17" x2="8" y2="17" />
+                                    <polyline points="10 9 9 9 8 9" />
+                                </svg>
+                                <h3 className="jd-panel-title">Job Description Used for Scoring</h3>
+                                {jobDescription && (
+                                    <span className="jd-panel-badge">Active</span>
+                                )}
+                            </div>
+                            <svg className={`jd-panel-chevron ${jdExpanded ? 'expanded' : ''}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </div>
+                        {jdExpanded && (
+                            <div className="jd-panel-body">
+                                {jobDescription ? (
+                                    <p className="jd-panel-text">{jobDescription}</p>
+                                ) : (
+                                    <p className="jd-panel-empty">
+                                        No job description was provided for this batch. Scoring used default semantic matching against general software engineering keywords.
+                                    </p>
+                                )}
+                            </div>
+                        )}
                     </div>
 
                     {/* search, filter, and top-n control bar above the table */}
