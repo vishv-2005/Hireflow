@@ -9,6 +9,7 @@ backend/extracted/
 
 # python virtual environment
 backend/venv/
+venv/
 
 # environment variables
 .env
@@ -22,3 +23,26 @@ dist/
 # IDE
 .vscode/
 .idea/
+
+# generated model artifacts
+backend/model.pkl
+backend/label_encoders.pkl
+backend/confusion_matrix.png
+backend/feature_importance.png
+
+# runtime data
+backend/candidates_data.json
+
+# logs and debug output
+backend/*.log
+backend/*.txt
+!backend/requirements.txt
+
+# test data directories (can be regenerated)
+test_batches/
+non_it_test_batches/
+test_data/
+resumes/
+
+# backend data directory (duplicate of root XLSX)
+backend/data/

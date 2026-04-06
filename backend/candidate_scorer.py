@@ -3,99 +3,51 @@
 # This module handles the scoring of individual resumes against a Job Description.
 # PATH A: If model.pkl exists -> uses Random Forest + Sentence-BERT (full ML pipeline)
 # PATH B: If model.pkl is missing -> falls back to simple keyword matching
+#
+# Shared extraction logic (section splitting, project extraction, skill matching, etc.)
+# lives in resume_features.py to avoid duplication with train_model.py.
 # ============================================================================================
 
 import os
 import re
+import hashlib
 import statistics
 import joblib
 import pandas as pd
 from sentence_transformers import SentenceTransformer, util
 
-# ====================================================================
-# SCORING CONFIGURATION (EDITABLE!)
-# Adjust these weights based on what matters most for shortlisting.
-# Must sum to 1.0.
-# ====================================================================
-SCORING_WEIGHTS = {
-    "jd_skill_overlap":   0.30,   # Direct keyword match
-    "skills_match":       0.15,   # BERT semantic similarity
-    "experience":         0.20,   # Years of experience (increased)
-    "certificates":       0.15,   # Relevant certificates (increased)
-    "contact_info":       0.10,   # Has email, phone, linkedin
-    "skills_count":       0.10,   # Raw count of distinct skills
-}
-STRONG_THRESHOLD = 0.6  # Score >= 60% is considered a "Strong" candidate (Class 1)
-
-# Hardcoded fallback skills if no ML/JD is available
-SKILL_KEYWORDS = [
-    # IT & Software
-    "python", "java", "javascript", "sql", "react", "machine learning", "data analysis", "aws", "docker", 
-    "kubernetes", "git", "html", "css", "node.js", "flask", "tensorflow", "pandas", "mongodb", "rest api", 
-    "agile", "c++", "c#", "linux", "cloud computing", "rust", "go", "typescript", "ruby", "django", "vue.js", 
-    "angular", "spring boot", "postgresql", "mysql", "redis", "elasticsearch", "graphql", "microservices", 
-    "ci/cd", "jenkins", "terraform", "ansible", "azure", "gcp", "data science", "deep learning", "nlp", 
-    "computer vision", "cybersecurity", "penetration testing", "scrum", "jira",
-
-    # Marketing & Sales
-    "seo", "sem", "content marketing", "social media management", "b2b sales", "crm", "google analytics", 
-    "email marketing", "market research", "brand management", "digital marketing", "ppc", "google ads", 
-    "facebook ads", "copywriting", "public relations", "salesforce", "hubspot", "lead generation", 
-    "conversion rate optimization", "a/b testing", "affiliate marketing", "influencer marketing", "event planning", 
-    "product marketing", "marketing automation", "customer success", "account management", "cold calling", 
-    "negotiation", "sales presentations", "business development", "market analysis", "competitive intelligence", 
-    "growth hacking", "e-commerce", "shopify", "wordpress", "adobe creative suite", "graphic design", 
-    "video editing", "data visualization", "tableau", "communication skills", "b2c sales", "sales strategy", 
-    "key account management", "churn reduction", "onboarding", "retention strategies",
-
-    # Finance & Accounting
-    "accounting", "financial modeling", "budgeting", "forecasting", "excel", "quickbooks", "tax preparation", 
-    "auditing", "risk management", "payroll", "financial analysis", "cash flow management", "general ledger", 
-    "accounts payable", "accounts receivable", "reconciliation", "gaap", "ifrs", "corporate finance", 
-    "investment banking", "portfolio management", "wealth management", "credit analysis", "quantitative analysis", 
-    "mergers and acquisitions", "due diligence", "private equity", "venture capital", "asset management", 
-    "financial reporting", "compliance", "sec reporting", "sarbanes-oxley", "erisa", "treasury", "capital budgeting", 
-    "variance analysis", "cost accounting", "bookkeeping", "xero", "sap", "oracle e-business suite", "power bi", 
-    "vba", "sql for finance", "data mining", "fraud detection", "anti-money laundering", "kyc", "macroeconomics",
-
-    # Pharma & Healthcare
-    "clinical trials", "fda regulations", "gmp", "glp", "quality assurance", "pharmacovigilance", "sop development", 
-    "biostatistics", "drug development", "patient care", "medical billing", "healthcare administration", "emr", 
-    "ehr", "epic", "cerner", "hipaa compliance", "medical terminology", "nursing", "triage", "phlebotomy", 
-    "vital signs", "cpr", "bls", "acls", "infection control", "medication administration", "pharmacology", 
-    "toxicology", "biochemistry", "molecular biology", "cell culture", "pcr", "elisa", "chromatography", "hplc", 
-    "mass spectrometry", "medical coding", "icd-10", "cpt coding", "clinical research", "regulatory affairs", 
-    "medical writing", "data management", "health informatics", "public health", "epidemiology", 
-    "healthcare consulting", "telehealth", "patient scheduling",
-
-    # Mechanical & Engineering
-    "autocad", "solidworks", "cad/cam", "thermodynamics", "hvac", "robotics", "six sigma", "lean manufacturing", 
-    "fluid mechanics", "project management", "mechanical design", "fea", "ansys", "matlab", "creo", "catia", 
-    "mechatronics", "plc programming", "automation", "manufacturing engineering", "qa/qc", "root cause analysis", 
-    "fmea", "dfm", "gd&t", "material science", "metallurgy", "machining", "cnc programming", "welding", "pneumatics", 
-    "hydraulics", "supply chain management", "inventory control", "logistics", "aerospace engineering", 
-    "automotive engineering", "civil engineering", "structural analysis", "electrical engineering", "circuit design", 
-    "pcb design", "microcontrollers", "iot", "systems engineering", "agile hardware", "scada", "hmi", 
-    "industrial engineering", "ergonomics",
-
-    # HR & Operations
-    "talent acquisition", "onboarding", "employee relations", "performance management", "supply chain", 
-    "logistics", "inventory management", "procurement", "recruiting", "sourcing", "applicant tracking systems", 
-    "workday", "bamboo hr", "adp", "benefits administration", "compensation", "payroll processing", "hris", 
-    "organizational development", "training and development", "employee engagement", "diversity and inclusion", 
-    "conflict resolution", "labor law", "osha compliance", "fmla", "workforce planning", "succession planning", 
-    "change management", "operations management", "business process improvement", "six sigma green belt", 
-    "lean methodologies", "kaizen", "facility management", "vendor management", "contract negotiation", 
-    "strategic planning", "key performance indicators", "okrs", "project coordination", "event management", 
-    "timeline management", "resource allocation", "budget tracking", "quality control", "customer service", 
-    "client relations", "dispatching", "fleet management"
-]
+# Import shared extraction & config from the DRY module
+from resume_features import (
+    SCORING_WEIGHTS,
+    STRONG_THRESHOLD,
+    EXPERIENCE_NORM_CAP,
+    EXPERIENCE_FLOOR,
+    SKILL_KEYWORDS,
+    split_resume_sections,
+    is_education_context,
+    is_project_context,
+    is_work_context,
+    count_skills,
+    has_contact_info,
+    has_work_experience,
+    extract_experience_years,
+    extract_projects,
+    get_matched_skills,
+    get_jd_skills,
+    compute_jd_overlap,
+    extract_education_quality,
+    extract_certificate_mentions,
+    extract_name_from_filename,
+)
 
 _BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(_BASE_DIR, "model.pkl")
 
 _model      = None
 _bert_model = None
+
+# JD embedding cache — avoids re-encoding the same JD for every resume in a batch
+_jd_cache = {"hash": None, "embedding": None}
 
 
 def _load_models():
@@ -111,127 +63,75 @@ def _load_models():
 
     if _bert_model is None and _model is not None:
         print("[candidate_scorer] Loading Sentence-BERT model...")
-        from sentence_transformers import SentenceTransformer
         _bert_model = SentenceTransformer('all-MiniLM-L6-v2')
         print("[candidate_scorer] Sentence-BERT ready!")
 
 
+def _get_jd_embedding(job_description):
+    """
+    Returns the BERT embedding for the JD, using a cache so we only encode it once
+    per unique JD string (saves ~50ms per resume in a batch).
+    """
+    global _jd_cache
+    jd_hash = hashlib.md5(job_description.encode('utf-8')).hexdigest()
+
+    if _jd_cache["hash"] == jd_hash and _jd_cache["embedding"] is not None:
+        return _jd_cache["embedding"]
+
+    jd_embedding = _bert_model.encode([job_description], convert_to_tensor=True)[0]
+    _jd_cache["hash"] = jd_hash
+    _jd_cache["embedding"] = jd_embedding
+    return jd_embedding
+
 
 # ============================================================
-# Feature Extraction Helpers (Identical logic to train_model.py)
+# Semantic Scoring (BERT-based)
 # ============================================================
 
-def _count_skills(matched_skills):
-    """Returns the raw count of matched skills."""
-    return len(matched_skills)
+def _score_project_relevance(raw_text, job_description):
+    """
+    Extracts projects from the resume and scores each against the JD
+    using Sentence-BERT cosine similarity.
 
+    Returns:
+        project_score (float): 0.0 - 1.0, how relevant the best projects are to the JD
+        relevant_count (int): number of projects with similarity > 0.3
+    """
+    if _bert_model is None:
+        return 0.0, 0
 
-def _has_contact_info(text):
-    """Returns 1 if the text contains an email, phone number, or LinkedIn URL."""
-    text = str(text).lower()
-    has_email    = bool(re.search(r'[\w\.-]+@[\w\.-]+', text))
-    has_phone    = bool(re.search(r'[\+\(]?[1-9][0-9 .\-\(\)]{8,}[0-9]', text))
-    has_linkedin = 'linkedin.com' in text
-    return 1 if (has_email or has_phone or has_linkedin) else 0
+    projects = extract_projects(raw_text)
 
+    if not projects:
+        return 0.0, 0
 
-def _has_experience_text(text):
-    """Returns 1 if experience-related keywords or date ranges are found."""
-    text = str(text).lower()
-    has_keywords = bool(re.search(r'(experience|worked at|employed at|years of)', text))
-    has_dates    = bool(re.search(r'(20[0-2][0-9]\s*[-–to]+\s*(20[0-2][0-9]|present|now))', text))
-    return 1 if (has_keywords or has_dates) else 0
-
-
-def _extract_experience_years(text):
-    """Extracts a numeric 'years of experience' from text or date ranges. Capped at 25."""
-    text = str(text).lower()
-    
-    # 1. Look for explicit "X years"
-    match = re.search(r'(\d+)\s*\+?\s*years?\s*(of\s+)?(experience)?', text)
-    if match:
-        return min(int(match.group(1)), 25)
-        
-    # 2. Look for date ranges (e.g., 2018 - 2022)
-    import datetime
-    current_year = datetime.datetime.now().year
-    
-    total_years = 0
-    date_ranges = re.finditer(r'(20[0-2][0-9])\s*[-to–]+\s*(20[0-2][0-9]|present|now|current)', text)
-    
-    for dr in date_ranges:
-        start_year = int(dr.group(1))
-        end_str = dr.group(2)
-        end_year = current_year if end_str in ['present', 'now', 'current'] else int(end_str)
-            
-        if end_year >= start_year:
-            total_years += (end_year - start_year)
-            
-    if total_years > 0:
-        return min(total_years, 25)
-        
-    return 0
-
-
-def _get_matched_skills(raw_text):
-    """Finds which baseline skills are explicitly in the text (for dashboard display).
-    Uses word-boundary regex to prevent false positives like 'go' matching 'google'."""
-    text_lower = raw_text.lower()
-    matched = []
-    for s in SKILL_KEYWORDS:
-        # Build a word-boundary pattern. re.escape handles special chars like c++, c#, etc.
-        pattern = r'\b' + re.escape(s) + r'\b'
-        if re.search(pattern, text_lower):
-            matched.append(s)
-    return matched
-
-
-def _get_jd_skills(job_description):
-    """Extracts which SKILL_KEYWORDS are mentioned in the JD itself.
-    Also extracts simple multi-word phrases like 'web development', 'full stack'."""
     if not job_description or not job_description.strip():
-        return []
-    
-    jd_lower = job_description.lower()
-    jd_skills = []
-    for s in SKILL_KEYWORDS:
-        pattern = r'\b' + re.escape(s) + r'\b'
-        if re.search(pattern, jd_lower):
-            jd_skills.append(s)
-    
-    # Also check for common related terms that aren't in the keyword list
-    extra_terms = {
-        "web development": ["html", "css", "javascript", "react", "angular", "vue.js", "node.js", "django", "flask"],
-        "full stack": ["html", "css", "javascript", "react", "node.js", "sql", "mongodb", "postgresql", "mysql"],
-        "frontend": ["html", "css", "javascript", "react", "angular", "vue.js", "typescript"],
-        "backend": ["node.js", "python", "java", "sql", "mongodb", "postgresql", "flask", "django", "spring boot"],
-        "devops": ["docker", "kubernetes", "jenkins", "ci/cd", "terraform", "ansible", "aws", "azure", "gcp"],
-        "data engineer": ["sql", "python", "pandas", "data analysis", "data science", "tensorflow"],
-        "mobile development": ["react", "javascript", "typescript", "flutter", "swift"],
-    }
-    
-    for phrase, related_skills in extra_terms.items():
-        if phrase in jd_lower:
-            for skill in related_skills:
-                if skill not in jd_skills:
-                    jd_skills.append(skill)
-    
-    return jd_skills
+        job_description = "software engineer developer"
 
+    try:
+        jd_embedding = _get_jd_embedding(job_description)
+        project_embeddings = _bert_model.encode(projects, convert_to_tensor=True)
 
-def _compute_jd_overlap(matched_skills, jd_skills):
-    """Computes what fraction of JD-required skills are found in the resume.
-    Returns a score from 0.0 to 1.0."""
-    if not jd_skills:
-        return 0.0
-    
-    matched_set = set(matched_skills)
-    jd_set = set(jd_skills)
-    
-    overlap = matched_set & jd_set
-    
-    # Score: fraction of JD skills found in resume
-    return len(overlap) / len(jd_set)
+        cosine_scores = util.cos_sim(project_embeddings, jd_embedding).cpu().numpy().flatten()
+
+        # Only count projects with meaningful relevance (> 0.3 similarity)
+        RELEVANCE_THRESHOLD = 0.3
+        relevant_scores = [float(s) for s in cosine_scores if s > RELEVANCE_THRESHOLD]
+        relevant_count = len(relevant_scores)
+
+        if relevant_scores:
+            # Use the average of relevant scores, capped at 1.0
+            avg_score = sum(relevant_scores) / len(relevant_scores)
+            # Boost slightly for having multiple relevant projects
+            boost = min(relevant_count * 0.05, 0.15)
+            project_score = min(avg_score + boost, 1.0)
+            return project_score, relevant_count
+
+        return 0.0, 0
+
+    except Exception as e:
+        print(f"[candidate_scorer] Project scoring error: {e}")
+        return 0.0, 0
 
 
 def _get_semantic_features(raw_text, job_description):
@@ -240,16 +140,13 @@ def _get_semantic_features(raw_text, job_description):
     1. Overall skill/resume meaning vs Job Description  → skills_match_score (0-1)
     2. Certificate relevance vs Job Description         → cert_relevance_score (0-1)
     """
-    from sentence_transformers import util
-
     if not job_description or not job_description.strip():
         job_description = "software engineer developer"
 
-
     raw_text = str(raw_text).lower()
 
-    # Pre-embed JD
-    jd_embedding = _bert_model.encode([job_description], convert_to_tensor=True)[0]
+    # Pre-embed JD (cached)
+    jd_embedding = _get_jd_embedding(job_description)
 
     # 1. Overall Skills Semantic Score
     resume_embedding = _bert_model.encode([raw_text], convert_to_tensor=True)[0]
@@ -259,16 +156,8 @@ def _get_semantic_features(raw_text, job_description):
     # Normalize: raw BERT cosine for long texts is usually 0.1-0.8
     skills_match_score = min(max((sim - 0.1) * 1.5, 0.0), 1.0)
 
-    # 2. Certificate Relevance Score
-    cert_patterns = [
-        r'((?:aws[\s\-]?certified|certified|certification|certificate|coursera|udemy|google[\s\-]?cloud|azure[\s\-]?certified)[^\n.,;]*)',
-    ]
-    cert_matches = []
-    for pattern in cert_patterns:
-        for m in re.finditer(pattern, raw_text):
-            cert_text = m.group(1).strip()
-            if len(cert_text) > 5:  # skip noise
-                cert_matches.append(cert_text)
+    # 2. Certificate Relevance Score — uses broadened extraction
+    cert_matches = extract_certificate_mentions(raw_text)
 
     cert_relevance_score = 0.0
     if cert_matches:
@@ -304,30 +193,39 @@ def score_candidate(parsed_data, job_description=None):
     name = extract_name_from_filename(filename)
 
     # Always compute baseline skill matches (for dashboard display)
-    matched_skills = _get_matched_skills(raw_text)
-    
+    matched_skills = get_matched_skills(raw_text)
+
     # Compute JD-specific skill overlap
-    jd_skills = _get_jd_skills(job_description)
-    jd_overlap = _compute_jd_overlap(matched_skills, jd_skills)
-    
+    jd_skills = get_jd_skills(job_description)
+    jd_overlap = compute_jd_overlap(matched_skills, jd_skills)
+
     # Find which of the candidate's skills directly match the JD (for highlighting)
     jd_matched_skills = [s for s in matched_skills if s in set(jd_skills)]
 
     # Initialize variables for return values so they exist even if ML fails
-    exp_years = _extract_experience_years(raw_text)
+    exp_years = extract_experience_years(raw_text)
     cert_score = 0.0
+    project_score = 0.0
+    relevant_projects = 0
+    edu_score = extract_education_quality(raw_text, job_description)
 
     # -------------------------------------------------------
     # PATH A: ML pipeline is loaded
     # -------------------------------------------------------
     if _model is not None and _bert_model is not None:
-        skills_count = _count_skills(matched_skills)
-        has_exp = _has_experience_text(raw_text)
-        has_contact = _has_contact_info(raw_text)
-        exp_years = _extract_experience_years(raw_text)
+        skills_count = count_skills(matched_skills)
+        has_exp = has_work_experience(raw_text)
+        has_contact = has_contact_info(raw_text)
+        exp_years = extract_experience_years(raw_text)
 
         # NLP Semantic scores
         sm_score, cert_score = _get_semantic_features(raw_text, job_description)
+
+        # Project relevance scoring
+        project_score, relevant_projects = _score_project_relevance(raw_text, job_description)
+
+        # Education quality
+        edu_score = extract_education_quality(raw_text, job_description)
 
         # Features ordered EXACTLY as trained in train_model.py
         feature_cols = [
@@ -336,29 +234,44 @@ def score_candidate(parsed_data, job_description=None):
             "has_experience",
             "certificate_relevance",
             "has_contact",
-            "experience_years"
+            "experience_years",
+            "project_relevance",
+            "education_quality"
         ]
 
         X_infer = pd.DataFrame(
-            [[sm_score, skills_count, has_exp, cert_score, has_contact, exp_years]],
+            [[sm_score, skills_count, has_exp, cert_score, has_contact, exp_years, project_score, edu_score]],
             columns=feature_cols
         )
 
         # Predict probability of being a "Strong" candidate
-        proba = _model.predict_proba(X_infer)[0]       # [prob_weak, prob_strong]
-        
-        # Calculate deterministic quality score with JD overlap as the primary signal
+        try:
+            proba = _model.predict_proba(X_infer)[0]       # [prob_weak, prob_strong]
+            ml_signal = float(proba[1])
+        except Exception as e:
+            print(f"[candidate_scorer] ML prediction warning (feature mismatch?): {e}")
+            print("  Falling back to deterministic scoring only.")
+            ml_signal = 0.5  # neutral fallback
+
+        # Normalise experience with floor for fresh graduates
+        exp_norm = min(exp_years / EXPERIENCE_NORM_CAP, 1.0)
+        if exp_years == 0 and (skills_count >= 5 or project_score > 0.3):
+            exp_norm = EXPERIENCE_FLOOR  # Don't completely zero out strong fresh grads
+
+        # Calculate deterministic quality score with rebalanced weights
         quality_score = (
             (jd_overlap * SCORING_WEIGHTS["jd_skill_overlap"]) +
             (sm_score * SCORING_WEIGHTS["skills_match"]) +
-            (min(exp_years / 15.0, 1.0) * SCORING_WEIGHTS["experience"]) +
+            (exp_norm * SCORING_WEIGHTS["experience"]) +
             (cert_score * SCORING_WEIGHTS["certificates"]) +
             (has_contact * SCORING_WEIGHTS["contact_info"]) +
-            (min(skills_count / 15.0, 1.0) * SCORING_WEIGHTS["skills_count"])
+            (min(skills_count / 15.0, 1.0) * SCORING_WEIGHTS["skills_count"]) +
+            (project_score * SCORING_WEIGHTS["project_relevance"]) +
+            (edu_score * SCORING_WEIGHTS["education_quality"])
         )
-        
+
         # Blend: deterministic score dominates (80%), ML provides a supporting signal (20%)
-        combined_score = (quality_score * 0.80) + (float(proba[1]) * 0.20)
+        combined_score = (quality_score * 0.80) + (ml_signal * 0.20)
         score = round(combined_score * 100, 1)
 
     # -------------------------------------------------------
@@ -379,33 +292,12 @@ def score_candidate(parsed_data, job_description=None):
         "jd_matched_skills": jd_matched_skills,
         "experience_years": exp_years,
         "has_relevant_cert": bool(cert_score > 0.0),
+        "project_relevance_score": round(project_score, 3),
+        "relevant_projects_count": relevant_projects,
+        "education_quality": round(edu_score, 2),
         "filename": filename,
         "raw_text": raw_text  # Kept temporarily for anomaly detection
     }
-
-
-# ============================================================
-# Name Extraction
-# ============================================================
-
-def extract_name_from_filename(filename):
-    """Extracts a human-readable name from the resume filename."""
-    name = os.path.splitext(filename)[0]
-
-    # Remove common non-name words and digits
-    name = re.sub(r'(?i)(resume|cv|_resume|_cv|\d+)', '', name)
-
-    # Replace underscores and hyphens with spaces
-    name = name.replace("_", " ").replace("-", " ")
-
-    # Clean up extra spaces and title case it
-    name = " ".join(name.split()).title().strip()
-
-    # If we end up with an empty string just use the filename
-    if not name:
-        name = filename
-
-    return name
 
 
 # ============================================================

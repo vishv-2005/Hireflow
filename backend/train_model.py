@@ -3,13 +3,15 @@
 # Trains a Random Forest classifier on XLSX + JSON resume data.
 # Uses Sentence-BERT for semantic skill/certificate matching.
 # Generates: model.pkl, confusion_matrix.png, feature_importance.png
+#
+# Shared extraction logic lives in resume_features.py.
 # ==================================================================
 
 import os
 import json
 import re
-import ast
 import sys
+import datetime
 import pandas as pd
 import numpy as np
 import matplotlib
@@ -21,21 +23,29 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 from sentence_transformers import SentenceTransformer, util
 
+# Import shared extraction & config from the DRY module
+from resume_features import (
+    SCORING_WEIGHTS,
+    STRONG_THRESHOLD,
+    EXPERIENCE_NORM_CAP,
+    SKILL_KEYWORDS,
+    split_resume_sections,
+    is_education_context,
+    is_project_context,
+    is_work_context,
+    count_skills,
+    has_contact_info,
+    has_work_experience,
+    extract_experience_years,
+    extract_projects,
+    split_individual_projects,
+    extract_education_quality,
+    extract_certificate_mentions,
+)
+
 print("=" * 60)
 print("  HireFlow-AI Model Training Pipeline")
 print("=" * 60)
-
-# ------------------------------------------------------------------
-# SCORING CONFIG - MUST MATCH candidate_scorer.py
-# ------------------------------------------------------------------
-SCORING_WEIGHTS = {
-    "skills_match":       0.35,
-    "experience":         0.25,
-    "certificates":       0.20,
-    "contact_info":       0.10,
-    "skills_count":       0.10,
-}
-STRONG_THRESHOLD = 0.6  # quality score >= 60% = shortlisted (class 1)
 
 # ------------------------------------------------------------------
 # PATHS
@@ -56,154 +66,36 @@ print("\n[Step 1] Loading Sentence-BERT model (all-MiniLM-L6-v2)...")
 bert_model = SentenceTransformer('all-MiniLM-L6-v2')
 print("  BERT model loaded.")
 
+
 # ==================================================================
-# STEP 2: Feature Extraction Helpers
+# STEP 2: Feature Extraction Helpers (BERT-dependent)
 # ==================================================================
 
-SKILL_KEYWORDS = [
-    # IT & Software
-    "python", "java", "javascript", "sql", "react", "machine learning", "data analysis", "aws", "docker", 
-    "kubernetes", "git", "html", "css", "node.js", "flask", "tensorflow", "pandas", "mongodb", "rest api", 
-    "agile", "c++", "c#", "linux", "cloud computing", "rust", "go", "typescript", "ruby", "django", "vue.js", 
-    "angular", "spring boot", "postgresql", "mysql", "redis", "elasticsearch", "graphql", "microservices", 
-    "ci/cd", "jenkins", "terraform", "ansible", "azure", "gcp", "data science", "deep learning", "nlp", 
-    "computer vision", "cybersecurity", "penetration testing", "scrum", "jira",
-
-    # Marketing & Sales
-    "seo", "sem", "content marketing", "social media management", "b2b sales", "crm", "google analytics", 
-    "email marketing", "market research", "brand management", "digital marketing", "ppc", "google ads", 
-    "facebook ads", "copywriting", "public relations", "salesforce", "hubspot", "lead generation", 
-    "conversion rate optimization", "a/b testing", "affiliate marketing", "influencer marketing", "event planning", 
-    "product marketing", "marketing automation", "customer success", "account management", "cold calling", 
-    "negotiation", "sales presentations", "business development", "market analysis", "competitive intelligence", 
-    "growth hacking", "e-commerce", "shopify", "wordpress", "adobe creative suite", "graphic design", 
-    "video editing", "data visualization", "tableau", "communication skills", "b2c sales", "sales strategy", 
-    "key account management", "churn reduction", "onboarding", "retention strategies",
-
-    # Finance & Accounting
-    "accounting", "financial modeling", "budgeting", "forecasting", "excel", "quickbooks", "tax preparation", 
-    "auditing", "risk management", "payroll", "financial analysis", "cash flow management", "general ledger", 
-    "accounts payable", "accounts receivable", "reconciliation", "gaap", "ifrs", "corporate finance", 
-    "investment banking", "portfolio management", "wealth management", "credit analysis", "quantitative analysis", 
-    "mergers and acquisitions", "due diligence", "private equity", "venture capital", "asset management", 
-    "financial reporting", "compliance", "sec reporting", "sarbanes-oxley", "erisa", "treasury", "capital budgeting", 
-    "variance analysis", "cost accounting", "bookkeeping", "xero", "sap", "oracle e-business suite", "power bi", 
-    "vba", "sql for finance", "data mining", "fraud detection", "anti-money laundering", "kyc", "macroeconomics",
-
-    # Pharma & Healthcare
-    "clinical trials", "fda regulations", "gmp", "glp", "quality assurance", "pharmacovigilance", "sop development", 
-    "biostatistics", "drug development", "patient care", "medical billing", "healthcare administration", "emr", 
-    "ehr", "epic", "cerner", "hipaa compliance", "medical terminology", "nursing", "triage", "phlebotomy", 
-    "vital signs", "cpr", "bls", "acls", "infection control", "medication administration", "pharmacology", 
-    "toxicology", "biochemistry", "molecular biology", "cell culture", "pcr", "elisa", "chromatography", "hplc", 
-    "mass spectrometry", "medical coding", "icd-10", "cpt coding", "clinical research", "regulatory affairs", 
-    "medical writing", "data management", "health informatics", "public health", "epidemiology", 
-    "healthcare consulting", "telehealth", "patient scheduling",
-
-    # Mechanical & Engineering
-    "autocad", "solidworks", "cad/cam", "thermodynamics", "hvac", "robotics", "six sigma", "lean manufacturing", 
-    "fluid mechanics", "project management", "mechanical design", "fea", "ansys", "matlab", "creo", "catia", 
-    "mechatronics", "plc programming", "automation", "manufacturing engineering", "qa/qc", "root cause analysis", 
-    "fmea", "dfm", "gd&t", "material science", "metallurgy", "machining", "cnc programming", "welding", "pneumatics", 
-    "hydraulics", "supply chain management", "inventory control", "logistics", "aerospace engineering", 
-    "automotive engineering", "civil engineering", "structural analysis", "electrical engineering", "circuit design", 
-    "pcb design", "microcontrollers", "iot", "systems engineering", "agile hardware", "scada", "hmi", 
-    "industrial engineering", "ergonomics",
-
-    # HR & Operations
-    "talent acquisition", "onboarding", "employee relations", "performance management", "supply chain", 
-    "logistics", "inventory management", "procurement", "recruiting", "sourcing", "applicant tracking systems", 
-    "workday", "bamboo hr", "adp", "benefits administration", "compensation", "payroll processing", "hris", 
-    "organizational development", "training and development", "employee engagement", "diversity and inclusion", 
-    "conflict resolution", "labor law", "osha compliance", "fmla", "workforce planning", "succession planning", 
-    "change management", "operations management", "business process improvement", "six sigma green belt", 
-    "lean methodologies", "kaizen", "facility management", "vendor management", "contract negotiation", 
-    "strategic planning", "key performance indicators", "okrs", "project coordination", "event management", 
-    "timeline management", "resource allocation", "budget tracking", "quality control", "customer service", 
-    "client relations", "dispatching", "fleet management"
-]
-
-def count_skills(skills_data):
-    """Count distinct skills from text based on SKILL_KEYWORDS.
-    Uses word-boundary regex to prevent false positives."""
-    if pd.isna(skills_data):
-        return 0
-    text = str(skills_data).lower()
-    count = 0
-    for s in SKILL_KEYWORDS:
-        pattern = r'\b' + re.escape(s) + r'\b'
-        if re.search(pattern, text):
-            count += 1
-    return count
-
-
-def has_contact_info(text):
-    """Returns 1 if text contains email, phone, or LinkedIn."""
-    text = str(text).lower()
-    has_email = bool(re.search(r'[\w\.-]+@[\w\.-]+', text))
-    has_phone = bool(re.search(r'[\+\(]?[1-9][0-9 .\-\(\)]{8,}[0-9]', text))
-    has_linkedin = 'linkedin.com' in text
-    return 1 if (has_email or has_phone or has_linkedin) else 0
-
-
-def has_experience_text(text):
-    """Returns 1 if experience keywords or date ranges are found."""
-    text = str(text).lower()
-    has_keywords = bool(re.search(r'(experience|worked at|employed at|years of)', text))
-    has_dates = bool(re.search(r'(20[0-2][0-9]\s*[-\u2013to]+\s*(20[0-2][0-9]|present|now))', text))
-    return 1 if (has_keywords or has_dates) else 0
-
-
-def extract_experience_years(text):
-    """Extracts numeric years from text like '5 years experience' or date ranges. Capped at 25."""
-    text = str(text).lower()
-    
-    # 1. Look for explicit "X years"
-    match = re.search(r'(\d+)\s*\+?\s*years?\s*(of\s+)?(experience)?', text)
-    if match:
-        return min(int(match.group(1)), 25)
-        
-    # 2. Look for date ranges (e.g., 2018 - 2022)
-    import datetime
-    current_year = datetime.datetime.now().year
-    
-    total_years = 0
-    date_ranges = re.finditer(r'(20[0-2][0-9])\s*[-to–]+\s*(20[0-2][0-9]|present|now|current)', text)
-    
-    for dr in date_ranges:
-        start_year = int(dr.group(1))
-        end_str = dr.group(2)
-        end_year = current_year if end_str in ['present', 'now', 'current'] else int(end_str)
-            
-        if end_year >= start_year:
-            total_years += (end_year - start_year)
-            
-    if total_years > 0:
-        return min(total_years, 25)
-        
-    return 0
+def score_project_relevance(text, jd_embedding):
+    """Scores project relevance against JD using BERT."""
+    projects = extract_projects(text)
+    if not projects:
+        return 0.0
+    try:
+        project_embeddings = bert_model.encode(projects, convert_to_tensor=True)
+        cosine_scores = util.cos_sim(project_embeddings, jd_embedding).cpu().numpy().flatten()
+        RELEVANCE_THRESHOLD = 0.3
+        relevant_scores = [float(s) for s in cosine_scores if s > RELEVANCE_THRESHOLD]
+        if relevant_scores:
+            avg_score = sum(relevant_scores) / len(relevant_scores)
+            boost = min(len(relevant_scores) * 0.05, 0.15)
+            return min(avg_score + boost, 1.0)
+        return 0.0
+    except Exception as e:
+        print(f"  Warning: project scoring error: {e}")
+        return 0.0
 
 
 def get_certificate_relevance(text, jd_embedding):
-    """
-    Extracts certificate mentions from text, scores each against the JD
-    via Sentence-BERT cosine similarity. Returns 0.0 - 1.0.
-    """
-    text = str(text).lower()
-    cert_matches = []
-
-    patterns = [
-        r'((?:aws[\s\-]?certified|certified|certification|certificate|coursera|udemy|google[\s\-]?cloud|azure[\s\-]?certified)[^\n.,;]*)',
-    ]
-    for pattern in patterns:
-        for m in re.finditer(pattern, text):
-            cert_text = m.group(1).strip()
-            if len(cert_text) > 5:
-                cert_matches.append(cert_text)
-
+    """Extracts certificate mentions and scores against JD via BERT."""
+    cert_matches = extract_certificate_mentions(text)
     if not cert_matches:
         return 0.0
-
     try:
         cert_embeddings = bert_model.encode(cert_matches, convert_to_tensor=True)
         cosine_scores = util.cos_sim(cert_embeddings, jd_embedding)
@@ -243,6 +135,10 @@ if os.path.exists(XLSX_PATH):
         email_col.astype(str) + " " +
         phone_col.astype(str)
     )
+
+    # Add education column if exists for education quality scoring
+    if "Education" in df_excel.columns:
+        df_excel["raw_text"] = df_excel["raw_text"] + " " + df_excel["Education"].fillna("").astype(str)
 
     # Use the JobRole as the JD for training
     df_excel["job_description"] = df_excel["JobRole"].fillna("software engineer")
@@ -306,13 +202,13 @@ def _get_skills_count(row):
 
 df["skills_count"] = df.apply(_get_skills_count, axis=1)
 
-# 4B: Has experience text
-df["has_experience"] = df["raw_text"].astype(str).apply(has_experience_text)
+# 4B: Has WORK experience (section-aware, ignores education/project timelines)
+df["has_experience"] = df["raw_text"].astype(str).apply(has_work_experience)
 
 # 4C: Has contact info
 df["has_contact"] = df["raw_text"].astype(str).apply(has_contact_info)
 
-# 4D: Experience years
+# 4D: Experience years (section-aware)
 def _get_years(row):
     if row.get("is_excel", False) and "Experience_Years" in row:
         try:
@@ -325,7 +221,15 @@ def _get_years(row):
 
 df["experience_years"] = df.apply(_get_years, axis=1)
 
-# 4E: Semantic matching via BERT (the slow step)
+# 4E: Education quality
+def _get_education_quality(row):
+    raw = str(row.get("raw_text", ""))
+    jd = str(row.get("job_description", ""))
+    return extract_education_quality(raw, jd)
+
+df["education_quality"] = df.apply(_get_education_quality, axis=1)
+
+# 4F: Semantic matching via BERT (the slow step)
 print("  Computing Sentence-BERT embeddings (this may take a minute)...")
 
 jd_texts = df["job_description"].astype(str).tolist()
@@ -340,8 +244,9 @@ resume_embeddings = bert_model.encode(resume_texts, convert_to_tensor=True, batc
 
 skills_match_scores = []
 cert_relevance_scores = []
+project_relevance_scores = []
 
-print("  Scoring semantic similarity...")
+print("  Scoring semantic similarity + project relevance...")
 for i in range(len(df)):
     # Skill match: resume text vs JD
     sim = util.cos_sim(resume_embeddings[i], jd_embeddings[i]).item()
@@ -352,28 +257,35 @@ for i in range(len(df)):
     cert_rel = get_certificate_relevance(df.iloc[i]["raw_text"], jd_embeddings[i])
     cert_relevance_scores.append(cert_rel)
 
+    # Project relevance: individual projects vs JD
+    proj_rel = score_project_relevance(df.iloc[i]["raw_text"], jd_embeddings[i])
+    project_relevance_scores.append(proj_rel)
+
     if (i + 1) % 200 == 0:
         print(f"    Processed {i + 1}/{len(df)}...")
 
 df["skills_match_score"] = skills_match_scores
 df["certificate_relevance"] = cert_relevance_scores
+df["project_relevance"] = project_relevance_scores
 print("  Semantic features done!")
 
 print("  Feature extraction complete!")
-print(f"    skills_match_score : mean={df['skills_match_score'].mean():.3f}, std={df['skills_match_score'].std():.3f}")
+print(f"    skills_match_score   : mean={df['skills_match_score'].mean():.3f}, std={df['skills_match_score'].std():.3f}")
 print(f"    certificate_relevance: mean={df['certificate_relevance'].mean():.3f}, std={df['certificate_relevance'].std():.3f}")
-print(f"    skills_count       : mean={df['skills_count'].mean():.1f}")
-print(f"    experience_years   : mean={df['experience_years'].mean():.1f}")
-print(f"    has_experience     : {df['has_experience'].sum()}/{len(df)}")
-print(f"    has_contact        : {df['has_contact'].sum()}/{len(df)}")
+print(f"    project_relevance    : mean={df['project_relevance'].mean():.3f}, std={df['project_relevance'].std():.3f}")
+print(f"    education_quality    : mean={df['education_quality'].mean():.3f}, std={df['education_quality'].std():.3f}")
+print(f"    skills_count         : mean={df['skills_count'].mean():.1f}")
+print(f"    experience_years     : mean={df['experience_years'].mean():.1f}")
+print(f"    has_experience       : {df['has_experience'].sum()}/{len(df)}")
+print(f"    has_contact          : {df['has_contact'].sum()}/{len(df)}")
 
 # ==================================================================
 # STEP 5: Generate Pseudo-Labels
 # ==================================================================
 print("\n[Step 5] Generating target labels via quality formula...")
 
-# Normalize continuous vars to 0-1 range for the formula
-df["exp_score"] = (df["experience_years"] / 10.0).clip(upper=1.0)
+# Use consistent normalisation cap from config
+df["exp_score"] = (df["experience_years"] / EXPERIENCE_NORM_CAP).clip(upper=1.0)
 df["skills_score_norm"] = (df["skills_count"] / 15.0).clip(upper=1.0)
 
 df["quality_score"] = (
@@ -381,23 +293,26 @@ df["quality_score"] = (
     (df["exp_score"]             * SCORING_WEIGHTS["experience"]) +
     (df["certificate_relevance"] * SCORING_WEIGHTS["certificates"]) +
     (df["has_contact"]           * SCORING_WEIGHTS["contact_info"]) +
-    (df["skills_score_norm"]     * SCORING_WEIGHTS["skills_count"])
+    (df["skills_score_norm"]     * SCORING_WEIGHTS["skills_count"]) +
+    (df["project_relevance"]     * SCORING_WEIGHTS["project_relevance"]) +
+    (df["education_quality"]     * SCORING_WEIGHTS["education_quality"])
 )
 
-df["shortlisted"] = (df["quality_score"] >= STRONG_THRESHOLD).astype(int)
+current_threshold = STRONG_THRESHOLD
+df["shortlisted"] = (df["quality_score"] >= current_threshold).astype(int)
 
 strong_count = df["shortlisted"].sum()
 weak_count = (df["shortlisted"] == 0).sum()
 
 # Auto-adjust threshold if labels are too imbalanced
 if strong_count < 5 or weak_count < 5:
-    print(f"  Warning: Default threshold {STRONG_THRESHOLD} gave {strong_count} Strong, {weak_count} Weak.")
+    print(f"  Warning: Default threshold {current_threshold} gave {strong_count} Strong, {weak_count} Weak.")
     print("  Auto-adjusting to top 25% as Strong...")
-    STRONG_THRESHOLD = df["quality_score"].quantile(0.75)
-    df["shortlisted"] = (df["quality_score"] >= STRONG_THRESHOLD).astype(int)
+    current_threshold = df["quality_score"].quantile(0.75)
+    df["shortlisted"] = (df["quality_score"] >= current_threshold).astype(int)
     strong_count = df["shortlisted"].sum()
     weak_count = (df["shortlisted"] == 0).sum()
-    print(f"  New threshold: {STRONG_THRESHOLD:.3f}")
+    print(f"  New threshold: {current_threshold:.3f}")
 
 print(f"  Label distribution: {strong_count} Strong (1), {weak_count} Weak (0)")
 print(f"  Quality score stats: mean={df['quality_score'].mean():.3f}, "
@@ -414,7 +329,9 @@ feature_cols = [
     "has_experience",
     "certificate_relevance",
     "has_contact",
-    "experience_years"
+    "experience_years",
+    "project_relevance",
+    "education_quality"
 ]
 X = df[feature_cols].copy()
 y = df["shortlisted"].copy()
@@ -468,7 +385,7 @@ im = ax.imshow(cm, interpolation="nearest", cmap=plt.cm.Blues)
 plt.colorbar(im, ax=ax)
 ax.set_xlabel("Predicted", fontsize=12)
 ax.set_ylabel("True", fontsize=12)
-ax.set_title(f"Confusion Matrix (Threshold={STRONG_THRESHOLD:.2f})", fontsize=14)
+ax.set_title(f"Confusion Matrix (Threshold={current_threshold:.2f})", fontsize=14)
 ax.set_xticks([0, 1])
 ax.set_yticks([0, 1])
 ax.set_xticklabels(["Weak", "Strong"])
@@ -518,6 +435,7 @@ print(f"  Artifacts:")
 print(f"    model.pkl              - Random Forest (200 trees, max_depth=10)")
 print(f"    confusion_matrix.png   - Test set confusion matrix")
 print(f"    feature_importance.png - Feature importance chart")
+print(f"  Features: {', '.join(feature_cols)}")
 print(f"  Test Accuracy: {accuracy * 100:.2f}%")
 print(f"  CV Accuracy:   {cv_scores.mean() * 100:.2f}% +/- {cv_scores.std() * 100:.2f}%")
 print("=" * 60)
