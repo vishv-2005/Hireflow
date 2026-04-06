@@ -19,7 +19,7 @@ function CandidateTable({ candidates }) {
     // using pure vanilla JS!
     const handleExportCSV = () => {
         // defined CSV headers
-        const headers = ['Rank', 'Name', 'Score', 'Experience (Yrs)', 'Relevant Cert', 'Matched Skills', 'JD Matched Skills', 'Anomaly Status', 'Filename'];
+        const headers = ['Rank', 'Name', 'Score', 'Experience (Yrs)', 'Relevant Cert', 'Relevant Projects', 'Matched Skills', 'JD Matched Skills', 'Anomaly Status', 'Filename'];
 
         // build rows
         const rows = candidates.map(c => [
@@ -28,6 +28,7 @@ function CandidateTable({ candidates }) {
             c.score,
             c.experience_years || 0,
             c.has_relevant_cert ? 'Yes' : 'No',
+            c.relevant_projects_count || 0,
             `"${c.matched_skills.join(', ')}"`, // wrap list in quotes so commas don't break columns
             `"${(c.jd_matched_skills || []).join(', ')}"`,
             c.is_anomaly ? 'Flagged' : 'Clean',
@@ -90,6 +91,7 @@ function CandidateTable({ candidates }) {
                         <th>Score</th>
                         <th>Experience</th>
                         <th>Certificates</th>
+                        <th>Projects</th>
                         <th>Status</th>
                         <th>Matched Skills</th>
                         <th>File Name</th>
@@ -99,6 +101,8 @@ function CandidateTable({ candidates }) {
                     {candidates.map((candidate) => {
                         // Build a set for quick lookup
                         const jdSkillSet = new Set((candidate.jd_matched_skills || []).map(s => s.toLowerCase()));
+                        const projCount = candidate.relevant_projects_count || 0;
+                        const projScore = candidate.project_relevance_score || 0;
 
                         return (
                             <tr key={candidate.rank}>
@@ -129,6 +133,20 @@ function CandidateTable({ candidates }) {
                                         <span style={{ color: '#2f855a', fontWeight: '600' }}>✓ Yes</span>
                                     ) : (
                                         <span style={{ color: '#888' }}>-</span>
+                                    )}
+                                </td>
+                                <td>
+                                    {projCount > 0 ? (
+                                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '2px' }}>
+                                            <span className="project-badge relevant">
+                                                {projCount} relevant
+                                            </span>
+                                            <span style={{ fontSize: '0.72rem', color: '#888' }}>
+                                                {(projScore * 100).toFixed(0)}% match
+                                            </span>
+                                        </div>
+                                    ) : (
+                                        <span style={{ color: '#888' }}>–</span>
                                     )}
                                 </td>
                                 <td>

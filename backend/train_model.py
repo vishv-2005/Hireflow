@@ -10,6 +10,7 @@ import json
 import re
 import ast
 import sys
+import datetime
 import pandas as pd
 import numpy as np
 import matplotlib
@@ -29,11 +30,13 @@ print("=" * 60)
 # SCORING CONFIG - MUST MATCH candidate_scorer.py
 # ------------------------------------------------------------------
 SCORING_WEIGHTS = {
-    "skills_match":       0.35,
-    "experience":         0.25,
-    "certificates":       0.20,
+    "jd_skill_overlap":   0.25,
+    "skills_match":       0.15,
+    "experience":         0.15,
+    "certificates":       0.10,
     "contact_info":       0.10,
     "skills_count":       0.10,
+    "project_relevance":  0.15,
 }
 STRONG_THRESHOLD = 0.6  # quality score >= 60% = shortlisted (class 1)
 
@@ -123,9 +126,125 @@ SKILL_KEYWORDS = [
     "client relations", "dispatching", "fleet management"
 ]
 
+
+# ============================================================
+# Section Splitting - Same logic as candidate_scorer.py
+# ============================================================
+
+_SECTION_PATTERNS = {
+    "work": re.compile(
+        r'^\s*(?:work\s*experience|professional\s*experience|employment\s*history|'
+        r'employment|work\s*history|career\s*history|career\s*summary|'
+        r'professional\s*background|job\s*experience|positions?\s*held|'
+        r'relevant\s*experience|internships?\s*(?:&|and)?\s*experience|'
+        r'internship|internships|work)\s*:?\s*$',
+        re.IGNORECASE
+    ),
+    "education": re.compile(
+        r'^\s*(?:education|academic\s*background|academic\s*qualifications?|'
+        r'educational\s*qualifications?|academic\s*details|academic\s*profile|'
+        r'qualifications?|scholastic\s*record|degrees?)\s*:?\s*$',
+        re.IGNORECASE
+    ),
+    "projects": re.compile(
+        r'^\s*(?:projects?|academic\s*projects?|personal\s*projects?|'
+        r'key\s*projects?|major\s*projects?|notable\s*projects?|'
+        r'capstone\s*projects?|course\s*projects?|coursework\s*projects?|'
+        r'mini\s*projects?|side\s*projects?)\s*:?\s*$',
+        re.IGNORECASE
+    ),
+    "skills": re.compile(
+        r'^\s*(?:skills?|technical\s*skills?|core\s*competenc(?:ies|e)|'
+        r'key\s*skills?|areas?\s*of\s*expertise|proficienc(?:ies|y)|'
+        r'technologies|tools?\s*(?:&|and)?\s*technologies)\s*:?\s*$',
+        re.IGNORECASE
+    ),
+    "certificates": re.compile(
+        r'^\s*(?:certifications?|certificates?|licenses?\s*(?:&|and)?\s*certifications?|'
+        r'professional\s*certifications?|training|courses)\s*:?\s*$',
+        re.IGNORECASE
+    ),
+    "summary": re.compile(
+        r'^\s*(?:summary|objective|profile|about\s*me|personal\s*statement|'
+        r'career\s*objective|professional\s*summary)\s*:?\s*$',
+        re.IGNORECASE
+    ),
+}
+
+_EDUCATION_CONTEXT_KEYWORDS = re.compile(
+    r'(?:b\.?tech|m\.?tech|b\.?sc|m\.?sc|b\.?e\b|m\.?e\b|b\.?a\b|m\.?a\b|b\.?com|m\.?com|'
+    r'bachelor|master|ph\.?d|diploma|degree|university|college|institute|'
+    r'school|gpa|cgpa|percentage|semester|graduated|graduation|'
+    r'higher\s*secondary|hsc|ssc|10th|12th|board|cbse|icse|'
+    r'mba|bba|bca|mca|enrolled)',
+    re.IGNORECASE
+)
+
+_PROJECT_CONTEXT_KEYWORDS = re.compile(
+    r'(?:project|capstone|mini[\s\-]?project|course\s*work|coursework|'
+    r'hackathon|competition|challenge|assignment|thesis|dissertation|'
+    r'research\s*paper|paper\s*titled|paper\s*on)',
+    re.IGNORECASE
+)
+
+_WORK_CONTEXT_KEYWORDS = re.compile(
+    r'(?:worked\s*(?:at|for|with|as)|employed\s*(?:at|by)|'
+    r'job\s*(?:title|role|position)|designation|company|organization|'
+    r'responsibilities|role\s*(?:and|&)\s*responsibilities|'
+    r'key\s*responsibilities|duties|reporting\s*to|'
+    r'full[\s\-]?time|part[\s\-]?time|contract|freelance|'
+    r'team\s*(?:lead|leader|manager|member|size)|managed\s*a\s*team|'
+    r'pvt\.?\s*ltd|private\s*limited|inc\.?|corp\.?|llc|'
+    r'technologies|solutions|services|consulting|'
+    r'software\s*(?:engineer|developer)|analyst|manager|'
+    r'developer|engineer|consultant|associate|executive|'
+    r'intern\s+at|interned\s+at)',
+    re.IGNORECASE
+)
+
+
+def _split_resume_sections(text):
+    """Splits resume text into named sections."""
+    text = str(text)
+    lines = text.split('\n')
+    sections = {
+        "work": [], "education": [], "projects": [],
+        "skills": [], "certificates": [], "summary": [], "other": [],
+    }
+    current_section = "other"
+    section_found = False
+    for line in lines:
+        stripped = line.strip()
+        if not stripped:
+            sections[current_section].append(line)
+            continue
+        matched_section = None
+        for section_name, pattern in _SECTION_PATTERNS.items():
+            if pattern.match(stripped):
+                matched_section = section_name
+                section_found = True
+                break
+        if matched_section:
+            current_section = matched_section
+        else:
+            sections[current_section].append(line)
+    result = {k: '\n'.join(v) for k, v in sections.items()}
+    result["_sections_found"] = section_found
+    return result
+
+
+def _is_education_context(surrounding_text):
+    return bool(_EDUCATION_CONTEXT_KEYWORDS.search(surrounding_text))
+
+def _is_project_context(surrounding_text):
+    return bool(_PROJECT_CONTEXT_KEYWORDS.search(surrounding_text))
+
+def _is_work_context(surrounding_text):
+    return bool(_WORK_CONTEXT_KEYWORDS.search(surrounding_text))
+
+
 def count_skills(skills_data):
-    """Count distinct skills from text based on SKILL_KEYWORDS.
-    Uses word-boundary regex to prevent false positives."""
+    """Count distinct skills from text based on SKILL_KEYWORDS."""
     if pd.isna(skills_data):
         return 0
     text = str(skills_data).lower()
@@ -146,52 +265,200 @@ def has_contact_info(text):
     return 1 if (has_email or has_phone or has_linkedin) else 0
 
 
-def has_experience_text(text):
-    """Returns 1 if experience keywords or date ranges are found."""
-    text = str(text).lower()
-    has_keywords = bool(re.search(r'(experience|worked at|employed at|years of)', text))
-    has_dates = bool(re.search(r'(20[0-2][0-9]\s*[-\u2013to]+\s*(20[0-2][0-9]|present|now))', text))
-    return 1 if (has_keywords or has_dates) else 0
-
-
-def extract_experience_years(text):
-    """Extracts numeric years from text like '5 years experience' or date ranges. Capped at 25."""
-    text = str(text).lower()
+def has_work_experience(text):
+    """Returns 1 if ACTUAL work experience is found (not education or project timelines)."""
+    text = str(text)
+    sections = _split_resume_sections(text)
+    work_text = sections.get("work", "").lower()
     
-    # 1. Look for explicit "X years"
-    match = re.search(r'(\d+)\s*\+?\s*years?\s*(of\s+)?(experience)?', text)
-    if match:
-        return min(int(match.group(1)), 25)
-        
-    # 2. Look for date ranges (e.g., 2018 - 2022)
-    import datetime
-    current_year = datetime.datetime.now().year
+    if sections["_sections_found"] and work_text.strip():
+        has_keywords = bool(re.search(
+            r'(worked at|employed at|years of experience|work experience|'
+            r'professional experience|job role|designation|responsibilities)',
+            work_text
+        ))
+        has_dates = bool(re.search(
+            r'(20[0-2][0-9]\s*[-–to]+\s*(20[0-2][0-9]|present|now|current))',
+            work_text
+        ))
+        return 1 if (has_keywords or has_dates) else 0
     
-    total_years = 0
-    date_ranges = re.finditer(r'(20[0-2][0-9])\s*[-to–]+\s*(20[0-2][0-9]|present|now|current)', text)
+    text_lower = text.lower()
+    lines = text_lower.split('\n')
+    for i, line in enumerate(lines):
+        if re.search(r'(20[0-2][0-9]\s*[-–to]+\s*(20[0-2][0-9]|present|now|current))', line):
+            context_start = max(0, i - 3)
+            context_end = min(len(lines), i + 4)
+            context = ' '.join(lines[context_start:context_end])
+            if _is_education_context(context) or _is_project_context(context):
+                continue
+            if _is_work_context(context):
+                return 1
+            if not _is_education_context(context) and not _is_project_context(context):
+                if re.search(r'(pvt|ltd|inc|corp|llc|company|firm|technologies|solutions|services)', context):
+                    return 1
     
-    for dr in date_ranges:
-        start_year = int(dr.group(1))
-        end_str = dr.group(2)
-        end_year = current_year if end_str in ['present', 'now', 'current'] else int(end_str)
-            
-        if end_year >= start_year:
-            total_years += (end_year - start_year)
-            
-    if total_years > 0:
-        return min(total_years, 25)
-        
+    if re.search(r'\d+\s*\+?\s*years?\s+of\s+(?:work\s+)?experience', text_lower):
+        return 1
+    if re.search(r'(worked at|employed at|working at|employment history)', text_lower):
+        return 1
+    
     return 0
 
 
+def extract_experience_years(text):
+    """Extracts years of WORK experience only. Ignores education and project timelines."""
+    text = str(text)
+    current_year = datetime.datetime.now().year
+    sections = _split_resume_sections(text)
+    work_text = sections.get("work", "")
+    
+    if sections["_sections_found"] and work_text.strip():
+        work_lower = work_text.lower()
+        match = re.search(r'(\d+)\s*\+?\s*years?\s*(of\s+)?(work\s+)?(experience)?', work_lower)
+        if match:
+            return min(int(match.group(1)), 25)
+        total_years = 0
+        date_ranges = re.finditer(
+            r'(20[0-2][0-9])\s*[-to–]+\s*(20[0-2][0-9]|present|now|current)', work_lower)
+        for dr in date_ranges:
+            start_year = int(dr.group(1))
+            end_str = dr.group(2)
+            end_year = current_year if end_str in ['present', 'now', 'current'] else int(end_str)
+            if end_year >= start_year:
+                total_years += (end_year - start_year)
+        if total_years > 0:
+            return min(total_years, 25)
+        return 0
+    
+    text_lower = text.lower()
+    match = re.search(r'(\d+)\s*\+?\s*years?\s+of\s+(?:work\s+)?experience', text_lower)
+    if match:
+        return min(int(match.group(1)), 25)
+    
+    lines = text_lower.split('\n')
+    total_years = 0
+    for i, line in enumerate(lines):
+        date_ranges = list(re.finditer(
+            r'(20[0-2][0-9])\s*[-to–]+\s*(20[0-2][0-9]|present|now|current)', line))
+        if not date_ranges:
+            continue
+        context_start = max(0, i - 3)
+        context_end = min(len(lines), i + 4)
+        context = ' '.join(lines[context_start:context_end])
+        if _is_education_context(context) or _is_project_context(context):
+            continue
+        for dr in date_ranges:
+            start_year = int(dr.group(1))
+            end_str = dr.group(2)
+            end_year = current_year if end_str in ['present', 'now', 'current'] else int(end_str)
+            if end_year >= start_year:
+                total_years += (end_year - start_year)
+    
+    if total_years > 0:
+        return min(total_years, 25)
+    return 0
+
+
+def _extract_projects(text):
+    """Extracts individual project descriptions from the resume."""
+    text = str(text)
+    sections = _split_resume_sections(text)
+    project_text = sections.get("projects", "")
+    
+    if sections["_sections_found"] and project_text.strip():
+        return _split_individual_projects(project_text)
+    
+    projects = []
+    lines = text.split('\n')
+    in_project = False
+    current_project = []
+    for line in lines:
+        stripped = line.strip().lower()
+        if re.match(r'(?:project\s*(?:title|name)?\s*[:–\-])', stripped):
+            if current_project:
+                projects.append('\n'.join(current_project))
+            current_project = [line]
+            in_project = True
+        elif in_project:
+            is_heading = False
+            for pattern in _SECTION_PATTERNS.values():
+                if pattern.match(line.strip()):
+                    is_heading = True
+                    break
+            if is_heading:
+                if current_project:
+                    projects.append('\n'.join(current_project))
+                    current_project = []
+                in_project = False
+            else:
+                current_project.append(line)
+    if current_project:
+        projects.append('\n'.join(current_project))
+    return projects
+
+
+def _split_individual_projects(project_section_text):
+    """Splits a project section into individual projects."""
+    lines = project_section_text.split('\n')
+    projects = []
+    current_project = []
+    for line in lines:
+        stripped = line.strip()
+        if not stripped:
+            if current_project:
+                proj_text = '\n'.join(current_project)
+                if len(proj_text.strip()) > 15:
+                    projects.append(proj_text)
+                current_project = []
+            continue
+        is_new_project = bool(re.match(
+            r'^(?:[\u2022\u2023\u25E6\u2043\u2219•●○◦►▸▹\-\*]\s+|'
+            r'\d+[\.\)]\s+|'
+            r'(?:project\s*(?:\d+|[a-z])?\s*[:–\-])|'
+            r'(?:title\s*[:–\-]))',
+            stripped, re.IGNORECASE
+        ))
+        if is_new_project and current_project:
+            proj_text = '\n'.join(current_project)
+            if len(proj_text.strip()) > 15:
+                projects.append(proj_text)
+            current_project = [line]
+        else:
+            current_project.append(line)
+    if current_project:
+        proj_text = '\n'.join(current_project)
+        if len(proj_text.strip()) > 15:
+            projects.append(proj_text)
+    if not projects and len(project_section_text.strip()) > 15:
+        projects = [project_section_text]
+    return projects
+
+
+def score_project_relevance(text, jd_embedding):
+    """Scores project relevance against JD using BERT."""
+    projects = _extract_projects(text)
+    if not projects:
+        return 0.0
+    try:
+        project_embeddings = bert_model.encode(projects, convert_to_tensor=True)
+        cosine_scores = util.cos_sim(project_embeddings, jd_embedding).cpu().numpy().flatten()
+        RELEVANCE_THRESHOLD = 0.3
+        relevant_scores = [float(s) for s in cosine_scores if s > RELEVANCE_THRESHOLD]
+        if relevant_scores:
+            avg_score = sum(relevant_scores) / len(relevant_scores)
+            boost = min(len(relevant_scores) * 0.05, 0.15)
+            return min(avg_score + boost, 1.0)
+        return 0.0
+    except Exception as e:
+        print(f"  Warning: project scoring error: {e}")
+        return 0.0
+
+
 def get_certificate_relevance(text, jd_embedding):
-    """
-    Extracts certificate mentions from text, scores each against the JD
-    via Sentence-BERT cosine similarity. Returns 0.0 - 1.0.
-    """
+    """Extracts certificate mentions and scores against JD via BERT."""
     text = str(text).lower()
     cert_matches = []
-
     patterns = [
         r'((?:aws[\s\-]?certified|certified|certification|certificate|coursera|udemy|google[\s\-]?cloud|azure[\s\-]?certified)[^\n.,;]*)',
     ]
@@ -200,10 +467,8 @@ def get_certificate_relevance(text, jd_embedding):
             cert_text = m.group(1).strip()
             if len(cert_text) > 5:
                 cert_matches.append(cert_text)
-
     if not cert_matches:
         return 0.0
-
     try:
         cert_embeddings = bert_model.encode(cert_matches, convert_to_tensor=True)
         cosine_scores = util.cos_sim(cert_embeddings, jd_embedding)
@@ -306,13 +571,13 @@ def _get_skills_count(row):
 
 df["skills_count"] = df.apply(_get_skills_count, axis=1)
 
-# 4B: Has experience text
-df["has_experience"] = df["raw_text"].astype(str).apply(has_experience_text)
+# 4B: Has WORK experience (section-aware, ignores education/project timelines)
+df["has_experience"] = df["raw_text"].astype(str).apply(has_work_experience)
 
 # 4C: Has contact info
 df["has_contact"] = df["raw_text"].astype(str).apply(has_contact_info)
 
-# 4D: Experience years
+# 4D: Experience years (section-aware)
 def _get_years(row):
     if row.get("is_excel", False) and "Experience_Years" in row:
         try:
@@ -340,8 +605,9 @@ resume_embeddings = bert_model.encode(resume_texts, convert_to_tensor=True, batc
 
 skills_match_scores = []
 cert_relevance_scores = []
+project_relevance_scores = []
 
-print("  Scoring semantic similarity...")
+print("  Scoring semantic similarity + project relevance...")
 for i in range(len(df)):
     # Skill match: resume text vs JD
     sim = util.cos_sim(resume_embeddings[i], jd_embeddings[i]).item()
@@ -351,21 +617,27 @@ for i in range(len(df)):
     # Certificate match: individual certs vs JD
     cert_rel = get_certificate_relevance(df.iloc[i]["raw_text"], jd_embeddings[i])
     cert_relevance_scores.append(cert_rel)
+    
+    # Project relevance: individual projects vs JD
+    proj_rel = score_project_relevance(df.iloc[i]["raw_text"], jd_embeddings[i])
+    project_relevance_scores.append(proj_rel)
 
     if (i + 1) % 200 == 0:
         print(f"    Processed {i + 1}/{len(df)}...")
 
 df["skills_match_score"] = skills_match_scores
 df["certificate_relevance"] = cert_relevance_scores
+df["project_relevance"] = project_relevance_scores
 print("  Semantic features done!")
 
 print("  Feature extraction complete!")
-print(f"    skills_match_score : mean={df['skills_match_score'].mean():.3f}, std={df['skills_match_score'].std():.3f}")
+print(f"    skills_match_score   : mean={df['skills_match_score'].mean():.3f}, std={df['skills_match_score'].std():.3f}")
 print(f"    certificate_relevance: mean={df['certificate_relevance'].mean():.3f}, std={df['certificate_relevance'].std():.3f}")
-print(f"    skills_count       : mean={df['skills_count'].mean():.1f}")
-print(f"    experience_years   : mean={df['experience_years'].mean():.1f}")
-print(f"    has_experience     : {df['has_experience'].sum()}/{len(df)}")
-print(f"    has_contact        : {df['has_contact'].sum()}/{len(df)}")
+print(f"    project_relevance    : mean={df['project_relevance'].mean():.3f}, std={df['project_relevance'].std():.3f}")
+print(f"    skills_count         : mean={df['skills_count'].mean():.1f}")
+print(f"    experience_years     : mean={df['experience_years'].mean():.1f}")
+print(f"    has_experience       : {df['has_experience'].sum()}/{len(df)}")
+print(f"    has_contact          : {df['has_contact'].sum()}/{len(df)}")
 
 # ==================================================================
 # STEP 5: Generate Pseudo-Labels
@@ -381,7 +653,8 @@ df["quality_score"] = (
     (df["exp_score"]             * SCORING_WEIGHTS["experience"]) +
     (df["certificate_relevance"] * SCORING_WEIGHTS["certificates"]) +
     (df["has_contact"]           * SCORING_WEIGHTS["contact_info"]) +
-    (df["skills_score_norm"]     * SCORING_WEIGHTS["skills_count"])
+    (df["skills_score_norm"]     * SCORING_WEIGHTS["skills_count"]) +
+    (df["project_relevance"]     * SCORING_WEIGHTS["project_relevance"])
 )
 
 df["shortlisted"] = (df["quality_score"] >= STRONG_THRESHOLD).astype(int)
@@ -414,7 +687,8 @@ feature_cols = [
     "has_experience",
     "certificate_relevance",
     "has_contact",
-    "experience_years"
+    "experience_years",
+    "project_relevance"
 ]
 X = df[feature_cols].copy()
 y = df["shortlisted"].copy()
