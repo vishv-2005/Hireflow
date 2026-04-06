@@ -479,7 +479,7 @@ def _extract_projects(text):
 def _split_individual_projects(project_section_text):
     """
     Splits a project section into individual projects.
-    Uses bullet points, numbered lists, or blank-line separation as delimiters.
+    Uses bullet points, numbered lists, date ranges, or fallback chunking.
     """
     lines = project_section_text.split('\n')
     projects = []
@@ -490,19 +490,19 @@ def _split_individual_projects(project_section_text):
         if not stripped:
             if current_project:
                 proj_text = '\n'.join(current_project)
-                if len(proj_text.strip()) > 15:  # Skip noise
+                if len(proj_text.strip()) > 15:
                     projects.append(proj_text)
                 current_project = []
             continue
         
-        # Project delimiter: bullet point, numbered list, or title-like pattern
-        is_new_project = bool(re.match(
-            r'^(?:[\u2022\u2023\u25E6\u2043\u2219•●○◦►▸▹\-\*]\s+|'  # bullets
-            r'\d+[\.\)]\s+|'  # numbered
-            r'(?:project\s*(?:\d+|[a-z])?\s*[:–\-])|'  # "Project 1:" etc.
-            r'(?:title\s*[:–\-]))',  # "Title:"
-            stripped, re.IGNORECASE
-        ))
+        # Extended bullet characters incl. corrupted ones like ò, and _
+        bullet_pattern = r'^(?:[\u2022\u2023\u25E6\u2043\u2219•●○◦►▸▹\-\*ò_~]\s*|\d+[\.\)]\s+|(?:project\s*(?:\d+|[a-z])?\s*[:–\-])|(?:title\s*[:–\-]))'
+        is_bullet = bool(re.match(bullet_pattern, stripped, re.IGNORECASE))
+        
+        # Does it contain a date range on this line? (common for project headers)
+        has_date_range = bool(re.search(r'(?:20[0-2][0-9]\s*[-to–]+\s*(?:20[0-2][0-9]|present|now|current|developing))', stripped, re.IGNORECASE))
+        
+        is_new_project = is_bullet or has_date_range
         
         if is_new_project and current_project:
             proj_text = '\n'.join(current_project)
@@ -511,16 +511,30 @@ def _split_individual_projects(project_section_text):
             current_project = [line]
         else:
             current_project.append(line)
-    
+            
     if current_project:
         proj_text = '\n'.join(current_project)
         if len(proj_text.strip()) > 15:
             projects.append(proj_text)
-    
-    # If no individual projects were split, treat the entire section as one project
+            
+    # Fallback chunking if we STILL only have 1 giant project
+    if len(projects) <= 1 and len(project_section_text.strip()) > 300:
+        chunks = []
+        curr = []
+        for line in lines:
+            if not line.strip(): continue
+            curr.append(line)
+            # ~300 chars per chunk to avoid Sentence-BERT truncation
+            if sum(len(l) for l in curr) > 300:
+                chunks.append('\n'.join(curr))
+                curr = []
+        if curr:
+            chunks.append('\n'.join(curr))
+        return chunks
+        
     if not projects and len(project_section_text.strip()) > 15:
         projects = [project_section_text]
-    
+        
     return projects
 
 

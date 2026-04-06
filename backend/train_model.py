@@ -412,13 +412,12 @@ def _split_individual_projects(project_section_text):
                     projects.append(proj_text)
                 current_project = []
             continue
-        is_new_project = bool(re.match(
-            r'^(?:[\u2022\u2023\u25E6\u2043\u2219•●○◦►▸▹\-\*]\s+|'
-            r'\d+[\.\)]\s+|'
-            r'(?:project\s*(?:\d+|[a-z])?\s*[:–\-])|'
-            r'(?:title\s*[:–\-]))',
-            stripped, re.IGNORECASE
-        ))
+            
+        bullet_pattern = r'^(?:[\u2022\u2023\u25E6\u2043\u2219•●○◦►▸▹\-\*ò_~]\s*|\d+[\.\)]\s+|(?:project\s*(?:\d+|[a-z])?\s*[:–\-])|(?:title\s*[:–\-]))'
+        is_bullet = bool(re.match(bullet_pattern, stripped, re.IGNORECASE))
+        has_date_range = bool(re.search(r'(?:20[0-2][0-9]\s*[-to–]+\s*(?:20[0-2][0-9]|present|now|current|developing))', stripped, re.IGNORECASE))
+        is_new_project = is_bullet or has_date_range
+        
         if is_new_project and current_project:
             proj_text = '\n'.join(current_project)
             if len(proj_text.strip()) > 15:
@@ -426,10 +425,25 @@ def _split_individual_projects(project_section_text):
             current_project = [line]
         else:
             current_project.append(line)
+            
     if current_project:
         proj_text = '\n'.join(current_project)
         if len(proj_text.strip()) > 15:
             projects.append(proj_text)
+            
+    if len(projects) <= 1 and len(project_section_text.strip()) > 300:
+        chunks = []
+        curr = []
+        for line in lines:
+            if not line.strip(): continue
+            curr.append(line)
+            if sum(len(l) for l in curr) > 300:
+                chunks.append('\n'.join(curr))
+                curr = []
+        if curr:
+            chunks.append('\n'.join(curr))
+        return chunks
+        
     if not projects and len(project_section_text.strip()) > 15:
         projects = [project_section_text]
     return projects

@@ -1,0 +1,168 @@
+﻿JD: Need a python developer with operation in java, javascript and Git
+
+================================================================================
+
+================================================================================
+CANDIDATE: Ivan Miller
+================================================================================
+
+--- RAW TEXT (first 2000 chars) ---
+Resume_3
+Name: Ivan Miller
+Role: Frontend Developer
+Contact: ivan.miller@example.com | 840-961-4088 | linkedin.com/in/ivanmiller
+SUMMARY
+Experienced Frontend Developer with 13 years of experience building scalable systems.
+Passionate about writing clean, maintainable code and solving complex problems.
+SKILLS
+JavaScript, CSS, SQL, HTML, REST API, Flask, Machine Learning, Linux, Pandas, Java
+EXPERIENCE
+Cloud Networks
+Frontend Developer (2019 - Present)
+- Developed and maintained web applications.
+- Collaborated with cross-functional teams to deliver high-quality software.
+- Optimized backend services for performance and scalability.
+EDUCATION
+B.S. in Computer Science - State University
+Graduated: 2018
+CERTIFICATIONS
+Google Cloud Associate Engineer
+
+--- END RAW TEXT ---
+
+Sections found: True
+
+  [WORK] EMPTY
+
+  [EDUCATION] (59 chars):
+    B.S. in Computer Science - State University
+Graduated: 2018...
+
+  [PROJECTS] EMPTY
+
+  [SKILLS] (328 chars):
+    JavaScript, CSS, SQL, HTML, REST API, Flask, Machine Learning, Linux, Pandas, Java
+EXPERIENCE
+Cloud Networks
+Frontend Developer (2019 - Present)
+- Developed and maintained web applications.
+- Collabor...
+
+  [OTHER] (128 chars):
+    Resume_3
+Name: Ivan Miller
+Role: Frontend Developer
+Contact: ivan.miller@example.com | 840-961-4088 | linkedin.com/in/ivanmiller...
+
+Extracted projects: 0
+
+
+================================================================================
+CANDIDATE: Mallory Anderson
+================================================================================
+
+--- RAW TEXT (first 2000 chars) ---
+Resume_8
+Name: Mallory Anderson
+Role: Full Stack Developer
+Contact: mallory.anderson@example.com | 204-761-6059 | linkedin.com/in/malloryanderson
+SUMMARY
+Experienced Full Stack Developer with 14 years of experience building scalable systems.
+Passionate about writing clean, maintainable code and solving complex problems.
+SKILLS
+Linux, Machine Learning, Node.js, Agile, Java, TensorFlow, Data Analysis, Docker, Python, React
+EXPERIENCE
+Innovate LLC
+Full Stack Developer (2010 - 2023)
+- Developed and maintained web applications.
+- Collaborated with cross-functional teams to deliver high-quality software.
+- Optimized backend services for performance and scalability.
+EDUCATION
+B.S. in Computer Science - National University
+Graduated: 2009
+CERTIFICATIONS
+Coursera Deep Learning Specialization
+
+--- END RAW TEXT ---
+
+Sections found: True
+
+  [WORK] EMPTY
+
+  [EDUCATION] (62 chars):
+    B.S. in Computer Science - National University
+Graduated: 2009...
+
+  [PROJECTS] EMPTY
+
+  [SKILLS] (338 chars):
+    Linux, Machine Learning, Node.js, Agile, Java, TensorFlow, Data Analysis, Docker, Python, React
+EXPERIENCE
+Innovate LLC
+Full Stack Developer (2010 - 2023)
+- Developed and maintained web applications.
+...
+
+  [OTHER] (145 chars):
+    Resume_8
+Name: Mallory Anderson
+Role: Full Stack Developer
+Contact: mallory.anderson@example.com | 204-761-6059 | linkedin.com/in/malloryanderson...
+
+Extracted projects: 0
+
+
+================================================================================
+CANDIDATE: Sybil Davis
+================================================================================
+
+--- RAW TEXT (first 2000 chars) ---
+Resume_4
+Name: Sybil Davis
+Role: Frontend Developer
+Contact: sybil.davis@example.com | 330-735-6086 | linkedin.com/in/sybildavis
+SUMMARY
+Experienced Frontend Developer with 12 years of experience building scalable systems.
+Passionate about writing clean, maintainable code and solving complex problems.
+SKILLS
+Git, Flask, Kubernetes, Java, SQL, JavaScript
+EXPERIENCE
+Cloud Networks
+Frontend Developer (2022 - Present)
+- Developed and maintained web applications.
+- Collaborated with cross-functional teams to deliver high-quality software.
+- Optimized backend services for performance and scalability.
+EDUCATION
+B.S. in Computer Science - Metropolitan Institute
+Graduated: 2021
+CERTIFICATIONS
+Google Cloud Associate Engineer
+
+--- END RAW TEXT ---
+
+Sections found: True
+
+  [WORK] EMPTY
+
+  [EDUCATION] (65 chars):
+    B.S. in Computer Science - Metropolitan Institute
+Graduated: 2021...
+
+  [PROJECTS] EMPTY
+
+  [SKILLS] (291 chars):
+    Git, Flask, Kubernetes, Java, SQL, JavaScript
+EXPERIENCE
+Cloud Networks
+Frontend Developer (2022 - Present)
+- Developed and maintained web applications.
+- Collaborated with cross-functional teams to d...
+
+  [OTHER] (128 chars):
+    Resume_4
+Name: Sybil Davis
+Role: Frontend Developer
+Contact: sybil.davis@example.com | 330-735-6086 | linkedin.com/in/sybildavis...
+
+Extracted projects: 0
+
