@@ -64,6 +64,7 @@ def save_to_json(candidates_list, batch_id, job_description=""):
             "has_relevant_cert": cand.get("has_relevant_cert", False),
             "project_relevance_score": cand.get("project_relevance_score", 0.0),
             "relevant_projects_count": cand.get("relevant_projects_count", 0),
+            "education_quality": cand.get("education_quality", 0.0),
             "filename": cand.get("filename", ""),
             "is_anomaly": cand.get("is_anomaly", False),
             "anomaly_reason": cand.get("anomaly_reason", ""),

@@ -5,9 +5,6 @@ python-docx
 werkzeug
 scikit-learn
 gunicorn
-sqlalchemy
-pymysql
-cryptography
 easyocr
 Pillow
 mammoth
