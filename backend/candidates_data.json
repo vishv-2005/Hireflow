@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-04-06T23:12:08.480874",
-  "total_batches": 31,
-  "total_resumes": 393,
+  "last_updated": "2026-04-07T13:03:05.810761",
+  "total_batches": 33,
+  "total_resumes": 401,
   "batches": [
     {
       "batch_id": "39bd125e-13c5-41c6-a54e-a465bce64b27",
@@ -8811,6 +8811,274 @@
           "is_anomaly": false,
           "anomaly_reason": "",
           "raw_text": "HEM GABHAWALA\nINTRODUCTION\nA dedicated Second-Year B.Tech\nstudent with a strong foundation\nin cybersecurity, penetration\ntesting, and network analysis,\nseeking to contribute as a\nCybersecurity Analyst Intern at\nABC Company. Eager to apply\nhands-on experience in\ndeveloping security tools and\nconducting network\nreconnaissance to assist in\nresearch, development, and\ntesting under expert supervision.\nEXTRACURRICULAR\nACTIVITIES\nActive member of Tech\nClub of my college,\nparticipating in hackathons\nand workshops.\nContributed to team\nprojects in computer\nnetworks, focusing on\nlayered architecture and\nprotocol analysis.\nINTERNSHIP EXPERIENCE\nObjective: Secure Cybersecurity Analyst Intern\nposition at ABC Company.\nINTERN AT HACKERSVILLA\nHackersVilla Cybersecurity Pvt Ltd\nINTERN AT HACKERSVILLA CYBERSECURITY PVT LTD FOR\nHANDS-ON EXPERIENCE.\nDeveloped skills in security analysis and risk management.\nACADEMIC HISTORY\nProject: Network Reconnaissance Tool, Keylogger,\nSpyware, enhancing practical skills.\nUNIVERSITY INSTITUTE\nB.Tech in Cybersecurity\nNAVRACHANA UNIVERSITY\nBachelor's degree in Computer Science and Engineering\nTALENT AND SKILLS\nSkills: Vulnerability\nAssessment, Penetration\nTesting, Network\nAnalysis, Programming,\nSecurity Tools\nOutstanding\nCybersecurity Student\nAchievement Award\nCybersequrity Intern \nPassed with 59% in 12  Science\nth\nPARTH INSTITUTE\nRanked in the Top 5% on TryHackMe,\ndemonstrating proficiency in cybersecurity\nchallenges and penetration testing.\nSuccessfully completed hands-on projects in\nnetwork reconnaissance, keylogging, and\nspyware development, showcasing practical\ncybersecurity skills.\nEarned three industry-recognized certifications\nin cybersecurity, reflecting commitment to\ncontinuous learning and expertise\ndevelopment.\nACHEVIEMENTS\nCERTIFICATES\nGOOGLE CYBERSECURITY CERTIFICATE –\nCOURSERA (NOV 2024)\nINTRODUCTION TO DARK WEB, ANONYMITY,\nAND CRYPTOCURRENCY – EC-COUNCIL ( JUN\n2024)\n30 DAYS CYBERSECURITY: ADVANCED\nCYBERSECURITY AND PENETRATION TESTING\n– HACKERSVILLA (MAR 2024)\n9512537083\nWWW.LINKEDIN.COM/IN/HEM-NIKESH-\nGABHAWALA-99A5482A9\nHHGABHAWALA@GMAIL.COM\n HTTPS://GITHUB.COM/SECURITYWITHHEM"
+        }
+      ]
+    },
+    {
+      "batch_id": "9e8ef669-1391-4aa7-9148-219d7a520dbd",
+      "uploaded_at": "2026-04-07T11:34:10.514268",
+      "job_description": "i want someone who knows python",
+      "candidate_count": 4,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Vishv",
+          "score": 57.4,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "aws",
+            "git",
+            "html",
+            "css",
+            "node.js",
+            "cloud computing",
+            "mysql",
+            "jira",
+            "crm",
+            "autocad",
+            "mechatronics",
+            "automation",
+            "circuit design"
+          ],
+          "jd_matched_skills": [
+            "python"
+          ],
+          "experience_years": 0,
+          "has_relevant_cert": true,
+          "project_relevance_score": 0.0,
+          "relevant_projects_count": 0,
+          "education_quality": 0.6,
+          "filename": "Vishv-Resume.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "VISHV PATEL\n+91 8488045303 | vishvpatel7005@gmail.com | www.linkedin.com/in/vishv-patel- |https://github.com/vishv-2005 |\n PROFILE\nHighly motivated and enthusiastic Third Year B.Tech student with a strong interest in software development and a foundational understanding of Java, Python, C, JavaScript. Eager to contribute to real-world projects, learn from experienced professionals, and gain practical experience in software development.\n TECHNICAL SKILLS\nProgramming Languages: [C, Python, Java, HTML, CSS, JavaScript, MySQL, Express.js, Node.js, Flutter]\nTools & Technologies: [Git, GitHub, VS Code, Android Studios, Jira, Fusion, AutoCad, CircuitVerse]\nOther Relevant Skills: [ Problem-solving, Logical thinking, Circuit Design, Automation, Teamwork, Communication]\n EDUCATION\nBachelor of Technology – Computer Science and Engineering\t(2023 – 2027)\nNavrachana University, Vadodara, Gujarat, India Current CGPA – 7.63/10\nMinor Degree – Mechatronics\t\t\t\t\t\t\t\t\t(Along with degree)\nNavrachana University, Vadodara, Gujarat, India\n PROJECTS\n_\nAI-Powered WhatsApp CRM System \tAugust 2025 – Developing\nDeveloping a lightweight, AI-driven Customer Relationship Management (CRM) system integrated with the WhatsApp Business Cloud API to automate customer interactions for small businesses, featuring real-time message categorization, analytics, and a chatbot assistant.\nBuilding a scalable fullstack application using JavaScript Frameworks for the backend, Flutter for an intuitive dashboard, and SupaBase for data storage, enhancing operational efficiency for small-scale entrepreneurs.\nIt is a full stack app.\nFlutter Chess App for Android                                                                        August 2025 – November 2025\nDesigned and developed a cross-platform chess game mobile application using Flutter and Dart, enabling intuitive, interactive play on Android devices.\nEngineered core chess logic—including move validation, check/checkmate, and special rules (castling,       en-passant, pawn promotion).\nImplemented a polished UI/UX with scalable SVG graphics for chess pieces, smooth animations, and custom themes, supporting robust game state persistence with local storage.\nUtilized Git and GitHub for version control and collaborative development.\nFlutter Sudoku for Android                                                                        August 2025 – November 2025\nDesigned and developed a cross-platform chess game mobile application using Flutter and Dart, enabling intuitive, interactive play on Android devices.\nEngineered core Sudoku logic.\nImplemented a polished UI/UX with smooth animations, and custom themes, supporting robust game state persistence with local storage.\nUtilized Git and GitHub for version control and collaborative development.\nSocietEase\tJan 2025 – April 2025\nSocietEase is a comprehensive and user-friendly Java-based society management system developed using Java Swing for GUI, a structured MySQL database backend, and clean modular object-oriented design.\nThe application streamlines the day-to-day operations of a residential society, providing dedicated modules for residents, committee members, and administrators.\nTourism\tAugust 2024 – November 2024\nThis is a minor project of website making using HTML, CSS, JS and connecting the data base using Xampp and php.\nNavrachana-University\tAugust 2023 – November 2023\nMy University website as my first web development project. This project includes use of HTML and CSS. This is a static website made with reference to the Navrachana University official website www.nuv.ac.in .\nCertificates\n AWS Cloud computing certificate, Coursera Full stack development, Udemy python developer.\nReferences available on request\t/CD pipeline, scalable software architecture.  "
+        },
+        {
+          "rank": 2,
+          "name": "Uzair Manjre Flow",
+          "score": 49.9,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "react",
+            "git",
+            "css",
+            "node.js",
+            "flask",
+            "tensorflow",
+            "mongodb",
+            "agile",
+            "django",
+            "postgresql",
+            "mysql",
+            "deep learning",
+            "nlp",
+            "computer vision",
+            "scrum",
+            "crm",
+            "lead generation",
+            "automation",
+            "iot",
+            "client relations"
+          ],
+          "jd_matched_skills": [
+            "python"
+          ],
+          "experience_years": 0,
+          "has_relevant_cert": false,
+          "project_relevance_score": 0.0,
+          "relevant_projects_count": 0,
+          "education_quality": 0.6,
+          "filename": "Uzair_Manjre_FlowCV_Resume_2026-04-06.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Uzair Manjre\nSoftware Developer\nmanjreu@gmail.com\n \n8200116005\n \nVadodara, Gujarat\n \nwww.linkedin.com/in/uzair-manjre/\n \ngithub.com/Uzair Manjre.com\n \nProfile\nResourceful Computer Science undergrad with a knack for end-to-end system design and real-world AI/ML \nsolutions.\n- Full-Stack Development: Built modular Java Swing Uls, MVC backends, REST APIs and dynamic web scrapers.\n- AI/ML Expertise: Implemented deep learning pipelines for drowsiness detection and deepfake detection \nusing Python, OpenCV and TensorFlow.\n- Data Engineering: Crafted industrial supplier web scraper that ingests, cleans, and exports structured product \ndata at scale.\n- Teamwork & Communication: Collaborated in Agile/Scrum environments, actively contributed ideas in team \nmeetings and brainstorming sessions.\n- Testing & Documentation: Practiced unit testing, integration testing, and prepared detailed project \ndocumentation to ensure quality deliverables. Excited to join as a Software Developer intern, making a real \nimpact through technical excellence and team collaboration.\nProfessional Experience\nPython Internship, Brainybeam\n•Developed RESTful APIs and dynamic web applications using Django, integrating \nPostgreSQL for robust data handling.\n•Implemented user authentication, authorization, and admin dashboards to \nstreamline internal workflows.\n2022 – 10/2022\n•Collaborated in Agile/​Scrum ceremonies, wrote unit tests achieving 85% \ncoverage, and maintained CI/​CD pipelines.\nEducation\nB.Tech in Computer Science, Navrachana University\n2024 – Present\nDiploma In Computer Engineering, Gujarat Technical University\n2021 – 2024\nTechnical Skills\nProgramming Languages\nJava, Python, C, Javascript\nDatabases\nMySQL, Oracle, MongoDb\nConcepts\nOOP, MVC, REST APIs, Socket Programming, Web \nScraping, Computer Vision, Deep Learning, \nSubnetting\nFrameworks/Libraries\nSwing (MVC), Flask, TensorFlow, OpenCV, \nBeautifulSoup, Selenium, Pytorch\nTools\nGit, Trello, Postman, Jupyter\nProjects\nAtlasAI, Autonomous AI B2B Lead Generation Tool\n•AI-Orchestrated Lead Gen: Developed a local, fully automated system that handles the entire lead \ngeneration and cold outreach pipeline.\n•Multi-Agent Architecture: Engineered a set of background workers (Node.js) that scrape Google Maps for \nleads, analyze their websites, and generate tailored cold emails using a local LLM (Ollama).\n•AI-Driven Personalization: Implemented a persona engine that adapts lead scoring and email content to \nmatch the user’s business profile and target customer type.\n•Local & Privacy-First Design: Ensured the entire workflow runs locally without cloud APIs, using SQLite for \ndata storage and Puppeteer for web automation.\nTech Stack: Next.js (React), Node.js, Tailwind CSS, Ollama LLM, Puppeteer.\nSight Sync\n•IoT-Enabled Assistive Wearable: Prototyped smart glasses integrating a camera module and \nmicrocontroller (ESP32/​Raspberry Pi) to capture and process real-time visual data for visually impaired \nusers.\n•AI/ML Vision Pipeline: Deployed computer vision algorithms and NLP APIs to perform instant object \nrecognition, optical character recognition (OCR) for translation, and currency identification, relaying audio \nfeedback via a mobile interface.\nCampusKart Swing Application\n•Modular MVC Java Swing GUI for product listing, search, buy & transaction viewer\n•MySQL integration with JDBC, dynamic WrapLayout for responsive product cards\nBuilder Pulse\n•Comprehensive Construction ERP/CRM: Developed a centralized management platform to streamline \nproject lifecycles, including workforce scheduling, inventory tracking, and client relations.\n•Data-Driven Resource Management: Implemented a robust backend (Node.js) with a relational database \nto automate cost estimation and timeline monitoring, improving operational efficiency.\nDrowsiness Detection System\n•Real-time eye-aspect-ratio algorithm using OpenCV to flag driver fatigue\n•TensorFlow model trained on labeled eye-region dataset, achieving 94% accuracy\nAura Fit\n•Native Android Fitness Application: Engineered a feature-rich mobile app using Android Studio (Java) and \nMVVM architecture to deliver personalized workout routines and activity tracking.\n•Seamless User Experience: Integrated local data persistence (SQLite) for offline functionality and intuitive \nUI components to visualize fitness progress and health metrics."
+        },
+        {
+          "rank": 3,
+          "name": "Rudra",
+          "score": 47.5,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "git",
+            "html",
+            "css",
+            "linux",
+            "wordpress",
+            "excel",
+            "mechatronics",
+            "automation",
+            "circuit design"
+          ],
+          "jd_matched_skills": [
+            "python"
+          ],
+          "experience_years": 0,
+          "has_relevant_cert": false,
+          "project_relevance_score": 0.0,
+          "relevant_projects_count": 0,
+          "education_quality": 0.6,
+          "filename": "rudra.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "RUDRA SONI ASPIRING SOFTWARE DEVELOPER INTERN\nEDUCATION\nB.Tech in Computer Engineering Navrachana University; Vadodara Second Year (2023 - 2027) Current CGPA: 8.65 Pursuing Minor in Mechatronics\nCONTACT INFORMATION\nPROJECTS\n91-875-855-1131 rudrasoni273@gmail.com linkedin: linkedin com/in/rudra- soni-1b6197364/\nMusic Room Real-time music chat app 2023 Developed using Node js and Socket io. Enables users to join rooms and sync music playback with real-time chat:\nOBJECTIVE\nEnthusiastic B.Tech student passionate about software development and algorithms: Looking for Software Developer internship to contribute to meaningful projects while learning industry best practices.\nExcel-to-Word Automation Tool 2023 Developed for a real-world client: Automates data transfer from Excel spreadsheets to Word templates, reducing manual work:\nDigital Logic Tic-Tac-Toe 2023 Created using only gates and flip-flops on CircuitVerse. Showcases deep understanding of digital circuit design\nGesture-Controlled Mouse Glove 2024 Built a glove prototype that emulates mouse control using sensors Al-based gesture recognition planned:\nTECHNICAL SKILLS\nProgramming Languages: Python, C, Java, JavaScript Web Technologies: HTML, CSS, Node:js Wordpress Databases: MariaDB Tools & Platforms: Git; Linux; VS Code\nBarrel Piano 2024 Designed a rotating paper-based music system where sensors detect patterns and trigger sound playback:"
+        },
+        {
+          "rank": 4,
+          "name": "Resume .pdf",
+          "score": 24.4,
+          "matched_skills": [
+            "cybersecurity",
+            "penetration testing",
+            "risk management"
+          ],
+          "jd_matched_skills": [],
+          "experience_years": 0,
+          "has_relevant_cert": true,
+          "project_relevance_score": 0.0,
+          "relevant_projects_count": 0,
+          "education_quality": 0.6,
+          "filename": "Resume .pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "HEM GABHAWALA\nINTRODUCTION\nA dedicated Second-Year B.Tech\nstudent with a strong foundation\nin cybersecurity, penetration\ntesting, and network analysis,\nseeking to contribute as a\nCybersecurity Analyst Intern at\nABC Company. Eager to apply\nhands-on experience in\ndeveloping security tools and\nconducting network\nreconnaissance to assist in\nresearch, development, and\ntesting under expert supervision.\nEXTRACURRICULAR\nACTIVITIES\nActive member of Tech\nClub of my college,\nparticipating in hackathons\nand workshops.\nContributed to team\nprojects in computer\nnetworks, focusing on\nlayered architecture and\nprotocol analysis.\nINTERNSHIP EXPERIENCE\nObjective: Secure Cybersecurity Analyst Intern\nposition at ABC Company.\nINTERN AT HACKERSVILLA\nHackersVilla Cybersecurity Pvt Ltd\nINTERN AT HACKERSVILLA CYBERSECURITY PVT LTD FOR\nHANDS-ON EXPERIENCE.\nDeveloped skills in security analysis and risk management.\nACADEMIC HISTORY\nProject: Network Reconnaissance Tool, Keylogger,\nSpyware, enhancing practical skills.\nUNIVERSITY INSTITUTE\nB.Tech in Cybersecurity\nNAVRACHANA UNIVERSITY\nBachelor's degree in Computer Science and Engineering\nTALENT AND SKILLS\nSkills: Vulnerability\nAssessment, Penetration\nTesting, Network\nAnalysis, Programming,\nSecurity Tools\nOutstanding\nCybersecurity Student\nAchievement Award\nCybersequrity Intern \nPassed with 59% in 12  Science\nth\nPARTH INSTITUTE\nRanked in the Top 5% on TryHackMe,\ndemonstrating proficiency in cybersecurity\nchallenges and penetration testing.\nSuccessfully completed hands-on projects in\nnetwork reconnaissance, keylogging, and\nspyware development, showcasing practical\ncybersecurity skills.\nEarned three industry-recognized certifications\nin cybersecurity, reflecting commitment to\ncontinuous learning and expertise\ndevelopment.\nACHEVIEMENTS\nCERTIFICATES\nGOOGLE CYBERSECURITY CERTIFICATE –\nCOURSERA (NOV 2024)\nINTRODUCTION TO DARK WEB, ANONYMITY,\nAND CRYPTOCURRENCY – EC-COUNCIL ( JUN\n2024)\n30 DAYS CYBERSECURITY: ADVANCED\nCYBERSECURITY AND PENETRATION TESTING\n– HACKERSVILLA (MAR 2024)\n9512537083\nWWW.LINKEDIN.COM/IN/HEM-NIKESH-\nGABHAWALA-99A5482A9\nHHGABHAWALA@GMAIL.COM\n HTTPS://GITHUB.COM/SECURITYWITHHEM"
+        }
+      ]
+    },
+    {
+      "batch_id": "e01217af-0a8d-4d02-b801-7e12a27b015a",
+      "uploaded_at": "2026-04-07T13:03:05.810761",
+      "job_description": "Need a penetration tester in cybersecurity",
+      "candidate_count": 4,
+      "candidates": [
+        {
+          "rank": 1,
+          "name": "Resume .pdf",
+          "score": 64.0,
+          "matched_skills": [
+            "cybersecurity",
+            "penetration testing",
+            "risk management"
+          ],
+          "jd_matched_skills": [
+            "cybersecurity"
+          ],
+          "experience_years": 0,
+          "has_relevant_cert": true,
+          "project_relevance_score": 0.48,
+          "relevant_projects_count": 1,
+          "education_quality": 0.8,
+          "filename": "Resume .pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "HEM GABHAWALA\nINTRODUCTION\nA dedicated Second-Year B.Tech\nstudent with a strong foundation\nin cybersecurity, penetration\ntesting, and network analysis,\nseeking to contribute as a\nCybersecurity Analyst Intern at\nABC Company. Eager to apply\nhands-on experience in\ndeveloping security tools and\nconducting network\nreconnaissance to assist in\nresearch, development, and\ntesting under expert supervision.\nEXTRACURRICULAR\nACTIVITIES\nActive member of Tech\nClub of my college,\nparticipating in hackathons\nand workshops.\nContributed to team\nprojects in computer\nnetworks, focusing on\nlayered architecture and\nprotocol analysis.\nINTERNSHIP EXPERIENCE\nObjective: Secure Cybersecurity Analyst Intern\nposition at ABC Company.\nINTERN AT HACKERSVILLA\nHackersVilla Cybersecurity Pvt Ltd\nINTERN AT HACKERSVILLA CYBERSECURITY PVT LTD FOR\nHANDS-ON EXPERIENCE.\nDeveloped skills in security analysis and risk management.\nACADEMIC HISTORY\nProject: Network Reconnaissance Tool, Keylogger,\nSpyware, enhancing practical skills.\nUNIVERSITY INSTITUTE\nB.Tech in Cybersecurity\nNAVRACHANA UNIVERSITY\nBachelor's degree in Computer Science and Engineering\nTALENT AND SKILLS\nSkills: Vulnerability\nAssessment, Penetration\nTesting, Network\nAnalysis, Programming,\nSecurity Tools\nOutstanding\nCybersecurity Student\nAchievement Award\nCybersequrity Intern \nPassed with 59% in 12  Science\nth\nPARTH INSTITUTE\nRanked in the Top 5% on TryHackMe,\ndemonstrating proficiency in cybersecurity\nchallenges and penetration testing.\nSuccessfully completed hands-on projects in\nnetwork reconnaissance, keylogging, and\nspyware development, showcasing practical\ncybersecurity skills.\nEarned three industry-recognized certifications\nin cybersecurity, reflecting commitment to\ncontinuous learning and expertise\ndevelopment.\nACHEVIEMENTS\nCERTIFICATES\nGOOGLE CYBERSECURITY CERTIFICATE –\nCOURSERA (NOV 2024)\nINTRODUCTION TO DARK WEB, ANONYMITY,\nAND CRYPTOCURRENCY – EC-COUNCIL ( JUN\n2024)\n30 DAYS CYBERSECURITY: ADVANCED\nCYBERSECURITY AND PENETRATION TESTING\n– HACKERSVILLA (MAR 2024)\n9512537083\nWWW.LINKEDIN.COM/IN/HEM-NIKESH-\nGABHAWALA-99A5482A9\nHHGABHAWALA@GMAIL.COM\n HTTPS://GITHUB.COM/SECURITYWITHHEM"
+        },
+        {
+          "rank": 2,
+          "name": "Vishv",
+          "score": 37.5,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "aws",
+            "git",
+            "html",
+            "css",
+            "node.js",
+            "cloud computing",
+            "mysql",
+            "jira",
+            "crm",
+            "autocad",
+            "mechatronics",
+            "automation",
+            "circuit design"
+          ],
+          "jd_matched_skills": [],
+          "experience_years": 0,
+          "has_relevant_cert": true,
+          "project_relevance_score": 0.0,
+          "relevant_projects_count": 0,
+          "education_quality": 0.6,
+          "filename": "Vishv-Resume.docx",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "VISHV PATEL\n+91 8488045303 | vishvpatel7005@gmail.com | www.linkedin.com/in/vishv-patel- |https://github.com/vishv-2005 |\n PROFILE\nHighly motivated and enthusiastic Third Year B.Tech student with a strong interest in software development and a foundational understanding of Java, Python, C, JavaScript. Eager to contribute to real-world projects, learn from experienced professionals, and gain practical experience in software development.\n TECHNICAL SKILLS\nProgramming Languages: [C, Python, Java, HTML, CSS, JavaScript, MySQL, Express.js, Node.js, Flutter]\nTools & Technologies: [Git, GitHub, VS Code, Android Studios, Jira, Fusion, AutoCad, CircuitVerse]\nOther Relevant Skills: [ Problem-solving, Logical thinking, Circuit Design, Automation, Teamwork, Communication]\n EDUCATION\nBachelor of Technology – Computer Science and Engineering\t(2023 – 2027)\nNavrachana University, Vadodara, Gujarat, India Current CGPA – 7.63/10\nMinor Degree – Mechatronics\t\t\t\t\t\t\t\t\t(Along with degree)\nNavrachana University, Vadodara, Gujarat, India\n PROJECTS\n_\nAI-Powered WhatsApp CRM System \tAugust 2025 – Developing\nDeveloping a lightweight, AI-driven Customer Relationship Management (CRM) system integrated with the WhatsApp Business Cloud API to automate customer interactions for small businesses, featuring real-time message categorization, analytics, and a chatbot assistant.\nBuilding a scalable fullstack application using JavaScript Frameworks for the backend, Flutter for an intuitive dashboard, and SupaBase for data storage, enhancing operational efficiency for small-scale entrepreneurs.\nIt is a full stack app.\nFlutter Chess App for Android                                                                        August 2025 – November 2025\nDesigned and developed a cross-platform chess game mobile application using Flutter and Dart, enabling intuitive, interactive play on Android devices.\nEngineered core chess logic—including move validation, check/checkmate, and special rules (castling,       en-passant, pawn promotion).\nImplemented a polished UI/UX with scalable SVG graphics for chess pieces, smooth animations, and custom themes, supporting robust game state persistence with local storage.\nUtilized Git and GitHub for version control and collaborative development.\nFlutter Sudoku for Android                                                                        August 2025 – November 2025\nDesigned and developed a cross-platform chess game mobile application using Flutter and Dart, enabling intuitive, interactive play on Android devices.\nEngineered core Sudoku logic.\nImplemented a polished UI/UX with smooth animations, and custom themes, supporting robust game state persistence with local storage.\nUtilized Git and GitHub for version control and collaborative development.\nSocietEase\tJan 2025 – April 2025\nSocietEase is a comprehensive and user-friendly Java-based society management system developed using Java Swing for GUI, a structured MySQL database backend, and clean modular object-oriented design.\nThe application streamlines the day-to-day operations of a residential society, providing dedicated modules for residents, committee members, and administrators.\nTourism\tAugust 2024 – November 2024\nThis is a minor project of website making using HTML, CSS, JS and connecting the data base using Xampp and php.\nNavrachana-University\tAugust 2023 – November 2023\nMy University website as my first web development project. This project includes use of HTML and CSS. This is a static website made with reference to the Navrachana University official website www.nuv.ac.in .\nCertificates\n AWS Cloud computing certificate, Coursera Full stack development, Udemy python developer.\nReferences available on request\t/CD pipeline, scalable software architecture.  "
+        },
+        {
+          "rank": 3,
+          "name": "Uzair Manjre Flow",
+          "score": 29.3,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "react",
+            "git",
+            "css",
+            "node.js",
+            "flask",
+            "tensorflow",
+            "mongodb",
+            "agile",
+            "django",
+            "postgresql",
+            "mysql",
+            "deep learning",
+            "nlp",
+            "computer vision",
+            "scrum",
+            "crm",
+            "lead generation",
+            "automation",
+            "iot",
+            "client relations"
+          ],
+          "jd_matched_skills": [],
+          "experience_years": 0,
+          "has_relevant_cert": false,
+          "project_relevance_score": 0.0,
+          "relevant_projects_count": 0,
+          "education_quality": 0.6,
+          "filename": "Uzair_Manjre_FlowCV_Resume_2026-04-06.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "Uzair Manjre\nSoftware Developer\nmanjreu@gmail.com\n \n8200116005\n \nVadodara, Gujarat\n \nwww.linkedin.com/in/uzair-manjre/\n \ngithub.com/Uzair Manjre.com\n \nProfile\nResourceful Computer Science undergrad with a knack for end-to-end system design and real-world AI/ML \nsolutions.\n- Full-Stack Development: Built modular Java Swing Uls, MVC backends, REST APIs and dynamic web scrapers.\n- AI/ML Expertise: Implemented deep learning pipelines for drowsiness detection and deepfake detection \nusing Python, OpenCV and TensorFlow.\n- Data Engineering: Crafted industrial supplier web scraper that ingests, cleans, and exports structured product \ndata at scale.\n- Teamwork & Communication: Collaborated in Agile/Scrum environments, actively contributed ideas in team \nmeetings and brainstorming sessions.\n- Testing & Documentation: Practiced unit testing, integration testing, and prepared detailed project \ndocumentation to ensure quality deliverables. Excited to join as a Software Developer intern, making a real \nimpact through technical excellence and team collaboration.\nProfessional Experience\nPython Internship, Brainybeam\n•Developed RESTful APIs and dynamic web applications using Django, integrating \nPostgreSQL for robust data handling.\n•Implemented user authentication, authorization, and admin dashboards to \nstreamline internal workflows.\n2022 – 10/2022\n•Collaborated in Agile/​Scrum ceremonies, wrote unit tests achieving 85% \ncoverage, and maintained CI/​CD pipelines.\nEducation\nB.Tech in Computer Science, Navrachana University\n2024 – Present\nDiploma In Computer Engineering, Gujarat Technical University\n2021 – 2024\nTechnical Skills\nProgramming Languages\nJava, Python, C, Javascript\nDatabases\nMySQL, Oracle, MongoDb\nConcepts\nOOP, MVC, REST APIs, Socket Programming, Web \nScraping, Computer Vision, Deep Learning, \nSubnetting\nFrameworks/Libraries\nSwing (MVC), Flask, TensorFlow, OpenCV, \nBeautifulSoup, Selenium, Pytorch\nTools\nGit, Trello, Postman, Jupyter\nProjects\nAtlasAI, Autonomous AI B2B Lead Generation Tool\n•AI-Orchestrated Lead Gen: Developed a local, fully automated system that handles the entire lead \ngeneration and cold outreach pipeline.\n•Multi-Agent Architecture: Engineered a set of background workers (Node.js) that scrape Google Maps for \nleads, analyze their websites, and generate tailored cold emails using a local LLM (Ollama).\n•AI-Driven Personalization: Implemented a persona engine that adapts lead scoring and email content to \nmatch the user’s business profile and target customer type.\n•Local & Privacy-First Design: Ensured the entire workflow runs locally without cloud APIs, using SQLite for \ndata storage and Puppeteer for web automation.\nTech Stack: Next.js (React), Node.js, Tailwind CSS, Ollama LLM, Puppeteer.\nSight Sync\n•IoT-Enabled Assistive Wearable: Prototyped smart glasses integrating a camera module and \nmicrocontroller (ESP32/​Raspberry Pi) to capture and process real-time visual data for visually impaired \nusers.\n•AI/ML Vision Pipeline: Deployed computer vision algorithms and NLP APIs to perform instant object \nrecognition, optical character recognition (OCR) for translation, and currency identification, relaying audio \nfeedback via a mobile interface.\nCampusKart Swing Application\n•Modular MVC Java Swing GUI for product listing, search, buy & transaction viewer\n•MySQL integration with JDBC, dynamic WrapLayout for responsive product cards\nBuilder Pulse\n•Comprehensive Construction ERP/CRM: Developed a centralized management platform to streamline \nproject lifecycles, including workforce scheduling, inventory tracking, and client relations.\n•Data-Driven Resource Management: Implemented a robust backend (Node.js) with a relational database \nto automate cost estimation and timeline monitoring, improving operational efficiency.\nDrowsiness Detection System\n•Real-time eye-aspect-ratio algorithm using OpenCV to flag driver fatigue\n•TensorFlow model trained on labeled eye-region dataset, achieving 94% accuracy\nAura Fit\n•Native Android Fitness Application: Engineered a feature-rich mobile app using Android Studio (Java) and \nMVVM architecture to deliver personalized workout routines and activity tracking.\n•Seamless User Experience: Integrated local data persistence (SQLite) for offline functionality and intuitive \nUI components to visualize fitness progress and health metrics."
+        },
+        {
+          "rank": 4,
+          "name": "Rudra",
+          "score": 20.6,
+          "matched_skills": [
+            "python",
+            "java",
+            "javascript",
+            "git",
+            "html",
+            "css",
+            "linux",
+            "wordpress",
+            "excel",
+            "mechatronics",
+            "automation",
+            "circuit design"
+          ],
+          "jd_matched_skills": [],
+          "experience_years": 0,
+          "has_relevant_cert": false,
+          "project_relevance_score": 0.0,
+          "relevant_projects_count": 0,
+          "education_quality": 0.6,
+          "filename": "rudra.pdf",
+          "is_anomaly": false,
+          "anomaly_reason": "",
+          "raw_text": "RUDRA SONI ASPIRING SOFTWARE DEVELOPER INTERN\nEDUCATION\nB.Tech in Computer Engineering Navrachana University; Vadodara Second Year (2023 - 2027) Current CGPA: 8.65 Pursuing Minor in Mechatronics\nCONTACT INFORMATION\nPROJECTS\n91-875-855-1131 rudrasoni273@gmail.com linkedin: linkedin com/in/rudra- soni-1b6197364/\nMusic Room Real-time music chat app 2023 Developed using Node js and Socket io. Enables users to join rooms and sync music playback with real-time chat:\nOBJECTIVE\nEnthusiastic B.Tech student passionate about software development and algorithms: Looking for Software Developer internship to contribute to meaningful projects while learning industry best practices.\nExcel-to-Word Automation Tool 2023 Developed for a real-world client: Automates data transfer from Excel spreadsheets to Word templates, reducing manual work:\nDigital Logic Tic-Tac-Toe 2023 Created using only gates and flip-flops on CircuitVerse. Showcases deep understanding of digital circuit design\nGesture-Controlled Mouse Glove 2024 Built a glove prototype that emulates mouse control using sensors Al-based gesture recognition planned:\nTECHNICAL SKILLS\nProgramming Languages: Python, C, Java, JavaScript Web Technologies: HTML, CSS, Node:js Wordpress Databases: MariaDB Tools & Platforms: Git; Linux; VS Code\nBarrel Piano 2024 Designed a rotating paper-based music system where sensors detect patterns and trigger sound playback:"
         }
       ]
     }
